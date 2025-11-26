@@ -1,0 +1,76 @@
+Date,Category,Competitor_Name,Competitor_Price,Branch_City,Branch_ID,Notes
+2025-11-18,Economy,Hertz,140,Riyadh,122,Airport location
+2025-11-18,Economy,Budget,135,Riyadh,122,Airport location
+2025-11-18,Economy,Thrifty,138,Riyadh,122,Airport location
+2025-11-18,Compact,Hertz,170,Riyadh,122,Airport location
+2025-11-18,Compact,Budget,165,Riyadh,122,Airport location
+2025-11-18,Compact,Thrifty,168,Riyadh,122,Airport location
+2025-11-18,Standard,Hertz,210,Riyadh,122,Airport location
+2025-11-18,Standard,Budget,205,Riyadh,122,Airport location
+2025-11-18,Standard,Thrifty,208,Riyadh,122,Airport location
+2025-11-18,SUV Compact,Hertz,270,Riyadh,122,Airport location
+2025-11-18,SUV Compact,Budget,265,Riyadh,122,Airport location
+2025-11-18,SUV Compact,Thrifty,268,Riyadh,122,Airport location
+2025-11-18,SUV Standard,Hertz,340,Riyadh,122,Airport location
+2025-11-18,SUV Standard,Budget,335,Riyadh,122,Airport location
+2025-11-18,SUV Standard,Thrifty,338,Riyadh,122,Airport location
+2025-11-18,SUV Large,Hertz,480,Riyadh,122,Airport location
+2025-11-18,SUV Large,Budget,475,Riyadh,122,Airport location
+2025-11-18,SUV Large,Thrifty,478,Riyadh,122,Airport location
+2025-11-18,Luxury Sedan,Hertz,580,Riyadh,122,Airport location
+2025-11-18,Luxury Sedan,Budget,575,Riyadh,122,Airport location
+2025-11-18,Luxury Sedan,Thrifty,578,Riyadh,122,Airport location
+2025-11-18,Luxury SUV,Hertz,780,Riyadh,122,Airport location
+2025-11-18,Luxury SUV,Budget,775,Riyadh,122,Airport location
+2025-11-18,Luxury SUV,Thrifty,778,Riyadh,122,Airport location
+2025-11-18,Economy,Hertz,135,Jeddah,33,Airport location
+2025-11-18,Economy,Budget,130,Jeddah,33,Airport location
+2025-11-18,Economy,Thrifty,133,Jeddah,33,Airport location
+2025-11-18,Compact,Hertz,165,Jeddah,33,Airport location
+2025-11-18,Compact,Budget,160,Jeddah,33,Airport location
+2025-11-18,Standard,Hertz,200,Jeddah,33,Airport location
+2025-11-18,Standard,Budget,195,Jeddah,33,Airport location
+2025-11-18,SUV Compact,Hertz,260,Jeddah,33,Airport location
+2025-11-18,SUV Compact,Budget,255,Jeddah,33,Airport location
+2025-11-18,Economy,Hertz,145,Dammam,63,Airport location
+2025-11-18,Economy,Budget,140,Dammam,63,Airport location
+2025-11-18,Compact,Hertz,175,Dammam,63,Airport location
+2025-11-18,Compact,Budget,170,Dammam,63,Airport location
+2025-11-18,Standard,Hertz,215,Dammam,63,Airport location
+2025-11-18,Standard,Budget,210,Dammam,63,Airport location
+2025-11-18,Economy,Hertz,155,Mecca,45,City center
+2025-11-18,Economy,Budget,150,Mecca,45,City center
+2025-11-18,Compact,Hertz,185,Mecca,45,City center
+2025-11-18,Compact,Budget,180,Mecca,45,City center
+2025-11-18,Standard,Hertz,225,Mecca,45,City center
+2025-11-18,Standard,Budget,220,Mecca,45,City center
+2025-11-25,Economy,Hertz,140,Riyadh,122,Airport location
+2025-11-25,Economy,Budget,135,Riyadh,122,Airport location
+2025-11-25,Economy,Thrifty,138,Riyadh,122,Airport location
+2025-11-25,Compact,Hertz,170,Riyadh,122,Airport location
+2025-11-25,Compact,Budget,165,Riyadh,122,Airport location
+2025-11-25,Standard,Hertz,210,Riyadh,122,Airport location
+2025-11-25,Standard,Budget,205,Riyadh,122,Airport location
+2025-11-25,SUV Compact,Hertz,270,Riyadh,122,Airport location
+2025-11-25,SUV Standard,Hertz,340,Riyadh,122,Airport location
+2025-11-25,SUV Large,Hertz,480,Riyadh,122,Airport location
+2025-11-25,Luxury Sedan,Hertz,580,Riyadh,122,Airport location
+2025-11-25,Luxury SUV,Hertz,780,Riyadh,122,Airport location
+2025-11-26,Economy,Hertz,142,Riyadh,122,Airport location
+2025-11-26,Economy,Budget,137,Riyadh,122,Airport location
+2025-11-26,Compact,Hertz,172,Riyadh,122,Airport location
+2025-11-26,Standard,Hertz,212,Riyadh,122,Airport location
+2025-11-26,SUV Compact,Hertz,272,Riyadh,122,Airport location
+2025-11-25,Economy,Hertz,135,Jeddah,33,Airport location
+2025-11-25,Economy,Budget,130,Jeddah,33,Airport location
+2025-11-25,Compact,Hertz,165,Jeddah,33,Airport location
+2025-11-25,Standard,Hertz,200,Jeddah,33,Airport location
+2025-11-25,SUV Compact,Hertz,260,Jeddah,33,Airport location
+2025-11-25,Economy,Hertz,145,Dammam,63,Airport location
+2025-11-25,Economy,Budget,140,Dammam,63,Airport location
+2025-11-25,Compact,Hertz,175,Dammam,63,Airport location
+2025-11-25,Standard,Hertz,215,Dammam,63,Airport location
+2025-11-25,Economy,Hertz,155,Mecca,45,City center
+2025-11-25,Economy,Budget,150,Mecca,45,City center
+2025-11-25,Compact,Hertz,185,Mecca,45,City center
+2025-11-25,Standard,Hertz,225,Mecca,45,City center
