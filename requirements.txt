@@ -33,3 +33,8 @@ holidays>=0.18  # For public holidays data
 streamlit>=1.30.0
 plotly>=5.18.0
 
+# Web Scraping (for real-time competitor prices)
+selenium==4.15.2
+webdriver-manager==4.0.1
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.23.0
