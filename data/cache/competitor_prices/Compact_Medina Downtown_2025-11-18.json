@@ -1,0 +1,37 @@
+{
+  "cached_at": "2025-11-26T12:21:26.124968",
+  "data": {
+    "competitors": [
+      {
+        "Competitor_Name": "Hertz",
+        "Competitor_Price": 175,
+        "Competitor_Category": "Compact",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Budget",
+        "Competitor_Price": 165,
+        "Competitor_Category": "Compact",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Thrifty",
+        "Competitor_Price": 170,
+        "Competitor_Category": "Compact",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      }
+    ],
+    "avg_price": 170.0,
+    "competitor_count": 3,
+    "last_updated": "2025-11-26T12:21:26.124968",
+    "location": "Medina Downtown",
+    "category": "Compact",
+    "is_live": true
+  }
+}

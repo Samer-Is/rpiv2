@@ -1,0 +1,37 @@
+{
+  "cached_at": "2025-11-26T12:20:35.249613",
+  "data": {
+    "competitors": [
+      {
+        "Competitor_Name": "Hertz",
+        "Competitor_Price": 330,
+        "Competitor_Category": "Standard SUV",
+        "Date": "2025-11-26 12:20",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Budget",
+        "Competitor_Price": 335,
+        "Competitor_Category": "Standard SUV",
+        "Date": "2025-11-26 12:20",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Thrifty",
+        "Competitor_Price": 360,
+        "Competitor_Category": "Standard SUV",
+        "Date": "2025-11-26 12:20",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      }
+    ],
+    "avg_price": 341.6666666666667,
+    "competitor_count": 3,
+    "last_updated": "2025-11-26T12:20:35.249613",
+    "location": "Olaya District - Riyadh",
+    "category": "SUV Standard",
+    "is_live": true
+  }
+}

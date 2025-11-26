@@ -1,0 +1,37 @@
+{
+  "cached_at": "2025-11-26T12:21:24.129356",
+  "data": {
+    "competitors": [
+      {
+        "Competitor_Name": "Hertz",
+        "Competitor_Price": 1005,
+        "Competitor_Category": "Luxury SUV",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Budget",
+        "Competitor_Price": 960,
+        "Competitor_Category": "Luxury SUV",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Thrifty",
+        "Competitor_Price": 1015,
+        "Competitor_Category": "Luxury SUV",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      }
+    ],
+    "avg_price": 993.3333333333334,
+    "competitor_count": 3,
+    "last_updated": "2025-11-26T12:21:24.129356",
+    "location": "Mecca City Center",
+    "category": "Luxury SUV",
+    "is_live": true
+  }
+}

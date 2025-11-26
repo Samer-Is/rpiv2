@@ -1,0 +1,37 @@
+{
+  "cached_at": "2025-11-26T12:21:22.117215",
+  "data": {
+    "competitors": [
+      {
+        "Competitor_Name": "Hertz",
+        "Competitor_Price": 210,
+        "Competitor_Category": "Standard/Midsize",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Budget",
+        "Competitor_Price": 205,
+        "Competitor_Category": "Standard/Midsize",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Thrifty",
+        "Competitor_Price": 205,
+        "Competitor_Category": "Standard/Midsize",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      }
+    ],
+    "avg_price": 206.66666666666666,
+    "competitor_count": 3,
+    "last_updated": "2025-11-26T12:21:22.117215",
+    "location": "Al Khobar Business District",
+    "category": "Standard",
+    "is_live": true
+  }
+}

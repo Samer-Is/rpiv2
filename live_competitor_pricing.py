@@ -23,35 +23,35 @@ class LiveCompetitorPricing:
         self.base_prices = {
             'Economy': {
                 'Hertz': 140, 'Budget': 135, 'Thrifty': 138,
-                'Yelo': 130, 'Theeb': 132, 'Lumi': 128
+                'Theeb': 132, 'Lumi': 128
             },
             'Compact': {
                 'Hertz': 168, 'Budget': 165, 'Thrifty': 170,
-                'Yelo': 160, 'Theeb': 162, 'Lumi': 158
+                'Theeb': 162, 'Lumi': 158
             },
             'Standard': {
                 'Hertz': 208, 'Budget': 205, 'Thrifty': 210,
-                'Yelo': 200, 'Theeb': 198, 'Lumi': 195
+                'Theeb': 198, 'Lumi': 195
             },
             'SUV Compact': {
                 'Hertz': 270, 'Budget': 268, 'Thrifty': 272,
-                'Yelo': 265, 'Theeb': 260, 'Lumi': 255
+                'Theeb': 260, 'Lumi': 255
             },
             'SUV Standard': {
                 'Hertz': 340, 'Budget': 335, 'Thrifty': 345,
-                'Yelo': 330, 'Theeb': 325, 'Lumi': 320
+                'Theeb': 325, 'Lumi': 320
             },
             'SUV Large': {
                 'Hertz': 480, 'Budget': 475, 'Thrifty': 485,
-                'Yelo': 470, 'Theeb': 465, 'Lumi': 460
+                'Theeb': 465, 'Lumi': 460
             },
             'Luxury Sedan': {
                 'Hertz': 580, 'Budget': 575, 'Thrifty': 585,
-                'Yelo': 570, 'Theeb': 565, 'Lumi': 560
+                'Theeb': 565, 'Lumi': 560
             },
             'Luxury SUV': {
                 'Hertz': 780, 'Budget': 775, 'Thrifty': 785,
-                'Yelo': 770, 'Theeb': 765, 'Lumi': 760
+                'Theeb': 765, 'Lumi': 760
             }
         }
         

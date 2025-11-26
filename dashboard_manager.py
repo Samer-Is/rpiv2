@@ -723,6 +723,111 @@ with st.spinner("Calculating optimal prices for all categories..."):
     except Exception as e:
         st.error(f"❌ Error calculating prices: {str(e)}")
         st.exception(e)
+    
+    # Competitor Comparison Section
+    st.markdown("---")
+    st.markdown("## 📊 Competitor Price Comparison")
+    st.markdown(f"**Branch:** {branch_info['name']} | **Date:** {pricing_date.strftime('%Y-%m-%d')}")
+    
+    # Build comparison table data
+    comparison_data = []
+    renty_prices = []
+    competitor_avgs = []
+    categories = []
+    
+    for category in VEHICLE_CATEGORIES.keys():
+        if category in pricing_results and category in competitor_data:
+            renty_price = pricing_results[category]['final_price']
+            comp_stats = competitor_data[category]['stats']
+            
+            row = {
+                'Category': category,
+                'Renty Price': f"{renty_price:.0f} SAR"
+            }
+            
+            # Add individual competitor prices
+            if comp_stats.get('competitors'):
+                for comp in comp_stats['competitors']:
+                    row[comp['Competitor_Name']] = f"{comp['Competitor_Price']} SAR"
+            
+            # Add average and difference
+            if comp_stats.get('avg_price'):
+                comp_avg = comp_stats['avg_price']
+                diff = renty_price - comp_avg
+                row['Competitor Avg'] = f"{comp_avg:.0f} SAR"
+                row['Difference'] = f"{diff:+.0f} SAR"
+                row['Status'] = '✓ Cheaper' if diff < 0 else '△ More Expensive'
+                
+                # Store for chart
+                renty_prices.append(renty_price)
+                competitor_avgs.append(comp_avg)
+                categories.append(category)
+            
+            comparison_data.append(row)
+    
+    # Display table
+    if comparison_data:
+        import pandas as pd
+        comparison_df = pd.DataFrame(comparison_data)
+        st.dataframe(comparison_df, use_container_width=True, hide_index=True)
+        
+        # Display chart
+        st.markdown("### 📈 Price Comparison Chart")
+        
+        import plotly.graph_objects as go
+        
+        fig = go.Figure()
+        
+        # Renty prices
+        fig.add_trace(go.Bar(
+            name='Renty',
+            x=categories,
+            y=renty_prices,
+            marker_color='#1f77b4',
+            text=[f"{p:.0f} SAR" for p in renty_prices],
+            textposition='outside'
+        ))
+        
+        # Competitor average
+        fig.add_trace(go.Bar(
+            name='Competitor Avg',
+            x=categories,
+            y=competitor_avgs,
+            marker_color='#ff7f0e',
+            text=[f"{p:.0f} SAR" for p in competitor_avgs],
+            textposition='outside'
+        ))
+        
+        fig.update_layout(
+            title=f"Renty vs Competitors - {branch_info['name']}",
+            xaxis_title="Vehicle Category",
+            yaxis_title="Price per Day (SAR)",
+            barmode='group',
+            height=500,
+            showlegend=True,
+            hovermode='x unified'
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # Summary stats
+        col1, col2, col3, col4 = st.columns(4)
+        
+        cheaper_count = sum(1 for r, c in zip(renty_prices, competitor_avgs) if r < c)
+        avg_diff = sum(r - c for r, c in zip(renty_prices, competitor_avgs)) / len(renty_prices)
+        
+        with col1:
+            st.metric("Categories Cheaper", f"{cheaper_count}/{len(categories)}")
+        
+        with col2:
+            st.metric("Categories More Expensive", f"{len(categories) - cheaper_count}/{len(categories)}")
+        
+        with col3:
+            st.metric("Avg Price Difference", f"{avg_diff:+.0f} SAR")
+        
+        with col4:
+            competitive_pct = (cheaper_count / len(categories)) * 100
+            st.metric("Competitive Rate", f"{competitive_pct:.0f}%")
 
 # Footer
 st.markdown("---")

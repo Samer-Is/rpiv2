@@ -1,0 +1,37 @@
+{
+  "cached_at": "2025-11-26T12:21:22.128197",
+  "data": {
+    "competitors": [
+      {
+        "Competitor_Name": "Hertz",
+        "Competitor_Price": 280,
+        "Competitor_Category": "Compact SUV",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Budget",
+        "Competitor_Price": 280,
+        "Competitor_Category": "Compact SUV",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      },
+      {
+        "Competitor_Name": "Thrifty",
+        "Competitor_Price": 265,
+        "Competitor_Category": "Compact SUV",
+        "Date": "2025-11-26 12:21",
+        "Source": "Live Market Intelligence",
+        "Confidence": 95
+      }
+    ],
+    "avg_price": 275.0,
+    "competitor_count": 3,
+    "last_updated": "2025-11-26T12:21:22.128197",
+    "location": "Al Khobar Business District",
+    "category": "SUV Compact",
+    "is_live": true
+  }
+}
