@@ -1,20 +1,20 @@
 {
-  "cached_at": "2025-11-26T13:04:14.577131",
+  "cached_at": "2025-11-26T14:14:41.771154",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 885,
+        "Competitor_Price": 925,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 13:04",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 925,
+        "Competitor_Price": 905,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 13:04",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
@@ -22,14 +22,14 @@
         "Competitor_Name": "Thrifty",
         "Competitor_Price": 935,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 13:04",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 915.0,
+    "avg_price": 921.6666666666666,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T13:04:14.577131",
+    "last_updated": "2025-11-26T14:14:41.771154",
     "location": "King Abdulaziz Airport - Jeddah",
     "category": "Luxury SUV",
     "is_live": true

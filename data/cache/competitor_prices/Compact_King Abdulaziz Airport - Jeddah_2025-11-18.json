@@ -1,20 +1,20 @@
 {
-  "cached_at": "2025-11-26T13:04:14.513939",
+  "cached_at": "2025-11-26T14:14:41.658784",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
         "Competitor_Price": 190,
         "Competitor_Category": "Compact",
-        "Date": "2025-11-26 13:04",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 195,
+        "Competitor_Price": 200,
         "Competitor_Category": "Compact",
-        "Date": "2025-11-26 13:04",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
@@ -22,14 +22,14 @@
         "Competitor_Name": "Thrifty",
         "Competitor_Price": 205,
         "Competitor_Category": "Compact",
-        "Date": "2025-11-26 13:04",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 196.66666666666666,
+    "avg_price": 198.33333333333334,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T13:04:14.513939",
+    "last_updated": "2025-11-26T14:14:41.658784",
     "location": "King Abdulaziz Airport - Jeddah",
     "category": "Compact",
     "is_live": true

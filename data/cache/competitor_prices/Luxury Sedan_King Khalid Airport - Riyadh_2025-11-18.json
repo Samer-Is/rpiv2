@@ -1,35 +1,35 @@
 {
-  "cached_at": "2025-11-26T12:26:52.896800",
+  "cached_at": "2025-11-26T14:14:40.566417",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 685,
+        "Competitor_Price": 660,
         "Competitor_Category": "Luxury Sedan",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 650,
+        "Competitor_Price": 675,
         "Competitor_Category": "Luxury Sedan",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 700,
+        "Competitor_Price": 660,
         "Competitor_Category": "Luxury Sedan",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 678.3333333333334,
+    "avg_price": 665.0,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:26:52.896800",
+    "last_updated": "2025-11-26T14:14:40.566417",
     "location": "King Khalid Airport - Riyadh",
     "category": "Luxury Sedan",
     "is_live": true

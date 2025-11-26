@@ -1,12 +1,12 @@
 {
-  "cached_at": "2025-11-26T12:26:53.053744",
+  "cached_at": "2025-11-26T14:14:40.646610",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 935,
+        "Competitor_Price": 920,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
@@ -14,22 +14,22 @@
         "Competitor_Name": "Budget",
         "Competitor_Price": 925,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 940,
+        "Competitor_Price": 920,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 933.3333333333334,
+    "avg_price": 921.6666666666666,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:26:53.053744",
+    "last_updated": "2025-11-26T14:14:40.646610",
     "location": "King Khalid Airport - Riyadh",
     "category": "Luxury SUV",
     "is_live": true

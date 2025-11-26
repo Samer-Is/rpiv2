@@ -1,12 +1,12 @@
 {
-  "cached_at": "2025-11-26T12:26:52.835823",
+  "cached_at": "2025-11-26T14:14:40.490242",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
         "Competitor_Price": 565,
         "Competitor_Category": "Full-size SUV",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
@@ -14,22 +14,22 @@
         "Competitor_Name": "Budget",
         "Competitor_Price": 535,
         "Competitor_Category": "Full-size SUV",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 555,
+        "Competitor_Price": 550,
         "Competitor_Category": "Full-size SUV",
-        "Date": "2025-11-26 12:26",
+        "Date": "2025-11-26 14:14",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 551.6666666666666,
+    "avg_price": 550.0,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:26:52.835823",
+    "last_updated": "2025-11-26T14:14:40.490242",
     "location": "King Khalid Airport - Riyadh",
     "category": "SUV Large",
     "is_live": true
