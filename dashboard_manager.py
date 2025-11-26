@@ -39,6 +39,7 @@ st.markdown("""
         font-weight: bold;
         color: #1f77b4;
         text-align: center;
+        margin-top: 0.5rem;
         margin-bottom: 1rem;
     }
     .price-card {
@@ -242,12 +243,11 @@ else:
 st.sidebar.markdown(f"**Model Accuracy:** 95.35%")
 st.sidebar.markdown(f"**Last Updated:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
-# Main content
-st.markdown('<p class="main-header">🚗 Renty - Intelligent Dynamic Pricing</p>', unsafe_allow_html=True)
-
-# Welcome message
+# Main content - Header with Logo
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
+    st.image("Gemini_Generated_Image_qzl79lqzl79lqzl7.png", use_column_width=True)
+    st.markdown('<p class="main-header">Intelligent Dynamic Pricing</p>', unsafe_allow_html=True)
     st.info(f"👋 Welcome, **{user_role}**! Manage pricing for **{branch_info['name']}**")
 
 st.markdown("---")
