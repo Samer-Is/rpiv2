@@ -435,7 +435,7 @@ with st.spinner("Calculating optimal prices for all categories..."):
                     is_sports_event=is_sports_event,
                     is_conference=is_conference,
                     is_weekend=is_weekend,
-                    is_vacation=is_vacation
+                    is_vacation=is_school_vacation
                 )
                 
                 # Convert to expected format
@@ -520,10 +520,16 @@ with st.spinner("Calculating optimal prices for all categories..."):
                         comp_icon = "✓" if price_diff < 0 else "▲"
                         comp_text = f"{abs(price_diff):.0f} SAR cheaper" if price_diff < 0 else f"{price_diff:.0f} SAR more"
                         
-                        # Build competitor list HTML
+                        # Build competitor list HTML with timestamp
                         comp_list_html = ""
+                        comp_timestamp = ""
                         for comp in comp_stats['competitors']:
                             comp_list_html += f"<div style='font-size: 0.7rem; color: #495057; margin-top: 0.2rem;'>• {comp['Competitor_Name']}: {comp['Competitor_Price']} SAR</div>"
+                            if not comp_timestamp and 'Date' in comp:
+                                comp_timestamp = comp['Date']
+                        
+                        if not comp_timestamp:
+                            comp_timestamp = datetime.now().strftime('%Y-%m-%d %H:%M')
                         
                         card_html += f"""<div style="background: #f8f9fa; padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.75rem;">
                             <div style="color: #6c757d; margin-bottom: 0.25rem;">
@@ -534,7 +540,7 @@ with st.spinner("Calculating optimal prices for all categories..."):
                             </div>
                             {comp_list_html}
                             <div style="color: #6c757d; font-size: 0.7rem; margin-top: 0.25rem;">
-                                As of: {pricing_date.strftime('%Y-%m-%d')}
+                                🔄 Live: {comp_timestamp}
                             </div>
                         </div>"""
                     else:
@@ -602,10 +608,16 @@ with st.spinner("Calculating optimal prices for all categories..."):
                         comp_icon = "✓" if price_diff < 0 else "▲"
                         comp_text = f"{abs(price_diff):.0f} SAR cheaper" if price_diff < 0 else f"{price_diff:.0f} SAR more"
                         
-                        # Build competitor list HTML
+                        # Build competitor list HTML with timestamp
                         comp_list_html = ""
+                        comp_timestamp = ""
                         for comp in comp_stats['competitors']:
                             comp_list_html += f"<div style='font-size: 0.7rem; color: #495057; margin-top: 0.2rem;'>• {comp['Competitor_Name']}: {comp['Competitor_Price']} SAR</div>"
+                            if not comp_timestamp and 'Date' in comp:
+                                comp_timestamp = comp['Date']
+                        
+                        if not comp_timestamp:
+                            comp_timestamp = datetime.now().strftime('%Y-%m-%d %H:%M')
                         
                         card_html += f"""<div style="background: #f8f9fa; padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.75rem;">
                             <div style="color: #6c757d; margin-bottom: 0.25rem;">
@@ -616,7 +628,7 @@ with st.spinner("Calculating optimal prices for all categories..."):
                             </div>
                             {comp_list_html}
                             <div style="color: #6c757d; font-size: 0.7rem; margin-top: 0.25rem;">
-                                As of: {pricing_date.strftime('%Y-%m-%d')}
+                                🔄 Live: {comp_timestamp}
                             </div>
                         </div>"""
                     else:
