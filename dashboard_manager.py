@@ -178,9 +178,8 @@ def load_competitor_data(_version="v2.2"):
         st.warning(f"Could not load competitor prices: {str(e)}")
         return load_competitor_prices(), False  # Use defaults
 
-# Sidebar - Branch & User Selection
-st.sidebar.markdown("# 🚗 Renty")
-st.sidebar.markdown("### Intelligent Dynamic Pricing")
+# Sidebar - Logo
+st.sidebar.image("Gemini_Generated_Image_qzl79lqzl79lqzl7.png", use_column_width=True)
 st.sidebar.markdown("---")
 
 # User role (for display purposes)

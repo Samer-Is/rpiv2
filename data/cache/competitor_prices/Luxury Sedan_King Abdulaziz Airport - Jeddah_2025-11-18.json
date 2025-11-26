@@ -1,35 +1,35 @@
 {
-  "cached_at": "2025-11-26T12:31:20.009544",
+  "cached_at": "2025-11-26T13:04:14.566561",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
         "Competitor_Price": 670,
         "Competitor_Category": "Luxury Sedan",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 13:04",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 655,
+        "Competitor_Price": 690,
         "Competitor_Category": "Luxury Sedan",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 13:04",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 695,
+        "Competitor_Price": 680,
         "Competitor_Category": "Luxury Sedan",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 13:04",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 673.3333333333334,
+    "avg_price": 680.0,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:31:20.009544",
+    "last_updated": "2025-11-26T13:04:14.566561",
     "location": "King Abdulaziz Airport - Jeddah",
     "category": "Luxury Sedan",
     "is_live": true
