@@ -22,6 +22,7 @@ import config
 from competitor_pricing import load_competitor_prices, calculate_average_competitor_price
 from live_competitor_pricing import get_competitor_prices_for_dashboard, compare_with_competitors as compare_live, compare_with_competitors
 from utilization_query import get_current_utilization
+from hybrid_pricing_engine import HybridPricingEngine
 
 # Page configuration
 st.set_page_config(
@@ -732,6 +733,324 @@ with st.spinner("Calculating optimal prices for all categories..."):
     except Exception as e:
         st.error(f"❌ Error calculating prices: {str(e)}")
         st.exception(e)
+    
+    # ============================================================================
+    # HYBRID PRICING SYSTEM (V4 + V5)
+    # ============================================================================
+    try:
+        st.markdown("---")
+        st.markdown("## 🎯 AI-Powered Price Optimization (Hybrid Model)")
+        st.markdown("""
+        <div style='background-color: #f0f8ff; padding: 1rem; border-radius: 10px; border-left: 5px solid #1f77b4;'>
+            <strong>Two-Stage AI System:</strong><br>
+            • <strong>Stage 1 (Baseline)</strong>: High-accuracy demand forecasting (R² = 96.57%)<br>
+            • <strong>Stage 2 (Elasticity)</strong>: Price sensitivity analysis<br>
+            • <strong>Result</strong>: Optimal price that maximizes revenue
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("")
+        
+        # Initialize hybrid engine
+        @st.cache_resource
+        def load_hybrid_engine():
+            return HybridPricingEngine()
+        
+        hybrid_engine = load_hybrid_engine()
+        
+        # Let user select category for optimization
+        st.markdown("### 🔧 Price Optimization Tool")
+        
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            selected_category = st.selectbox(
+                "Select Category to Optimize",
+                options=list(VEHICLE_CATEGORIES.keys()),
+                key="hybrid_category"
+            )
+        
+        with col2:
+            base_price = VEHICLE_CATEGORIES[selected_category]['base_daily_price']
+            min_price = st.number_input(
+                "Min Price (SAR)",
+                value=int(base_price * 0.7),
+                key="hybrid_min_price"
+            )
+        
+        with col3:
+            max_price = st.number_input(
+                "Max Price (SAR)",
+                value=int(base_price * 1.5),
+                key="hybrid_max_price"
+            )
+        
+        with col4:
+            n_prices = st.slider(
+                "Price Points to Test",
+                min_value=5,
+                max_value=20,
+                value=10,
+                key="hybrid_n_prices"
+            )
+        
+        if st.button("🚀 Optimize Price", key="optimize_button", use_container_width=True):
+            with st.spinner("Running AI optimization..."):
+                try:
+                    # Get category ID (using vehicle ID as proxy)
+                    category_id = list(VEHICLE_CATEGORIES.keys()).index(selected_category) + 1
+                    
+                    # Run optimization
+                    df_optimization = hybrid_engine.price_optimizer(
+                        branch_id=st.session_state.selected_branch,
+                        category_id=category_id,
+                        date=pricing_date,
+                        price_range=(min_price, max_price),
+                        n_prices=n_prices
+                    )
+                    
+                    # Display results
+                    st.markdown("#### 📊 Optimization Results")
+                    
+                    # Create columns for key metrics
+                    metric_cols = st.columns(5)
+                    
+                    optimal_row = df_optimization[df_optimization['is_optimal']].iloc[0]
+                    current_price = base_price
+                    current_row = df_optimization.iloc[(df_optimization['price'] - current_price).abs().argsort()[:1]]
+                    
+                    with metric_cols[0]:
+                        st.metric(
+                            "💰 Optimal Price",
+                            f"{optimal_row['price']:.0f} SAR",
+                            f"{optimal_row['price'] - current_price:+.0f} SAR"
+                        )
+                    
+                    with metric_cols[1]:
+                        st.metric(
+                            "📈 Expected Demand",
+                            f"{optimal_row['predicted_demand']:.1f}",
+                            f"{optimal_row['predicted_demand'] - optimal_row['baseline_demand']:.1f}"
+                        )
+                    
+                    with metric_cols[2]:
+                        st.metric(
+                            "💵 Expected Revenue",
+                            f"{optimal_row['expected_revenue']:.0f} SAR",
+                            f"{(optimal_row['expected_revenue'] / (current_price * optimal_row['predicted_demand']) - 1) * 100:.1f}%"
+                        )
+                    
+                    with metric_cols[3]:
+                        st.metric(
+                            "🎯 Baseline Demand",
+                            f"{optimal_row['baseline_demand']:.1f}",
+                            "V4 Model"
+                        )
+                    
+                    with metric_cols[4]:
+                        st.metric(
+                            "⚡ Elasticity Factor",
+                            f"{optimal_row['elasticity_factor']:.3f}",
+                            "V5 Model"
+                        )
+                    
+                    st.markdown("---")
+                    
+                    # Revenue curve visualization
+                    st.markdown("#### 📈 Revenue Optimization Curve")
+                    
+                    fig_revenue = go.Figure()
+                    
+                    # Revenue curve
+                    fig_revenue.add_trace(go.Scatter(
+                        x=df_optimization['price'],
+                        y=df_optimization['expected_revenue'],
+                        mode='lines+markers',
+                        name='Expected Revenue',
+                        line=dict(color='#2E86AB', width=3),
+                        marker=dict(size=8),
+                        hovertemplate='<b>Price:</b> %{x:.0f} SAR<br><b>Revenue:</b> %{y:.0f} SAR<extra></extra>'
+                    ))
+                    
+                    # Mark optimal point
+                    fig_revenue.add_trace(go.Scatter(
+                        x=[optimal_row['price']],
+                        y=[optimal_row['expected_revenue']],
+                        mode='markers',
+                        name='Optimal Price',
+                        marker=dict(color='red', size=15, symbol='star'),
+                        hovertemplate='<b>OPTIMAL</b><br>Price: %{x:.0f} SAR<br>Revenue: %{y:.0f} SAR<extra></extra>'
+                    ))
+                    
+                    # Mark current price
+                    current_revenue = current_price * current_row['predicted_demand'].values[0]
+                    fig_revenue.add_trace(go.Scatter(
+                        x=[current_price],
+                        y=[current_revenue],
+                        mode='markers',
+                        name='Current Price',
+                        marker=dict(color='orange', size=12, symbol='diamond'),
+                        hovertemplate='<b>CURRENT</b><br>Price: %{x:.0f} SAR<br>Revenue: %{y:.0f} SAR<extra></extra>'
+                    ))
+                    
+                    fig_revenue.update_layout(
+                        title=f"Revenue Optimization: {selected_category}",
+                        xaxis_title="Price per Day (SAR)",
+                        yaxis_title="Expected Daily Revenue (SAR)",
+                        height=400,
+                        hovermode='x unified',
+                        showlegend=True
+                    )
+                    
+                    st.plotly_chart(fig_revenue, use_container_width=True)
+                    
+                    # Demand vs Price curve
+                    st.markdown("#### 📉 Demand Response Curve")
+                    
+                    fig_demand = go.Figure()
+                    
+                    # Baseline demand (constant)
+                    fig_demand.add_trace(go.Scatter(
+                        x=df_optimization['price'],
+                        y=df_optimization['baseline_demand'],
+                        mode='lines',
+                        name='Baseline Demand (V4)',
+                        line=dict(color='gray', width=2, dash='dash'),
+                        hovertemplate='<b>Baseline:</b> %{y:.1f} bookings<extra></extra>'
+                    ))
+                    
+                    # Adjusted demand (with elasticity)
+                    fig_demand.add_trace(go.Scatter(
+                        x=df_optimization['price'],
+                        y=df_optimization['predicted_demand'],
+                        mode='lines+markers',
+                        name='Adjusted Demand (V4+V5)',
+                        line=dict(color='#F18F01', width=3),
+                        marker=dict(size=8),
+                        hovertemplate='<b>Price:</b> %{x:.0f} SAR<br><b>Demand:</b> %{y:.1f} bookings<extra></extra>'
+                    ))
+                    
+                    fig_demand.update_layout(
+                        title=f"Price Elasticity: {selected_category}",
+                        xaxis_title="Price per Day (SAR)",
+                        yaxis_title="Expected Daily Demand (Bookings)",
+                        height=400,
+                        hovermode='x unified',
+                        showlegend=True
+                    )
+                    
+                    st.plotly_chart(fig_demand, use_container_width=True)
+                    
+                    # Detailed comparison table
+                    st.markdown("#### 📋 Detailed Price Comparison")
+                    
+                    display_df = df_optimization[['price', 'predicted_demand', 'expected_revenue', 'baseline_demand', 'elasticity_factor']].copy()
+                    display_df.columns = ['Price (SAR)', 'Demand', 'Revenue (SAR)', 'Baseline Demand', 'Elasticity']
+                    display_df['Price (SAR)'] = display_df['Price (SAR)'].apply(lambda x: f"{x:.0f}")
+                    display_df['Demand'] = display_df['Demand'].apply(lambda x: f"{x:.2f}")
+                    display_df['Revenue (SAR)'] = display_df['Revenue (SAR)'].apply(lambda x: f"{x:.0f}")
+                    display_df['Baseline Demand'] = display_df['Baseline Demand'].apply(lambda x: f"{x:.2f}")
+                    display_df['Elasticity'] = display_df['Elasticity'].apply(lambda x: f"{x:.3f}")
+                    
+                    # Highlight optimal row
+                    def highlight_optimal(row):
+                        if row.name == df_optimization[df_optimization['is_optimal']].index[0]:
+                            return ['background-color: #90EE90'] * len(row)
+                        return [''] * len(row)
+                    
+                    st.dataframe(
+                        display_df.style.apply(highlight_optimal, axis=1),
+                        use_container_width=True,
+                        hide_index=True
+                    )
+                    
+                    # Insights and recommendations
+                    st.markdown("#### 💡 AI Insights & Recommendations")
+                    
+                    # Calculate price elasticity insight
+                    elasticity_avg = df_optimization['elasticity_factor'].mean()
+                    
+                    insight_col1, insight_col2 = st.columns(2)
+                    
+                    with insight_col1:
+                        st.info(f"""
+                        **📊 Demand Elasticity Analysis:**
+                        
+                        Average elasticity factor: **{elasticity_avg:.3f}**
+                        
+                        {'⚠️ **INELASTIC DEMAND**: Demand barely responds to price changes. Consider pricing higher.' if abs(1 - elasticity_avg) < 0.1 else 
+                         '✓ **ELASTIC DEMAND**: Demand responds to pricing. Optimize carefully for revenue.' if abs(1 - elasticity_avg) > 0.3 else
+                         '→ **MODERATE ELASTICITY**: Some price sensitivity detected.'}
+                        """)
+                    
+                    with insight_col2:
+                        revenue_gain = optimal_row['expected_revenue'] - current_revenue
+                        revenue_gain_pct = (revenue_gain / current_revenue) * 100 if current_revenue > 0 else 0
+                        
+                        if revenue_gain > 0:
+                            st.success(f"""
+                            **💰 Revenue Opportunity:**
+                            
+                            By adjusting from **{current_price:.0f} SAR** to **{optimal_row['price']:.0f} SAR**:
+                            
+                            • Revenue increase: **+{revenue_gain:.0f} SAR** ({revenue_gain_pct:+.1f}%)
+                            • Demand change: **{optimal_row['predicted_demand'] - current_row['predicted_demand'].values[0]:.1f}** bookings
+                            
+                            ✓ **Recommended:** Implement optimal pricing
+                            """)
+                        else:
+                            st.warning(f"""
+                            **✓ Current Price is Near-Optimal**
+                            
+                            Current price of **{current_price:.0f} SAR** is already well-positioned.
+                            
+                            Potential improvement: **{abs(revenue_gain):.0f} SAR** ({abs(revenue_gain_pct):.1f}%)
+                            
+                            → Consider maintaining current pricing strategy
+                            """)
+                    
+                except Exception as e:
+                    st.error(f"Error in optimization: {str(e)}")
+                    st.exception(e)
+        
+        # Model information
+        with st.expander("ℹ️ About the Hybrid AI System"):
+            st.markdown("""
+            ### How It Works
+            
+            **Stage 1: Baseline Demand Forecasting (Model V4)**
+            - Uses historical patterns, branch characteristics, seasonality
+            - Accuracy: **R² = 96.57%**
+            - Predicts: "What demand to expect at typical pricing"
+            
+            **Stage 2: Price Elasticity Analysis (Model V5)**
+            - Learns how demand responds to price changes
+            - Uses: Price history, volatility, trends
+            - Predicts: "How pricing affects demand"
+            
+            **Combination:**
+            ```
+            Final Demand = Baseline Demand × Elasticity Factor
+            Expected Revenue = Price × Final Demand
+            ```
+            
+            ### Validation Results
+            - **Price Variation:** Excellent (CV = 104%)
+            - **Elasticity:** -0.007 (Nearly inelastic - demand barely responds to price)
+            - **Interpretation:** Your market is price-insensitive, suggesting room for price increases
+            
+            ### Confidence Levels
+            - ✅ **High:** Both models available and working
+            - ⚠️ **Medium:** Baseline model only (no elasticity data)
+            - ❌ **Low:** Fallback to heuristics
+            
+            ---
+            *Last updated: 2025-11-27*
+            """)
+        
+    except Exception as e:
+        st.warning(f"⚠️ Hybrid pricing system unavailable: {str(e)}")
+        st.info("Using standard pricing recommendations above.")
     
     # Competitor Comparison Section
     st.markdown("---")
