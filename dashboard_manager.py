@@ -492,12 +492,12 @@ with st.spinner("Calculating optimal prices for all categories..."):
                 details = VEHICLE_CATEGORIES[category]
                 
                 with col:
-                    # Determine badge
+                    # Determine badge - show any adjustment over ±1%
                     change_pct = result['price_change_pct']
-                    if change_pct < -5:
-                        badge = f'<span class="discount-badge">-{abs(change_pct):.0f}% DISCOUNT</span>'
-                    elif change_pct > 5:
-                        badge = f'<span class="premium-badge">+{change_pct:.0f}% PREMIUM</span>'
+                    if change_pct < -1:
+                        badge = f'<span class="discount-badge">{change_pct:.1f}% DISCOUNT</span>'
+                    elif change_pct > 1:
+                        badge = f'<span class="premium-badge">+{change_pct:.1f}% PREMIUM</span>'
                     else:
                         badge = f'<span class="neutral-badge">STANDARD</span>'
                     
@@ -580,12 +580,12 @@ with st.spinner("Calculating optimal prices for all categories..."):
                 details = VEHICLE_CATEGORIES[category]
                 
                 with col:
-                    # Determine badge
+                    # Determine badge - show any adjustment over ±1%
                     change_pct = result['price_change_pct']
-                    if change_pct < -5:
-                        badge = f'<span class="discount-badge">-{abs(change_pct):.0f}% DISCOUNT</span>'
-                    elif change_pct > 5:
-                        badge = f'<span class="premium-badge">+{change_pct:.0f}% PREMIUM</span>'
+                    if change_pct < -1:
+                        badge = f'<span class="discount-badge">{change_pct:.1f}% DISCOUNT</span>'
+                    elif change_pct > 1:
+                        badge = f'<span class="premium-badge">+{change_pct:.1f}% PREMIUM</span>'
                     else:
                         badge = f'<span class="neutral-badge">STANDARD</span>'
                     
