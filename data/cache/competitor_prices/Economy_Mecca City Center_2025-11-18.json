@@ -1,35 +1,35 @@
 {
-  "cached_at": "2025-11-26T12:21:24.045420",
+  "cached_at": "2025-11-26T17:03:23.101997",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 175,
+        "Competitor_Price": 215,
         "Competitor_Category": "Economy",
-        "Date": "2025-11-26 12:21",
+        "Date": "2025-11-26 17:03",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 170,
+        "Competitor_Price": 205,
         "Competitor_Category": "Economy",
-        "Date": "2025-11-26 12:21",
+        "Date": "2025-11-26 17:03",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 175,
+        "Competitor_Price": 210,
         "Competitor_Category": "Economy",
-        "Date": "2025-11-26 12:21",
+        "Date": "2025-11-26 17:03",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 173.33333333333334,
+    "avg_price": 210.0,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:21:24.045420",
+    "last_updated": "2025-11-26T17:03:23.101997",
     "location": "Mecca City Center",
     "category": "Economy",
     "is_live": true

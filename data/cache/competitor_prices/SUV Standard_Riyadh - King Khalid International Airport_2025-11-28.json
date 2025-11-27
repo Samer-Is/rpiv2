@@ -1,35 +1,35 @@
 {
-  "cached_at": "2025-11-26T12:42:18.054070",
+  "cached_at": "2025-11-26T17:11:08.926016",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 435,
+        "Competitor_Price": 440,
         "Competitor_Category": "Standard SUV",
-        "Date": "2025-11-26 12:42",
+        "Date": "2025-11-26 17:11",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 440,
+        "Competitor_Price": 415,
         "Competitor_Category": "Standard SUV",
-        "Date": "2025-11-26 12:42",
+        "Date": "2025-11-26 17:11",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 435,
+        "Competitor_Price": 455,
         "Competitor_Category": "Standard SUV",
-        "Date": "2025-11-26 12:42",
+        "Date": "2025-11-26 17:11",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
     "avg_price": 436.6666666666667,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:42:18.054070",
+    "last_updated": "2025-11-26T17:11:08.926016",
     "location": "Riyadh - King Khalid International Airport",
     "category": "SUV Standard",
     "is_live": true

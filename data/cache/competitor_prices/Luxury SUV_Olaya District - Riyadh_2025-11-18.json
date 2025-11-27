@@ -1,35 +1,35 @@
 {
-  "cached_at": "2025-11-26T12:31:14.261320",
+  "cached_at": "2025-11-26T17:12:52.091673",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 790,
+        "Competitor_Price": 935,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 17:12",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 760,
+        "Competitor_Price": 975,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 17:12",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 775,
+        "Competitor_Price": 980,
         "Competitor_Category": "Luxury SUV",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 17:12",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 775.0,
+    "avg_price": 963.3333333333334,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:31:14.261320",
+    "last_updated": "2025-11-26T17:12:52.091673",
     "location": "Olaya District - Riyadh",
     "category": "Luxury SUV",
     "is_live": true

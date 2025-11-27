@@ -1,35 +1,35 @@
 {
-  "cached_at": "2025-11-26T12:21:24.077262",
+  "cached_at": "2025-11-26T17:03:23.190141",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 340,
+        "Competitor_Price": 395,
         "Competitor_Category": "Compact SUV",
-        "Date": "2025-11-26 12:21",
+        "Date": "2025-11-26 17:03",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 335,
+        "Competitor_Price": 415,
         "Competitor_Category": "Compact SUV",
-        "Date": "2025-11-26 12:21",
+        "Date": "2025-11-26 17:03",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 350,
+        "Competitor_Price": 425,
         "Competitor_Category": "Compact SUV",
-        "Date": "2025-11-26 12:21",
+        "Date": "2025-11-26 17:03",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 341.6666666666667,
+    "avg_price": 411.6666666666667,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:21:24.077262",
+    "last_updated": "2025-11-26T17:03:23.190141",
     "location": "Mecca City Center",
     "category": "SUV Compact",
     "is_live": true

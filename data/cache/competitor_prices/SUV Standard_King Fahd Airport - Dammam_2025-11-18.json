@@ -1,36 +1,36 @@
 {
-  "cached_at": "2025-11-26T17:31:17.527521",
+  "cached_at": "2025-11-26T17:21:46.221924",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 405,
+        "Competitor_Price": 490,
         "Competitor_Category": "Standard SUV",
-        "Date": "2025-11-26 17:31",
+        "Date": "2025-11-26 17:21",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 385,
+        "Competitor_Price": 465,
         "Competitor_Category": "Standard SUV",
-        "Date": "2025-11-26 17:31",
+        "Date": "2025-11-26 17:21",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 385,
+        "Competitor_Price": 470,
         "Competitor_Category": "Standard SUV",
-        "Date": "2025-11-26 17:31",
+        "Date": "2025-11-26 17:21",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 391.6666666666667,
+    "avg_price": 475.0,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T17:31:17.527521",
-    "location": "King Khalid Airport - Riyadh",
+    "last_updated": "2025-11-26T17:21:46.221924",
+    "location": "King Fahd Airport - Dammam",
     "category": "SUV Standard",
     "is_live": true
   }

@@ -1,0 +1,40 @@
+================================================================================
+ROBUST MODEL TRAINING REPORT
+================================================================================
+Training Date: 2025-11-26 17:09:22.767891
+Model: XGBoost with Grid Search
+Target: 2-Day Ahead Demand Prediction
+
+BEST HYPERPARAMETERS:
+  subsample: 0.9
+  reg_lambda: 1.5
+  reg_alpha: 0
+  n_estimators: 400
+  min_child_weight: 3
+  max_depth: 5
+  learning_rate: 0.15
+  colsample_bytree: 0.8
+
+MODEL PERFORMANCE:
+  Train R²:      0.9852
+  Validation R²: 0.9502
+  Test R²:       0.9657
+  Test RMSE:     29.31
+  Test MAE:      17.78
+  Test MAPE:     37.61%
+
+OVERFITTING CHECK:
+  Train-Test R² Gap: 0.0195
+  Status: ROBUST
+
+TOP 10 FEATURES:
+  BranchHistoricalSize           0.4141
+  CitySize                       0.1607
+  IsAirport                      0.0885
+  CapacityIndicator              0.0810
+  post_holiday                   0.0312
+  Month                          0.0246
+  cos_7_1                        0.0206
+  CityId                         0.0155
+  PickupBranchId                 0.0153
+  DayOfYear                      0.0147

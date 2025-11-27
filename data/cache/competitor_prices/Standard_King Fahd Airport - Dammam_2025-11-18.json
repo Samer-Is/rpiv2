@@ -1,36 +1,36 @@
 {
-  "cached_at": "2025-11-26T17:31:17.469896",
+  "cached_at": "2025-11-26T17:21:46.202159",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 245,
+        "Competitor_Price": 290,
         "Competitor_Category": "Standard/Midsize",
-        "Date": "2025-11-26 17:31",
+        "Date": "2025-11-26 17:21",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 230,
+        "Competitor_Price": 295,
         "Competitor_Category": "Standard/Midsize",
-        "Date": "2025-11-26 17:31",
+        "Date": "2025-11-26 17:21",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 240,
+        "Competitor_Price": 295,
         "Competitor_Category": "Standard/Midsize",
-        "Date": "2025-11-26 17:31",
+        "Date": "2025-11-26 17:21",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 238.33333333333334,
+    "avg_price": 293.3333333333333,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T17:31:17.469896",
-    "location": "King Khalid Airport - Riyadh",
+    "last_updated": "2025-11-26T17:21:46.202159",
+    "location": "King Fahd Airport - Dammam",
     "category": "Standard",
     "is_live": true
   }

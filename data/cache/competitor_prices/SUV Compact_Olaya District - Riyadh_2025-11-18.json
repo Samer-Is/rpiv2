@@ -1,35 +1,35 @@
 {
-  "cached_at": "2025-11-26T12:31:14.218785",
+  "cached_at": "2025-11-26T17:12:52.022525",
   "data": {
     "competitors": [
       {
         "Competitor_Name": "Hertz",
-        "Competitor_Price": 275,
+        "Competitor_Price": 340,
         "Competitor_Category": "Compact SUV",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 17:12",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Budget",
-        "Competitor_Price": 270,
+        "Competitor_Price": 325,
         "Competitor_Category": "Compact SUV",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 17:12",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       },
       {
         "Competitor_Name": "Thrifty",
-        "Competitor_Price": 275,
+        "Competitor_Price": 330,
         "Competitor_Category": "Compact SUV",
-        "Date": "2025-11-26 12:31",
+        "Date": "2025-11-26 17:12",
         "Source": "Live Market Intelligence",
         "Confidence": 95
       }
     ],
-    "avg_price": 273.3333333333333,
+    "avg_price": 331.6666666666667,
     "competitor_count": 3,
-    "last_updated": "2025-11-26T12:31:14.218785",
+    "last_updated": "2025-11-26T17:12:52.022525",
     "location": "Olaya District - Riyadh",
     "category": "SUV Compact",
     "is_live": true
