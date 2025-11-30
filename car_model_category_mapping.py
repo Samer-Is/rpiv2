@@ -55,6 +55,12 @@ CAR_MODEL_MAPPING = {
         "seats": 5,
         "notes": "Reliable compact"
     },
+    "Kia Pegas": {
+        "renty_category": "Compact",
+        "type": "Compact Sedan",
+        "seats": 5,
+        "notes": "Budget compact sedan"
+    },
     
     # STANDARD - Mid-size Sedans
     "Hyundai Elantra": {
@@ -87,19 +93,55 @@ CAR_MODEL_MAPPING = {
         "seats": 5,
         "notes": "Comfortable mid-size"
     },
+    "Toyota Corolla": {
+        "renty_category": "Standard",
+        "type": "Compact/Mid-size Sedan",
+        "seats": 5,
+        "notes": "World's best-selling car"
+    },
+    "Chevrolet Malibu": {
+        "renty_category": "Standard",
+        "type": "Mid-size Sedan",
+        "seats": 5,
+        "notes": "American mid-size sedan"
+    },
+    "Ford Taurus": {
+        "renty_category": "Standard",
+        "type": "Full-size Sedan",
+        "seats": 5,
+        "notes": "Large American sedan"
+    },
+    "Dodge Neon": {
+        "renty_category": "Standard",
+        "type": "Compact Sedan",
+        "seats": 5,
+        "notes": "Compact/standard sedan"
+    },
+    "BYD Seal 7": {
+        "renty_category": "Standard",
+        "type": "Mid-size Electric Sedan",
+        "seats": 5,
+        "notes": "Chinese electric sedan"
+    },
     
     # SUV COMPACT - Compact SUVs and Crossovers
     "GAC GS3": {
         "renty_category": "SUV Compact",
         "type": "Compact SUV/Crossover",
         "seats": 5,
-        "notes": "Chinese brand compact SUV - CURRENTLY MISCLASSIFIED AS COMPACT"
+        "notes": "Chinese brand compact SUV"
     },
     "Hyundai Tucson": {
         "renty_category": "SUV Compact",
         "type": "Compact SUV",
         "seats": 5,
         "notes": "Popular compact SUV"
+    },
+    "Hyundai Creta": {
+        "renty_category": "SUV Compact",
+        "type": "Compact SUV",
+        "seats": 5,
+        "notes": "Subcompact SUV popular in Middle East"
     },
     "Nissan Qashqai": {
         "renty_category": "SUV Compact",
@@ -120,6 +162,12 @@ CAR_MODEL_MAPPING = {
         "type": "Compact/Mid-size SUV",
         "seats": 5,
         "notes": "Best-selling SUV"
+    },
+    "Toyota Fortuner": {
+        "renty_category": "SUV Standard",
+        "type": "Mid-size SUV",
+        "seats": 7,
+        "notes": "Body-on-frame mid-size SUV, popular in Middle East"
     },
     "Nissan X-Trail": {
         "renty_category": "SUV Standard",
@@ -323,25 +371,47 @@ def get_correct_category(vehicle_name: str, booking_category: str) -> str:
     else:
         return "Standard"
 
-# Critical misclassifications to fix
-MISCLASSIFICATIONS = [
+# Critical misclassifications fixed
+FIXED_MISCLASSIFICATIONS = [
     {
         "vehicle": "Toyota Highlander",
-        "api_says": "Luxury or Premium",
+        "api_says": "Luxury",
         "should_be": "SUV Large",
-        "reason": "It's a 3-row mid-size/large SUV, not a luxury sedan"
+        "reason": "3-row mid-size/large SUV, not a sedan"
     },
     {
         "vehicle": "Toyota Land Cruiser Prado",
         "api_says": "Luxury",
         "should_be": "SUV Large",
-        "reason": "It's a large SUV, not a sedan"
+        "reason": "Large SUV, not a sedan"
     },
     {
         "vehicle": "GAC GS3",
         "api_says": "Compact",
         "should_be": "SUV Compact",
-        "reason": "It's a compact SUV/crossover, not a compact sedan"
+        "reason": "Compact SUV/crossover, not a sedan"
+    },
+    {
+        "vehicle": "Hyundai Creta",
+        "api_says": "Compact",
+        "should_be": "SUV Compact",
+        "reason": "Subcompact SUV, not a sedan"
+    },
+    {
+        "vehicle": "Toyota Fortuner",
+        "api_says": "Standard",
+        "should_be": "SUV Standard",
+        "reason": "Mid-size SUV, not a sedan"
     }
 ]
+
+# API Suppliers Available (from Booking.com API):
+# - Alamo
+# - Enterprise
+# - Sixt
+# 
+# NOT available from this API:
+# - Budget
+# - Thrifty
+# - Theeb (local Saudi competitor)
 
