@@ -65,8 +65,8 @@ st.markdown("""
         background-color: #f8f9fa;
         border: 2px solid #dee2e6;
         border-radius: 0.5rem;
-        padding: 1.5rem;
-        margin: 0.5rem 0;
+        padding: 0.75rem;
+        margin: 0.25rem 0;
         transition: all 0.3s;
     }
     .category-card:hover {
@@ -486,16 +486,16 @@ with st.spinner("Calculating optimal prices for all categories..."):
                     
                     # Build complete card HTML
                     card_html = f"""<div class="category-card">
-                        <h3 style="color: #003d82; margin-bottom: 0.5rem;">{details['icon']} {category}</h3>
-                        <p style="font-size: 0.9rem; color: #6c757d;">{details['examples']}</p>
-                        <hr>
-                        <p style="font-size: 0.8rem; color: #6c757d; text-decoration: line-through;">
+                        <h3 style="color: #003d82; margin: 0 0 0.25rem 0; font-size: 1.1rem;">{details['icon']} {category}</h3>
+                        <p style="font-size: 0.75rem; color: #6c757d; margin: 0;">{details['examples']}</p>
+                        <hr style="margin: 0.5rem 0;">
+                        <p style="font-size: 0.75rem; color: #6c757d; text-decoration: line-through; margin: 0.25rem 0;">
                             Base: {result['base_price']:.0f} SAR/day
                         </p>
-                        <h2 style="color: #1f77b4; margin: 0.5rem 0;">
+                        <h2 style="color: #1f77b4; margin: 0.25rem 0; font-size: 1.5rem;">
                             {result['final_price']:.0f} SAR<span style="font-size: 0.6em;">/day</span>
                         </h2>
-                        <div style="margin: 0.5rem 0;">
+                        <div style="margin: 0.25rem 0;">
                             {badge}
                         </div>"""
                     
@@ -512,22 +512,22 @@ with st.spinner("Calculating optimal prices for all categories..."):
                         comp_list_html = ""
                         comp_timestamp = ""
                         for comp in comp_stats['competitors']:
-                            comp_list_html += f"<div style='font-size: 0.7rem; color: #495057; margin-top: 0.2rem;'>• {comp['Competitor_Name']}: {comp['Competitor_Price']} SAR</div>"
+                            comp_list_html += f"<div style='font-size: 0.65rem; color: #495057; margin-top: 0.1rem;'>• {comp['Competitor_Name']}: {comp['Competitor_Price']} SAR</div>"
                             if not comp_timestamp and 'Date' in comp:
                                 comp_timestamp = comp['Date']
                         
                         if not comp_timestamp:
                             comp_timestamp = datetime.now().strftime('%Y-%m-%d %H:%M')
                         
-                        card_html += f"""<div style="background: #f8f9fa; padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.75rem;">
-                            <div style="color: #6c757d; margin-bottom: 0.25rem;">
+                        card_html += f"""<div style="background: #f8f9fa; padding: 0.4rem; border-radius: 0.4rem; margin-top: 0.4rem; font-size: 0.7rem;">
+                            <div style="color: #6c757d; margin-bottom: 0.2rem;">
                                 <strong>Competitor Avg:</strong> {comp_avg:.0f} SAR/day
                             </div>
-                            <div style="color: {comp_color}; font-weight: bold;">
+                            <div style="color: {comp_color}; font-weight: bold; font-size: 0.75rem;">
                                 {comp_icon} {comp_text} ({comp_count} competitors)
                             </div>
                             {comp_list_html}
-                            <div style="color: #6c757d; font-size: 0.7rem; margin-top: 0.25rem;">
+                            <div style="color: #6c757d; font-size: 0.65rem; margin-top: 0.2rem;">
                                 🔄 Live: {comp_timestamp}
                             </div>
                         </div>"""
@@ -536,15 +536,8 @@ with st.spinner("Calculating optimal prices for all categories..."):
                             No competitor data available
                         </div>"""
                     
-                    # Add multipliers section
-                    card_html += f"""<hr>
-                        <div style="font-size: 0.85rem; text-align: left; margin-top: 1rem;">
-                            <strong>Multipliers:</strong><br>
-                            Demand: {result['demand_multiplier']:.2f}x<br>
-                            Supply: {result['supply_multiplier']:.2f}x<br>
-                            Events: {result['event_multiplier']:.2f}x
-                        </div>
-                    </div>"""
+                    # Close card div
+                    card_html += "</div>"
                     
                     st.markdown(card_html, unsafe_allow_html=True)
         
@@ -574,16 +567,16 @@ with st.spinner("Calculating optimal prices for all categories..."):
                     
                     # Build complete card HTML
                     card_html = f"""<div class="category-card">
-                        <h3 style="color: #003d82; margin-bottom: 0.5rem;">{details['icon']} {category}</h3>
-                        <p style="font-size: 0.9rem; color: #6c757d;">{details['examples']}</p>
-                        <hr>
-                        <p style="font-size: 0.8rem; color: #6c757d; text-decoration: line-through;">
+                        <h3 style="color: #003d82; margin: 0 0 0.25rem 0; font-size: 1.1rem;">{details['icon']} {category}</h3>
+                        <p style="font-size: 0.75rem; color: #6c757d; margin: 0;">{details['examples']}</p>
+                        <hr style="margin: 0.5rem 0;">
+                        <p style="font-size: 0.75rem; color: #6c757d; text-decoration: line-through; margin: 0.25rem 0;">
                             Base: {result['base_price']:.0f} SAR/day
                         </p>
-                        <h2 style="color: #1f77b4; margin: 0.5rem 0;">
+                        <h2 style="color: #1f77b4; margin: 0.25rem 0; font-size: 1.5rem;">
                             {result['final_price']:.0f} SAR<span style="font-size: 0.6em;">/day</span>
                         </h2>
-                        <div style="margin: 0.5rem 0;">
+                        <div style="margin: 0.25rem 0;">
                             {badge}
                         </div>"""
                     
@@ -600,22 +593,22 @@ with st.spinner("Calculating optimal prices for all categories..."):
                         comp_list_html = ""
                         comp_timestamp = ""
                         for comp in comp_stats['competitors']:
-                            comp_list_html += f"<div style='font-size: 0.7rem; color: #495057; margin-top: 0.2rem;'>• {comp['Competitor_Name']}: {comp['Competitor_Price']} SAR</div>"
+                            comp_list_html += f"<div style='font-size: 0.65rem; color: #495057; margin-top: 0.1rem;'>• {comp['Competitor_Name']}: {comp['Competitor_Price']} SAR</div>"
                             if not comp_timestamp and 'Date' in comp:
                                 comp_timestamp = comp['Date']
                         
                         if not comp_timestamp:
                             comp_timestamp = datetime.now().strftime('%Y-%m-%d %H:%M')
                         
-                        card_html += f"""<div style="background: #f8f9fa; padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.75rem;">
-                            <div style="color: #6c757d; margin-bottom: 0.25rem;">
+                        card_html += f"""<div style="background: #f8f9fa; padding: 0.4rem; border-radius: 0.4rem; margin-top: 0.4rem; font-size: 0.7rem;">
+                            <div style="color: #6c757d; margin-bottom: 0.2rem;">
                                 <strong>Competitor Avg:</strong> {comp_avg:.0f} SAR/day
                             </div>
-                            <div style="color: {comp_color}; font-weight: bold;">
+                            <div style="color: {comp_color}; font-weight: bold; font-size: 0.75rem;">
                                 {comp_icon} {comp_text} ({comp_count} competitors)
                             </div>
                             {comp_list_html}
-                            <div style="color: #6c757d; font-size: 0.7rem; margin-top: 0.25rem;">
+                            <div style="color: #6c757d; font-size: 0.65rem; margin-top: 0.2rem;">
                                 🔄 Live: {comp_timestamp}
                             </div>
                         </div>"""
@@ -624,15 +617,8 @@ with st.spinner("Calculating optimal prices for all categories..."):
                             No competitor data available
                         </div>"""
                     
-                    # Add multipliers section
-                    card_html += f"""<hr>
-                        <div style="font-size: 0.85rem; text-align: left; margin-top: 1rem;">
-                            <strong>Multipliers:</strong><br>
-                            Demand: {result['demand_multiplier']:.2f}x<br>
-                            Supply: {result['supply_multiplier']:.2f}x<br>
-                            Events: {result['event_multiplier']:.2f}x
-                        </div>
-                    </div>"""
+                    # Close card div
+                    card_html += "</div>"
                     
                     st.markdown(card_html, unsafe_allow_html=True)
         
