@@ -7,6 +7,7 @@ import json
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
 import logging
+from car_model_category_mapping import get_correct_category, CAR_MODEL_MAPPING
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -167,17 +168,21 @@ class BookingComCarRentalAPI:
                 # Calculate per-day price
                 per_day_price = total_price / duration_days if total_price > 0 else 0
                 
-                # Map to Renty category
-                for renty_cat, booking_cats in self.category_mapping.items():
-                    if booking_category in booking_cats:
-                        category_prices[renty_cat].append({
-                            "supplier": supplier_name,
-                            "vehicle": vehicle_name,
-                            "total_price": round(total_price, 2),
-                            "per_day": round(per_day_price, 2),
-                            "category_original": booking_category
-                        })
-                        break
+                # Map to Renty category using accurate car-by-car mapping
+                correct_category = get_correct_category(vehicle_name, booking_category)
+                
+                # Add to the correct category
+                if correct_category in category_prices:
+                    category_prices[correct_category].append({
+                        "supplier": supplier_name,
+                        "vehicle": vehicle_name,
+                        "total_price": round(total_price, 2),
+                        "per_day": round(per_day_price, 2),
+                        "category_original": booking_category,
+                        "category_corrected": correct_category
+                    })
+                else:
+                    logger.warning(f"Unknown category '{correct_category}' for {vehicle_name}")
             except Exception as e:
                 logger.warning(f"Error processing car result: {str(e)}")
                 continue
