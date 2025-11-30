@@ -101,42 +101,42 @@ st.markdown("""
 VEHICLE_CATEGORIES = {
     "Economy": {
         "examples": "Hyundai Accent, Kia Picanto, Nissan Sunny",
-        "base_price": 150.0,
+        "base_price": 102.0,
         "icon": "🚗"
     },
     "Compact": {
         "examples": "Toyota Yaris, Hyundai Elantra, Kia Cerato",
-        "base_price": 180.0,
+        "base_price": 143.0,
         "icon": "🚙"
     },
     "Standard": {
         "examples": "Toyota Camry, Hyundai Sonata, Nissan Altima",
-        "base_price": 220.0,
+        "base_price": 188.0,
         "icon": "🚘"
     },
     "SUV Compact": {
         "examples": "Hyundai Tucson, Nissan Qashqai, Kia Sportage",
-        "base_price": 280.0,
+        "base_price": 204.0,
         "icon": "🚐"
     },
     "SUV Standard": {
         "examples": "Toyota RAV4, Nissan X-Trail, Hyundai Santa Fe",
-        "base_price": 350.0,
+        "base_price": 224.0,
         "icon": "🚙"
     },
     "SUV Large": {
         "examples": "Toyota Land Cruiser, Nissan Patrol, Chevrolet Tahoe",
-        "base_price": 500.0,
+        "base_price": 317.0,
         "icon": "🚐"
     },
     "Luxury Sedan": {
         "examples": "BMW 5 Series, Mercedes E-Class, Audi A6",
-        "base_price": 600.0,
+        "base_price": 515.0,
         "icon": "🚗"
     },
     "Luxury SUV": {
         "examples": "BMW X5, Mercedes GLE, Audi Q7",
-        "base_price": 800.0,
+        "base_price": 893.0,
         "icon": "🚙"
     }
 }
