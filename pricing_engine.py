@@ -40,7 +40,7 @@ class DynamicPricingEngine:
         Initialize pricing engine.
         
         Args:
-            model_path: Path to trained model (defaults to v3_final)
+            model_path: Path to trained model (defaults to ROBUST_v4)
         """
         if model_path is None:
             model_path = config.MODELS_DIR / 'demand_prediction_ROBUST_v4.pkl'
@@ -53,7 +53,7 @@ class DynamicPricingEngine:
         logger.info(f"  ✓ ML model loaded from {model_path}")
         
         # Load feature columns
-        features_path = config.MODELS_DIR / 'feature_columns_v3.pkl'
+        features_path = config.MODELS_DIR / 'feature_columns_ROBUST_v4.pkl'
         with open(features_path, 'rb') as f:
             self.feature_columns = pickle.load(f)
         logger.info(f"  ✓ Feature columns loaded ({len(self.feature_columns)} features)")

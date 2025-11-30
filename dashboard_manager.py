@@ -166,7 +166,7 @@ if 'competitor_prices' not in st.session_state:
 
 # Load engine (cached with version to force refresh)
 @st.cache_resource
-def load_pricing_engine(_version="v3.8"):
+def load_pricing_engine(_version="v4.0"):
     """Load the pricing engine (cached)."""
     try:
         engine = DynamicPricingEngine()
@@ -229,11 +229,11 @@ st.sidebar.markdown("### ⚙️ System Status")
 # Load engine
 if not st.session_state.engine_loaded:
     with st.spinner("Loading pricing engine..."):
-        engine, success, message = load_pricing_engine(_version="v3.8")
+        engine, success, message = load_pricing_engine(_version="v4.0")
         st.session_state.engine = engine
         st.session_state.engine_loaded = success
         if success:
-            st.sidebar.success("✅ Pricing Engine Ready (v3.6)")
+            st.sidebar.success("✅ Pricing Engine Ready (V4 Robust)")
         else:
             st.sidebar.error(f"❌ {message}")
 
