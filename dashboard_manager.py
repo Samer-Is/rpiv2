@@ -791,30 +791,42 @@ with st.spinner("Calculating optimal prices for all categories..."):
         comparison_df = pd.DataFrame(comparison_data)
         st.dataframe(comparison_df, use_container_width=True, hide_index=True)
         
-        # Display chart
+        # Display chart - only for selected categories
         st.markdown("### 📈 Price Comparison Chart")
         
         import plotly.graph_objects as go
+        
+        # Filter to only show Economy, Compact, Standard, SUV Compact
+        chart_categories = ["Economy", "Compact", "Standard", "SUV Compact"]
+        chart_renty_prices = []
+        chart_competitor_avgs = []
+        chart_category_labels = []
+        
+        for i, cat in enumerate(categories):
+            if cat in chart_categories:
+                chart_category_labels.append(cat)
+                chart_renty_prices.append(renty_prices[i])
+                chart_competitor_avgs.append(competitor_avgs[i])
         
         fig = go.Figure()
         
         # Renty prices
         fig.add_trace(go.Bar(
             name='Renty',
-            x=categories,
-            y=renty_prices,
+            x=chart_category_labels,
+            y=chart_renty_prices,
             marker_color='#1f77b4',
-            text=[f"{p:.0f} SAR" for p in renty_prices],
+            text=[f"{p:.0f} SAR" for p in chart_renty_prices],
             textposition='outside'
         ))
         
         # Competitor average
         fig.add_trace(go.Bar(
             name='Competitor Avg',
-            x=categories,
-            y=competitor_avgs,
+            x=chart_category_labels,
+            y=chart_competitor_avgs,
             marker_color='#ff7f0e',
-            text=[f"{p:.0f} SAR" for p in competitor_avgs],
+            text=[f"{p:.0f} SAR" for p in chart_competitor_avgs],
             textposition='outside'
         ))
         
