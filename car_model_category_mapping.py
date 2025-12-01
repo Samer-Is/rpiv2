@@ -259,11 +259,47 @@ CAR_MODEL_MAPPING = {
     },
     
     # LUXURY SUV - Premium/Luxury SUVs
+    "BMW X1": {
+        "renty_category": "SUV Compact",
+        "type": "Compact Luxury SUV",
+        "seats": 5,
+        "notes": "Compact luxury SUV"
+    },
+    "BMW X2": {
+        "renty_category": "SUV Compact",
+        "type": "Compact Luxury SUV/Crossover",
+        "seats": 5,
+        "notes": "Compact luxury crossover SUV"
+    },
+    "BMW X3": {
+        "renty_category": "SUV Standard",
+        "type": "Mid-size Luxury SUV",
+        "seats": 5,
+        "notes": "Mid-size luxury SUV"
+    },
+    "BMW X4": {
+        "renty_category": "SUV Standard",
+        "type": "Mid-size Luxury SUV Coupe",
+        "seats": 5,
+        "notes": "Sport luxury SUV"
+    },
     "BMW X5": {
         "renty_category": "Luxury SUV",
         "type": "Mid-size Luxury SUV",
         "seats": 7,
         "notes": "German luxury SUV"
+    },
+    "BMW X6": {
+        "renty_category": "Luxury SUV",
+        "type": "Mid-size Luxury SUV Coupe",
+        "seats": 5,
+        "notes": "Sport luxury SUV"
+    },
+    "BMW X7": {
+        "renty_category": "Luxury SUV",
+        "type": "Full-size Luxury SUV",
+        "seats": 7,
+        "notes": "Large luxury SUV"
     },
     "Mercedes GLE": {
         "renty_category": "Luxury SUV",
@@ -351,12 +387,12 @@ def get_correct_category(vehicle_name: str, booking_category: str) -> str:
         if mapped == "NEEDS_MODEL_CHECK":
             # Check if it's an SUV
             if any(suv_indicator in vehicle_clean.upper() for suv_indicator in 
-                   ["SUV", "CRUISER", "PATROL", "TAHOE", "HIGHLANDER", "PRADO", "X5", "GLE", "Q7"]):
+                   ["SUV", "CRUISER", "PATROL", "TAHOE", "HIGHLANDER", "PRADO", "X1", "X2", "X3", "X4", "X5", "X6", "X7", "GLE", "Q7"]):
                 # Determine size
                 if any(large in vehicle_clean.upper() for large in 
                        ["LAND CRUISER", "PATROL", "TAHOE", "HIGHLANDER"]):
                     return "SUV Large"
-                elif "X5" in vehicle_clean or "GLE" in vehicle_clean or "Q7" in vehicle_clean:
+                elif any(x in vehicle_clean for x in ["X1", "X2", "X3", "X4", "X5", "X6", "X7", "GLE", "GLC", "Q3", "Q5", "Q7", "Q8"]):
                     return "Luxury SUV"
                 else:
                     return "SUV Standard"

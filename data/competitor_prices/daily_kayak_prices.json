@@ -1,5 +1,5 @@
 {
-  "scrape_timestamp": "2025-12-01T10:42:57.405280",
+  "scrape_timestamp": "2025-12-01T10:48:25.850523",
   "scrape_date": "2025-12-01",
   "rental_period": {
     "pickup": "2025-12-02",
@@ -17,31 +17,31 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 360.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 487.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai i10"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 476.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 540.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Mini Car"
             },
             {
               "Competitor_Name": "National",
               "Competitor_Price": 141,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             }
           ]
@@ -54,31 +54,31 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 401.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 136,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Kia Pegas"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 144,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Suzuki Swift Dzire"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 626.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 555.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             }
           ]
@@ -91,44 +91,50 @@
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 420,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Hilux"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 720.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Corolla"
             },
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 570.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Elantra"
             }
           ]
         },
         "SUV Compact": {
-          "avg_price": 464.83,
+          "avg_price": 1121.12,
           "min_price": 322,
-          "max_price": 558.75,
+          "max_price": 3090.0,
           "competitors": [
+            {
+              "Competitor_Name": "Sixtrentacar",
+              "Competitor_Price": 3090.0,
+              "Date": "2025-12-01 10:48",
+              "Vehicle": "BMW X2"
+            },
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 513.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 558.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 322,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Kia Sportage"
             }
           ]
@@ -141,7 +147,7 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 571,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota RAV4"
             }
           ]
@@ -153,20 +159,14 @@
           "competitors": []
         },
         "Luxury Sedan": {
-          "avg_price": 2097.0,
+          "avg_price": 1104.0,
           "min_price": 1104,
-          "max_price": 3090.0,
+          "max_price": 1104,
           "competitors": [
-            {
-              "Competitor_Name": "Sixtrentacar",
-              "Competitor_Price": 3090.0,
-              "Date": "2025-12-01 10:43",
-              "Vehicle": "BMW X2"
-            },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 1104,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Luxury Car"
             }
           ]
@@ -178,7 +178,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:00.142088",
+      "last_updated": "2025-12-01T10:48:29.025404",
       "location": {
         "city": "Riyadh",
         "name": "King Khalid Airport - Riyadh"
@@ -194,19 +194,19 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 108,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai i10"
             },
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 360.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 438.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             }
           ]
@@ -219,31 +219,31 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 401.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 487.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 626.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 144,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Suzuki Swift Dzire"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 118,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Kia Pegas"
             }
           ]
@@ -256,7 +256,7 @@
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 420,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Hilux"
             }
           ]
@@ -269,13 +269,13 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 513.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 502.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             }
           ]
@@ -288,13 +288,13 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 2167.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Fortuner"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 2385.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Fortuner"
             }
           ]
@@ -307,13 +307,13 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 2688.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Land Cruiser Prado"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 3532.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Highlander"
             }
           ]
@@ -326,19 +326,19 @@
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 1104,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Luxury Car"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 2336.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "BMW 5 Series"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 2175.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Dodge Charger"
             }
           ]
@@ -350,7 +350,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:03.078199",
+      "last_updated": "2025-12-01T10:48:31.478777",
       "location": {
         "city": "Riyadh",
         "name": "Olaya District - Riyadh"
@@ -366,19 +366,19 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 337.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 465.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai i10"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 540.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Mini Car"
             }
           ]
@@ -391,31 +391,31 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 375.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 123,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Kia Pegas"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 626.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 480.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 540.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Suzuki Swift Dzire"
             }
           ]
@@ -428,31 +428,31 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 720.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Corolla"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 1575.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Hilux"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 716.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Elantra"
             },
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 570.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Elantra"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 329,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Standard Car"
             }
           ]
@@ -465,25 +465,25 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 487.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 723.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Creta"
             },
             {
               "Competitor_Name": "National",
               "Competitor_Price": 776.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Creta"
             },
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 1207.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Kia Sportage"
             }
           ]
@@ -496,13 +496,13 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 1155.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Intermediate SUV"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 1676.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota RAV4"
             }
           ]
@@ -515,7 +515,7 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 3363.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Highlander"
             }
           ]
@@ -528,13 +528,13 @@
             {
               "Competitor_Name": "Hertz",
               "Competitor_Price": 4140.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Luxury Car"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 2467.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Audi A4"
             }
           ]
@@ -546,7 +546,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:05.238796",
+      "last_updated": "2025-12-01T10:48:34.352755",
       "location": {
         "city": "Dammam",
         "name": "King Fahd Airport - Dammam"
@@ -568,7 +568,7 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 626.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             }
           ]
@@ -581,7 +581,7 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 720.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Corolla"
             }
           ]
@@ -600,7 +600,7 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 1155.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Intermediate SUV"
             }
           ]
@@ -624,7 +624,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:07.038997",
+      "last_updated": "2025-12-01T10:48:36.138901",
       "location": {
         "city": "Jeddah",
         "name": "King Abdulaziz Airport - Jeddah"
@@ -640,13 +640,13 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 98,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai i10"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 390.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             }
           ]
@@ -659,19 +659,19 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 159,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 103,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Kia Pegas"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 431.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             }
           ]
@@ -690,7 +690,7 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 476.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             }
           ]
@@ -703,7 +703,7 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 475,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota RAV4"
             }
           ]
@@ -722,7 +722,7 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 633,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Audi A4"
             }
           ]
@@ -734,7 +734,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:15.843367",
+      "last_updated": "2025-12-01T10:48:38.973670",
       "location": {
         "city": "Al Khobar",
         "name": "Al Khobar Business District"
@@ -750,7 +750,7 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 431.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             }
           ]
@@ -763,13 +763,13 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 562.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 626.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             }
           ]
@@ -782,13 +782,13 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 720.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Corolla"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 675.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Elantra"
             }
           ]
@@ -801,7 +801,7 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 577.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             }
           ]
@@ -814,7 +814,7 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 1155.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Intermediate SUV"
             }
           ]
@@ -838,7 +838,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:21.995400",
+      "last_updated": "2025-12-01T10:48:41.089276",
       "location": {
         "city": "Mecca",
         "name": "Mecca City Center"
@@ -854,19 +854,19 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 405.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 431.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             },
             {
               "Competitor_Name": "National",
               "Competitor_Price": 652.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             }
           ]
@@ -879,25 +879,25 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 427.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact Crossover"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 626.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             },
             {
               "Competitor_Name": "National",
               "Competitor_Price": 693.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact Crossover"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 645.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact Crossover"
             }
           ]
@@ -910,19 +910,19 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 581.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Dodge Neon"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 720.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Corolla"
             },
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 570.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Elantra"
             }
           ]
@@ -935,19 +935,19 @@
             {
               "Competitor_Name": "Alamo",
               "Competitor_Price": 423.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             },
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 577.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             },
             {
               "Competitor_Name": "National",
               "Competitor_Price": 813.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai Creta"
             }
           ]
@@ -960,7 +960,7 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 1155.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Intermediate SUV"
             }
           ]
@@ -979,7 +979,7 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 2175.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Dodge Charger"
             }
           ]
@@ -991,7 +991,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:28.891966",
+      "last_updated": "2025-12-01T10:48:44.778302",
       "location": {
         "city": "Medina",
         "name": "Medina Downtown"
@@ -1007,13 +1007,13 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 315.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Chevrolet Spark"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 132,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Hyundai i10"
             }
           ]
@@ -1026,19 +1026,19 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 438.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Nissan Sunny"
             },
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 137,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Kia Pegas"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 626.25,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Yaris"
             }
           ]
@@ -1051,7 +1051,7 @@
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 720.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Corolla"
             }
           ]
@@ -1064,7 +1064,7 @@
             {
               "Competitor_Name": "Enterprise",
               "Competitor_Price": 577.5,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Compact SUV"
             }
           ]
@@ -1077,13 +1077,13 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 2808.75,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Toyota Fortuner"
             },
             {
               "Competitor_Name": "Budget",
               "Competitor_Price": 1155.0,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Class Intermediate SUV"
             }
           ]
@@ -1102,7 +1102,7 @@
             {
               "Competitor_Name": "Sixtrentacar",
               "Competitor_Price": 525,
-              "Date": "2025-12-01 10:43",
+              "Date": "2025-12-01 10:48",
               "Vehicle": "Tesla Model 3"
             }
           ]
@@ -1114,7 +1114,7 @@
           "competitors": []
         }
       },
-      "last_updated": "2025-12-01T10:43:37.049753",
+      "last_updated": "2025-12-01T10:48:49.256513",
       "location": {
         "city": "Jeddah",
         "name": "Jeddah City Center"
