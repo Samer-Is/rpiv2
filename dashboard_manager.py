@@ -161,10 +161,10 @@ BRANCHES = {
     15: {"name": "Olaya District - Riyadh", "city": "Riyadh", "is_airport": False},
     63: {"name": "King Fahd Airport - Dammam", "city": "Dammam", "is_airport": True},
     33: {"name": "King Abdulaziz Airport - Jeddah", "city": "Jeddah", "is_airport": True},
-    172: {"name": "Al Khobar Business District", "city": "Al Khobar", "is_airport": False},
     45: {"name": "Mecca City Center", "city": "Mecca", "is_airport": False},
     89: {"name": "Medina Downtown", "city": "Medina", "is_airport": False},
-    110: {"name": "Riyadh City Center", "city": "Riyadh", "is_airport": False},
+    # Note: Branches 110 (Riyadh City Center) and 172 (Al Khobar Business District) 
+    # removed - no data in Fleet.VehicleHistory
 }
 
 # Initialize session state
