@@ -535,9 +535,6 @@ with st.spinner("Calculating optimal prices for all categories..."):
                             <div style="color: #6c757d; margin-bottom: 0.2rem;">
                                 <strong>Competitor Avg:</strong> {comp_avg:.0f} SAR/day
                             </div>
-                            <div style="color: {comp_color}; font-weight: bold; font-size: 0.75rem;">
-                                {comp_icon} {comp_text} ({comp_count} competitors)
-                            </div>
                             {comp_list_html}
                             <div style="color: #6c757d; font-size: 0.65rem; margin-top: 0.2rem;">
                                 🔄 Live: {comp_timestamp}
@@ -615,9 +612,6 @@ with st.spinner("Calculating optimal prices for all categories..."):
                         card_html += f"""<div style="background: #f8f9fa; padding: 0.4rem; border-radius: 0.4rem; margin-top: 0.4rem; font-size: 0.7rem;">
                             <div style="color: #6c757d; margin-bottom: 0.2rem;">
                                 <strong>Competitor Avg:</strong> {comp_avg:.0f} SAR/day
-                            </div>
-                            <div style="color: {comp_color}; font-weight: bold; font-size: 0.75rem;">
-                                {comp_icon} {comp_text} ({comp_count} competitors)
                             </div>
                             {comp_list_html}
                             <div style="color: #6c757d; font-size: 0.65rem; margin-top: 0.2rem;">
