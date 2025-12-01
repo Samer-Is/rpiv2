@@ -68,10 +68,24 @@ st.markdown("""
         padding: 0.75rem;
         margin: 0.25rem 0;
         transition: all 0.3s;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
     }
     .category-card:hover {
         border-color: #1f77b4;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .competitor-section {
+        background: #f8f9fa;
+        padding: 0.4rem;
+        border-radius: 0.4rem;
+        margin-top: 0.4rem;
+        font-size: 0.7rem;
+        min-height: 100px;
+        max-height: 120px;
+        overflow-y: auto;
+        flex-grow: 1;
     }
     .discount-badge {
         background-color: #28a745;
@@ -531,7 +545,7 @@ with st.spinner("Calculating optimal prices for all categories..."):
                         if not comp_timestamp:
                             comp_timestamp = datetime.now().strftime('%Y-%m-%d %H:%M')
                         
-                        card_html += f"""<div style="background: #f8f9fa; padding: 0.4rem; border-radius: 0.4rem; margin-top: 0.4rem; font-size: 0.7rem;">
+                        card_html += f"""<div class="competitor-section">
                             <div style="color: #6c757d; margin-bottom: 0.2rem;">
                                 <strong>Competitor Avg:</strong> {comp_avg:.0f} SAR/day
                             </div>
@@ -541,7 +555,7 @@ with st.spinner("Calculating optimal prices for all categories..."):
                             </div>
                         </div>"""
                     else:
-                        card_html += """<div style="background: #f8f9fa; padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.75rem; color: #6c757d;">
+                        card_html += """<div class="competitor-section" style="color: #6c757d;">
                             No competitor data available
                         </div>"""
                     
@@ -609,7 +623,7 @@ with st.spinner("Calculating optimal prices for all categories..."):
                         if not comp_timestamp:
                             comp_timestamp = datetime.now().strftime('%Y-%m-%d %H:%M')
                         
-                        card_html += f"""<div style="background: #f8f9fa; padding: 0.4rem; border-radius: 0.4rem; margin-top: 0.4rem; font-size: 0.7rem;">
+                        card_html += f"""<div class="competitor-section">
                             <div style="color: #6c757d; margin-bottom: 0.2rem;">
                                 <strong>Competitor Avg:</strong> {comp_avg:.0f} SAR/day
                             </div>
@@ -619,7 +633,7 @@ with st.spinner("Calculating optimal prices for all categories..."):
                             </div>
                         </div>"""
                     else:
-                        card_html += """<div style="background: #f8f9fa; padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.5rem; font-size: 0.75rem; color: #6c757d;">
+                        card_html += """<div class="competitor-section" style="color: #6c757d;">
                             No competitor data available
                         </div>"""
                     
