@@ -326,6 +326,32 @@ with col3:
 # Combine events for pricing engine (backwards compatibility)
 is_major_event = is_festival or is_sports_event or is_conference or is_hajj
 
+# Show active events warning
+active_events = []
+if is_holiday:
+    active_events.append("🎉 Holiday")
+if is_ramadan:
+    active_events.append("🌙 Ramadan")
+if is_umrah_season:
+    active_events.append("🕋 Umrah")
+if is_hajj:
+    active_events.append("🕌 Hajj")
+if is_school_vacation:
+    active_events.append("🏖️ Vacation")
+if is_festival:
+    active_events.append("🎪 Festival")
+if is_sports_event:
+    active_events.append("🏎️ Sports")
+if is_conference:
+    active_events.append("💼 Business")
+
+if active_events:
+    st.warning(f"⚠️ **EVENTS ACTIVE:** {', '.join(active_events)} - This will apply PREMIUM pricing!")
+    if st.button("🔄 Reset to Normal Day"):
+        st.rerun()
+else:
+    st.success("✓ Normal Day (No events) - Pricing based on demand and utilization only")
+
 # Fleet utilization
 st.markdown("### 🚗 Fleet Status")
 
