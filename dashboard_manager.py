@@ -357,10 +357,10 @@ if utilization_mode == "Real-time (DB)":
     available_vehicles = util_data['available_vehicles']
     utilization_pct = util_data['utilization_pct']
     
-    if util_data['source'] == 'database':
+    if util_data['source'] in ['database', 'local_file']:
         st.sidebar.success(f"✓ {rented_vehicles}/{total_vehicles} ({utilization_pct:.1f}%)")
     else:
-        st.sidebar.warning(f"⚠ No data - defaults")
+        st.sidebar.warning(f"⚠ No data - using defaults")
 else:
     total_vehicles = st.sidebar.number_input("Fleet Size", 10, 500, 100)
     rented_vehicles = st.sidebar.slider("Rented", 0, int(total_vehicles), int(total_vehicles * 0.5))
