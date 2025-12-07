@@ -14,8 +14,9 @@ import os
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Local data file path
-LOCAL_VEHICLE_HISTORY_FILE = Path('data/vehicle_history_local.csv')
+# Local data file path - use absolute path relative to this script's location
+SCRIPT_DIR = Path(__file__).resolve().parent
+LOCAL_VEHICLE_HISTORY_FILE = SCRIPT_DIR / 'data' / 'vehicle_history_local.csv'
 
 # Try to import database dependencies (optional)
 try:
