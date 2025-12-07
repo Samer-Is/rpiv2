@@ -203,7 +203,7 @@ def load_competitor_data(_version="v2.2"):
         return load_competitor_prices(), False  # Use defaults
 
 # Sidebar - Logo
-st.sidebar.image("Gemini_Generated_Image_qzl79lqzl79lqzl7.png", use_column_width=True)
+st.sidebar.image("Gemini_Generated_Image_qzl79lqzl79lqzl7.png", use_container_width=True)
 st.sidebar.markdown("---")
 
 # User role (for display purposes)
@@ -382,7 +382,7 @@ st.sidebar.metric("Utilization", f"{util_color} {utilization_pct:.0f}%", f"{avai
 # =====================================================
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    st.image("Gemini_Generated_Image_qzl79lqzl79lqzl7.png", use_column_width=True)
+    st.image("Gemini_Generated_Image_qzl79lqzl79lqzl7.png", use_container_width=True)
     st.markdown('<p class="main-header">Intelligent Dynamic Pricing</p>', unsafe_allow_html=True)
     st.info(f"👋 **{user_role}** | **{branch_info['name']}** | {pricing_date.strftime('%Y-%m-%d')} | {util_color} {utilization_pct:.0f}% Utilization")
 
