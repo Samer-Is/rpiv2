@@ -283,7 +283,13 @@ else:
 # Refresh button to clear cache and reload fresh data
 if st.sidebar.button("🔄 Refresh Competitor Data"):
     clear_cache()
+    st.session_state['refresh_message'] = True
     st.rerun()
+
+# Show refresh confirmation message
+if st.session_state.get('refresh_message'):
+    st.sidebar.success("✅ Competitor data cache cleared and reloaded!")
+    st.session_state['refresh_message'] = False
 
 st.sidebar.markdown("---")
 
