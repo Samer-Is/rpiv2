@@ -1,0 +1,5 @@
+{
+  "name": "Renty - Intelligent Dynamic Pricing System",
+  "description": "A production-ready AI-powered dynamic pricing dashboard for car rental operations. Features real-time demand prediction, competitor analysis, and automated price recommendations based on 2.48M verified rental contracts.",
+  "requestFramePermissions": []
+}

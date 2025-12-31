@@ -1,0 +1,5034 @@
+{
+  "2": [
+    {
+      "day": "Sun",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 15,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 12,
+      "is_peak": false
+    }
+  ],
+  "3": [
+    {
+      "day": "Sun",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 18,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 15,
+      "is_peak": false
+    }
+  ],
+  "4": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "6": [
+    {
+      "day": "Sun",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 14,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 11,
+      "is_peak": false
+    }
+  ],
+  "7": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "8": [
+    {
+      "day": "Sun",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 14,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 11,
+      "is_peak": false
+    }
+  ],
+  "11": [
+    {
+      "day": "Sun",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 16,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 13,
+      "is_peak": false
+    }
+  ],
+  "13": [
+    {
+      "day": "Sun",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 12,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 10,
+      "is_peak": false
+    }
+  ],
+  "14": [
+    {
+      "day": "Sun",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 3,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 2,
+      "is_peak": false
+    }
+  ],
+  "15": [
+    {
+      "day": "Sun",
+      "bookings": 69,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 75,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 77,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 83,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 96,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 86,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 80,
+      "is_peak": false
+    }
+  ],
+  "17": [
+    {
+      "day": "Sun",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 12,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 10,
+      "is_peak": false
+    }
+  ],
+  "18": [
+    {
+      "day": "Sun",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 20,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 16,
+      "is_peak": false
+    }
+  ],
+  "19": [
+    {
+      "day": "Sun",
+      "bookings": 27,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 29,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 30,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 32,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 37,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 33,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 31,
+      "is_peak": false
+    }
+  ],
+  "20": [
+    {
+      "day": "Sun",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 9,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 7,
+      "is_peak": false
+    }
+  ],
+  "22": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "24": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "26": [
+    {
+      "day": "Sun",
+      "bookings": 23,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 25,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 26,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 28,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 33,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 29,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 27,
+      "is_peak": false
+    }
+  ],
+  "27": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "30": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "33": [
+    {
+      "day": "Sun",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 10,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 8,
+      "is_peak": false
+    }
+  ],
+  "34": [
+    {
+      "day": "Sun",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 18,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 22,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 18,
+      "is_peak": false
+    }
+  ],
+  "35": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "36": [
+    {
+      "day": "Sun",
+      "bookings": 25,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 27,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 28,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 30,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 35,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 31,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 29,
+      "is_peak": false
+    }
+  ],
+  "38": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "39": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "40": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "42": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "45": [
+    {
+      "day": "Sun",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 18,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 20,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 23,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 21,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 19,
+      "is_peak": false
+    }
+  ],
+  "46": [
+    {
+      "day": "Sun",
+      "bookings": 22,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 24,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 25,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 27,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 31,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 28,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 26,
+      "is_peak": false
+    }
+  ],
+  "51": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "52": [
+    {
+      "day": "Sun",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 9,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 7,
+      "is_peak": false
+    }
+  ],
+  "57": [
+    {
+      "day": "Sun",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 18,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 22,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 18,
+      "is_peak": false
+    }
+  ],
+  "58": [
+    {
+      "day": "Sun",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 9,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 7,
+      "is_peak": false
+    }
+  ],
+  "60": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "61": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "63": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "64": [
+    {
+      "day": "Sun",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 17,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 14,
+      "is_peak": false
+    }
+  ],
+  "65": [
+    {
+      "day": "Sun",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 15,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 12,
+      "is_peak": false
+    }
+  ],
+  "66": [
+    {
+      "day": "Sun",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 17,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 14,
+      "is_peak": false
+    }
+  ],
+  "67": [
+    {
+      "day": "Sun",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 20,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 16,
+      "is_peak": false
+    }
+  ],
+  "68": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "69": [
+    {
+      "day": "Sun",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 12,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 10,
+      "is_peak": false
+    }
+  ],
+  "70": [
+    {
+      "day": "Sun",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 14,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 11,
+      "is_peak": false
+    }
+  ],
+  "85": [
+    {
+      "day": "Sun",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 16,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 13,
+      "is_peak": false
+    }
+  ],
+  "88": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "89": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "90": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "91": [
+    {
+      "day": "Sun",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 10,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 8,
+      "is_peak": false
+    }
+  ],
+  "107": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "108": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "113": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "119": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "120": [
+    {
+      "day": "Sun",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 18,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 15,
+      "is_peak": false
+    }
+  ],
+  "122": [
+    {
+      "day": "Sun",
+      "bookings": 123,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 133,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 137,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 147,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 171,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 152,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 142,
+      "is_peak": false
+    }
+  ],
+  "123": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 1,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "127": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "128": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "133": [
+    {
+      "day": "Sun",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 9,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 7,
+      "is_peak": false
+    }
+  ],
+  "135": [
+    {
+      "day": "Sun",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 12,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 10,
+      "is_peak": false
+    }
+  ],
+  "137": [
+    {
+      "day": "Sun",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 10,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 8,
+      "is_peak": false
+    }
+  ],
+  "139": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "141": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "142": [
+    {
+      "day": "Sun",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 18,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 20,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 23,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 21,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 19,
+      "is_peak": false
+    }
+  ],
+  "143": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "174": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "176": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "177": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "178": [
+    {
+      "day": "Sun",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 3,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 2,
+      "is_peak": false
+    }
+  ],
+  "179": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "180": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "183": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "185": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "187": [
+    {
+      "day": "Sun",
+      "bookings": 73,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 79,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 81,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 87,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 101,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 90,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 84,
+      "is_peak": false
+    }
+  ],
+  "188": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "189": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "192": [
+    {
+      "day": "Sun",
+      "bookings": 28,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 31,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 32,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 34,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 40,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 35,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 33,
+      "is_peak": false
+    }
+  ],
+  "193": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "194": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "196": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "197": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "198": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "199": [
+    {
+      "day": "Sun",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 12,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 10,
+      "is_peak": false
+    }
+  ],
+  "200": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "201": [
+    {
+      "day": "Sun",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 15,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 12,
+      "is_peak": false
+    }
+  ],
+  "202": [
+    {
+      "day": "Sun",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 9,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 7,
+      "is_peak": false
+    }
+  ],
+  "207": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "209": [
+    {
+      "day": "Sun",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 2,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 1,
+      "is_peak": false
+    }
+  ],
+  "210": [
+    {
+      "day": "Sun",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 9,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 7,
+      "is_peak": false
+    }
+  ],
+  "211": [
+    {
+      "day": "Sun",
+      "bookings": 14,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 15,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 20,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 16,
+      "is_peak": false
+    }
+  ],
+  "213": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "214": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "216": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "217": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "221": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "222": [
+    {
+      "day": "Sun",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 9,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 7,
+      "is_peak": false
+    }
+  ],
+  "223": [
+    {
+      "day": "Sun",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 2,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 1,
+      "is_peak": false
+    }
+  ],
+  "224": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "225": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "226": [
+    {
+      "day": "Sun",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 3,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 2,
+      "is_peak": false
+    }
+  ],
+  "227": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "1012": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1032": [
+    {
+      "day": "Sun",
+      "bookings": 8,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 11,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 9,
+      "is_peak": false
+    }
+  ],
+  "1042": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1052": [
+    {
+      "day": "Sun",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 12,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 15,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 13,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 12,
+      "is_peak": false
+    }
+  ],
+  "1062": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1072": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 8,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 7,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 6,
+      "is_peak": false
+    }
+  ],
+  "1082": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1092": [
+    {
+      "day": "Sun",
+      "bookings": 16,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 17,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 18,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 22,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 19,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 18,
+      "is_peak": false
+    }
+  ],
+  "1102": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1112": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1122": [
+    {
+      "day": "Sun",
+      "bookings": 9,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 10,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 12,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 11,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 10,
+      "is_peak": false
+    }
+  ],
+  "1152": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1153": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 1,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1173": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 1,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1212": [
+    {
+      "day": "Sun",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 4,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 3,
+      "is_peak": false
+    }
+  ],
+  "1213": [
+    {
+      "day": "Sun",
+      "bookings": 26,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 28,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 29,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 31,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 36,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 32,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 30,
+      "is_peak": false
+    }
+  ],
+  "1214": [
+    {
+      "day": "Sun",
+      "bookings": 31,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 34,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 35,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 37,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 43,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 38,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 36,
+      "is_peak": false
+    }
+  ],
+  "1222": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "1242": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1252": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "1273": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 1,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1282": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1302": [
+    {
+      "day": "Sun",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 4,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 5,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 4,
+      "is_peak": false
+    }
+  ],
+  "1312": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1322": [
+    {
+      "day": "Sun",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 2,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 1,
+      "is_peak": false
+    }
+  ],
+  "1342": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1352": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "1362": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 1,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1372": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 1,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1373": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1374": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1382": [
+    {
+      "day": "Sun",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 3,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 3,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 2,
+      "is_peak": false
+    }
+  ],
+  "1402": [
+    {
+      "day": "Sun",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 5,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 7,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 6,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 5,
+      "is_peak": false
+    }
+  ],
+  "1432": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ],
+  "1442": [
+    {
+      "day": "Sun",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 1,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 2,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 2,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 1,
+      "is_peak": false
+    }
+  ],
+  "1453": [
+    {
+      "day": "Sun",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Mon",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Tue",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Wed",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Thu",
+      "bookings": 0,
+      "is_peak": true
+    },
+    {
+      "day": "Fri",
+      "bookings": 0,
+      "is_peak": false
+    },
+    {
+      "day": "Sat",
+      "bookings": 0,
+      "is_peak": false
+    }
+  ]
+}

@@ -1,7 +1,12 @@
-# Dynamic Pricing Engine - Requirements
-# Compatible with Streamlit Cloud (Python 3.11+)
+# Renty Dynamic Pricing System v2.0
+# Server Deployment Requirements
 
-# Data manipulation
+# Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+
+# Data Processing
 pandas>=2.0.0
 numpy>=1.24.0
 
@@ -9,15 +14,20 @@ numpy>=1.24.0
 xgboost>=2.0.0
 scikit-learn>=1.3.0
 
-# Data storage
+# Data Storage
 pyarrow>=14.0.0
 
-# External API
-requests>=2.31.0
+# Database (not required for production - using local data files)
+# pyodbc>=5.0.0  # Only needed if connecting to SQL Server
 
-# Dashboard
-streamlit>=1.30.0
-plotly>=5.18.0
+# External APIs
+requests>=2.31.0
 
 # Utilities
 python-dateutil>=2.8.0
+
+# Security/SSL
+cryptography>=41.0.0
+
+# CORS
+# (included in fastapi)
