@@ -6,6 +6,47 @@ This file logs all successful commits to the repository.
 
 ## 2026-01-22
 
+### Commit: CHUNK 3 - Base Price Engine
+- **Hash:** f43a938
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**BaseRateService Created:**
+- `get_base_prices_for_category()` - Aggregated prices for branch × category
+- `get_model_prices()` - Individual model prices
+- `get_mvp_category_prices()` - MVP categories only
+- Supports effective date filtering (Start/End period logic)
+- Falls back to default rates when no branch-specific rates exist
+
+**API Endpoints:**
+- `GET /prices/base` - Get base price for branch × category
+- `POST /prices/base` - Same as GET with JSON body
+- `GET /prices/models` - Get prices for all models in a category
+- `GET /prices/categories` - Get prices for all categories
+- `GET /prices/mvp-categories` - Get prices for MVP categories
+- `GET /prices/summary` - Quick validation summary
+
+**Data Structure Discovered:**
+- RentalRates → RentalRatesSchemaPeriods → RentalRatesSchemaPeriodsDetails
+- Period types: Daily (1-6 days), Weekly (7-27 days), Monthly (28+ days)
+- MVP branches use default rates (BranchId IS NULL)
+
+**Validation Results:**
+- 5/5 branch × category tests passed
+- Effective period logic validated for 4 test dates
+- All 6 MVP categories have prices
+- 94 models across MVP categories
+
+**Files Created:**
+- `backend/app/services/base_rate_service.py` - Base rate service
+- `backend/app/routers/prices.py` - Price API endpoints
+- `backend/app/schemas/base_price.py` - Pydantic schemas
+- `scripts/test_chunk3_validation.py` - Validation tests
+- `scripts/explore_base_prices*.py` - Data exploration scripts
+
+---
+
 ### Commit: CHUNK 2 - App DB + Config Tables
 - **Hash:** 1162e7a
 - **Branch:** main
