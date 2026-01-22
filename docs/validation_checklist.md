@@ -1,27 +1,27 @@
 # Validation Checklist
 
 ## CHUNK 0 - Project Scaffold
-- [ ] Backend runs GET /health successfully
-- [ ] Frontend loads login page
-- [ ] Frontend loads skeleton dashboard after login
-- [ ] Docker compose builds without errors
+- [x] Backend runs GET /health successfully
+- [x] Frontend loads login page
+- [x] Frontend loads skeleton dashboard after login
+- [x] Docker compose builds without errors
 
 ## CHUNK 1 - SQL Server Connection + Data Discovery
-- [ ] Connect to eJarDbSTGLite successfully
-- [ ] Connect to eJarDbReports successfully
-- [ ] Identify tenant_id column location
-- [ ] Map branch_id correctly
-- [ ] Map category_id correctly
-- [ ] Extract base price paid from ContractsPaymentsItemsDetails
-- [ ] Confirm min/max dates (data through 18-Nov-2025)
-- [ ] Count total contracts for YELO tenant
-- [ ] Count total bookings for YELO tenant
-- [ ] Filter individual rentals (exclude corporate/lease)
-- [ ] Document join paths
+- [x] Connect to eJarDbSTGLite successfully (Windows Auth: Trusted_Connection=yes)
+- [x] Identify tenant_id column location → TenantId in Rental.Contract, YELO = 1
+- [x] Map branch_id correctly → PickupBranchId in Rental.Contract → Rental.Branches
+- [x] Map category_id correctly → via Fleet.Vehicles.ModelId → Rental.CarModels.CarCategoryId
+- [x] Identify base price source → Contract.DailyRateAmount (100% complete) or ContractsPaymentsItemsDetails.ItemTypeId=1
+- [x] Confirm min/max dates → 2022-01-01 to 2025-11-18 (data available)
+- [x] Count total contracts for YELO tenant → 5,722,215 total, 2,826,983 individual (2022+)
+- [x] Filter individual rentals → Discriminator='Contract', StatusId=211 (Delivered)
+- [x] Document join paths → See data_discovery_report.md
+- [x] Discover pre-existing dynamicpricing schema with TrainingData (36,308 rows)
+- [x] Discover TopBranches (6 branches) and TopCategories (6 categories) pre-defined
 
 ## CHUNK 2 - App DB + Config Tables
+- [x] dynamicpricing schema exists (pre-existing)
 - [ ] appconfig schema created
-- [ ] dynamicpricing schema created
 - [ ] All metadata tables exist
 - [ ] YELO tenant record inserted
 - [ ] Config read/write via API works
