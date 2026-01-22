@@ -6,6 +6,41 @@ This file logs all successful commits to the repository.
 
 ## 2026-01-22
 
+### Commit: CHUNK 2 - App DB + Config Tables
+- **Hash:** 1162e7a
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**appconfig Schema Created (9 tables):**
+- `appconfig.tenants` - Multi-tenant support
+- `appconfig.tenant_settings` - Key-value settings
+- `appconfig.guardrails` - Price min/max limits
+- `appconfig.signal_weights` - Algorithm weights
+- `appconfig.utilization_status_config` - Vehicle status mappings
+- `appconfig.branch_city_mapping` - Weather API coordinates
+- `appconfig.competitor_mapping` - Competitor price mapping
+- `appconfig.selection_config` - MVP branches/categories
+- `appconfig.audit_log` - Change tracking
+
+**YELO Configuration Inserted:**
+- Tenant ID: 1
+- Default guardrails: min_price=50 SAR, max_discount=30%, max_premium=50%
+- 6 signal weights configured
+- 6 MVP branches with lat/lon coordinates
+- 6 MVP categories
+
+**Files Created/Modified:**
+- `scripts/create_appconfig_schema.py` - Schema creation script
+- `scripts/test_chunk2_validation.py` - Validation tests
+- `backend/app/models/appconfig.py` - SQLAlchemy models
+- `backend/app/schemas/config.py` - Pydantic schemas
+- `backend/app/routers/config.py` - Config API endpoints
+- `backend/app/routers/health.py` - DB health check
+- `backend/app/main.py` - Router includes
+
+---
+
 ### Commit: CHUNK 1 - SQL Server Data Discovery
 - **Hash:** 9928287
 - **Branch:** main
