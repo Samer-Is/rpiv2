@@ -6,6 +6,35 @@ This file logs all successful commits to the repository.
 
 ## 2026-01-22
 
+### Commit: CHUNK 1 - SQL Server Data Discovery
+- **Hash:** 9928287
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**Key Discoveries:**
+- YELO tenant_id = 1 (Name: 'Yelo', TenancyName: 'Default')
+- Total individual rentals (2022+): 2,826,983
+- Data range: 2022-01-01 to 2025-11-18
+- DailyRateAmount: 100% complete, avg 234 SAR
+- Filter: `Discriminator='Contract' AND StatusId=211`
+- Pre-existing dynamicpricing schema found with:
+  - TopBranches (6 MVP branches)
+  - TopCategories (6 MVP categories)
+  - TrainingData (36,308 rows)
+  - ValidationData (4,749 rows)
+
+**Files Created/Modified:**
+- `scripts/data_discovery.py` - Main discovery script
+- `scripts/data_discovery_part2.py` - MVP scope queries
+- `scripts/data_discovery_part3.py` - Final details
+- `docs/data_discovery_report.md` - Comprehensive findings
+- `backend/app/core/config.py` - Windows Auth config
+- `backend/app/db/session.py` - Updated connection handling
+- `docs/validation_checklist.md` - Updated with discoveries
+
+---
+
 ### Commit: CHUNK 0 - Project Scaffold
 - **Hash:** a499d75
 - **Branch:** main
