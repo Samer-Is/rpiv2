@@ -6,6 +6,56 @@ This file logs all successful commits to the repository.
 
 ## 2026-01-22
 
+### Commit: CHUNK 4 - Utilization Engine
+- **Hash:** 525e1e4
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**UtilizationService Created:**
+- `get_all_utilizations()` - Returns utilization for all MVP branch × category combinations
+- `get_utilization_for_branch_category()` - Single branch/category lookup
+- `get_fleet_snapshot()` - Detailed status breakdown by vehicle
+- `get_status_config_summary()` - Lists all status types and vehicle counts
+- Configurable status mappings from `appconfig.utilization_status_config`
+
+**Formula:** `Utilization = Rented / (Rented + Available)`
+
+**Status Configuration:**
+- 140 = Ready (AVAILABLE) - Available for rent
+- 141 = Rented (RENTED) - Currently on rental
+- 156 = In-Use (RENTED) - Currently in use
+- 143 = Sold (EXCLUDED) - Sold, not in active fleet
+- Other statuses excluded from utilization calculation
+
+**API Endpoints:**
+- `GET /utilization/` - Get all utilizations
+- `GET /utilization/branch/{id}/category/{id}` - Specific branch/category
+- `GET /utilization/snapshot` - Fleet status detail
+- `GET /utilization/config` - Status configuration
+- `GET /utilization/summary` - Branch/category summary
+
+**Validation Results:**
+- 36 branch × category combinations tested
+- Utilization range [0, 1]: ✅ PASSED
+- Utilization variance across categories: ✅ PASSED (29 unique values)
+- Service vs SQL consistency: ✅ PASSED
+- API endpoints accessible: ✅ PASSED
+
+**Sample Data:**
+- Utilization ranges from 0% to 100%
+- Example: Branch 122 × Category 27 (Compact): 76.3% utilization
+- Total active fleet: 2,264 rented + 682 available = 2,946 vehicles
+
+**Files Created:**
+- `backend/app/services/utilization_service.py` - Utilization calculation service
+- `backend/app/routers/utilization.py` - API endpoints
+- `backend/app/schemas/utilization.py` - Pydantic schemas
+- `scripts/test_chunk4_validation.py` - Validation tests
+- `scripts/explore_utilization*.py` - Data exploration scripts
+
+---
+
 ### Commit: CHUNK 3 - Base Price Engine
 - **Hash:** f43a938
 - **Branch:** main
