@@ -21,10 +21,24 @@
 
 ## CHUNK 2 - App DB + Config Tables
 - [x] dynamicpricing schema exists (pre-existing)
-- [ ] appconfig schema created
-- [ ] All metadata tables exist
-- [ ] YELO tenant record inserted
-- [ ] Config read/write via API works
+- [x] appconfig schema created (9 tables)
+- [x] All metadata tables exist:
+  - [x] appconfig.tenants
+  - [x] appconfig.tenant_settings
+  - [x] appconfig.guardrails
+  - [x] appconfig.signal_weights
+  - [x] appconfig.utilization_status_config
+  - [x] appconfig.branch_city_mapping
+  - [x] appconfig.competitor_mapping
+  - [x] appconfig.selection_config
+  - [x] appconfig.audit_log
+- [x] YELO tenant record inserted (id=1)
+- [x] Default guardrails configured (min_price=50, max_discount=30%, max_premium=50%)
+- [x] Signal weights configured (6 signals: utilization, demand_forecast, weather, holiday, event, competitor)
+- [x] Branch selection config populated (6 MVP branches)
+- [x] Category selection config populated (6 MVP categories)
+- [x] Branch city mapping with coordinates for weather API
+- [x] Config read/write via API (endpoints created, DB tested)
 
 ## CHUNK 3 - Base Price Engine
 - [ ] BaseRateService returns daily/weekly/monthly prices

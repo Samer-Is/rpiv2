@@ -5,6 +5,8 @@ Production-grade Dynamic Pricing Tool for Car Rental (Renty SaaS)
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routers import health, auth, config
+
 app = FastAPI(
     title="Renty Dynamic Pricing API",
     description="Production-grade Dynamic Pricing Tool for Car Rental",
@@ -20,11 +22,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/health")
-async def health_check():
-    """Health check endpoint"""
-    return {"status": "healthy", "service": "dynamic-pricing-api", "version": "0.1.0"}
+# Include routers
+app.include_router(health.router)
+app.include_router(auth.router)
+app.include_router(config.router)
 
 
 @app.get("/")
