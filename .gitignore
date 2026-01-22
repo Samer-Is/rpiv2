@@ -1,78 +1,59 @@
-# Python
+# Byte-compiled
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+
+# Virtual environments
 venv/
-ENV/
-
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Build outputs
-frontend_prototype/dist/
-static/
-
-# Environment
-.env
-.env.local
-.env.*.local
+env/
+.venv/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# Certificates (sensitive)
-certs/
-*.pfx
-*.pem
-*.key
-*.crt
-
-# Old/deleted files
-to_be_deleted/
-
-# OS files
-.DS_Store
-Thumbs.db
+# Environment files
+.env
+.env.local
 
 # Logs
 *.log
 logs/
 
-# Test coverage
-htmlcov/
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+dist/
+build/
+.npm
+
+# Python
+*.egg-info/
+*.egg
+.eggs/
+pip-log.txt
+
+# Testing
 .coverage
+htmlcov/
 .pytest_cache/
+.tox/
 
-# Jupyter
-.ipynb_checkpoints/
+# Alembic
+alembic/versions/__pycache__/
 
-# Reports (generated)
-reports/
+# Model files (can be large)
+*.pkl
+*.joblib
+*.pt
+*.pth
+!models/.gitkeep
 
-# Temporary files
+# Temp files
 *.tmp
 *.temp

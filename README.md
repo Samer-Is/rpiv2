@@ -1,182 +1,108 @@
-# Renty Dynamic Pricing System v2.0
+# Renty Dynamic Pricing Tool
 
-An intelligent, AI-powered dynamic pricing system for car rental optimization.
+Production-grade Dynamic Pricing Tool for Car Rental integrated into Renty SaaS.
 
-## 🎯 Overview
-
-This system uses **XGBoost machine learning** to predict demand and automatically adjust rental prices based on:
-- Real-time fleet utilization
-- Competitor pricing analysis
-- External events (holidays, Ramadan, Hajj, etc.)
-- Historical booking patterns
-
-## 🏗️ Architecture
+## Project Structure
 
 ```
-┌─────────────────────┐     ┌─────────────────────┐
-│   React Frontend    │────▶│   FastAPI Backend   │
-│   (Port 3000)       │     │   (Port 8000)       │
-└─────────────────────┘     └──────────┬──────────┘
-                                       │
-                    ┌──────────────────┼──────────────────┐
-                    │                  │                  │
-              ┌─────▼─────┐     ┌──────▼──────┐    ┌──────▼──────┐
-              │  XGBoost  │     │  SQL Server │    │ Competitor  │
-              │   Model   │     │  Database   │    │    APIs     │
-              └───────────┘     └─────────────┘    └─────────────┘
+rpiv4/
+├── backend/                 # FastAPI Python backend
+│   ├── app/
+│   │   ├── core/           # Config, security
+│   │   ├── db/             # Database connections
+│   │   ├── models/         # SQLAlchemy models
+│   │   ├── schemas/        # Pydantic schemas
+│   │   ├── services/       # Business logic
+│   │   ├── routers/        # API endpoints
+│   │   └── utils/          # Utilities
+│   ├── tests/
+│   ├── alembic/            # DB migrations
+│   ├── requirements.txt
+│   └── Dockerfile
+├── frontend/               # React + TypeScript frontend
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── api/
+│   │   └── styles/
+│   ├── package.json
+│   └── Dockerfile
+├── docs/                   # Documentation
+├── docker-compose.yml
+└── README.md
 ```
 
-## 📦 Quick Start (Local Development)
+## Quick Start
 
 ### Prerequisites
-- Python 3.11+
-- Node.js 18+
-- SQL Server (with Windows Authentication)
+- Docker & Docker Compose
+- SQL Server with ODBC Driver 17
+- Node.js 20+ (for local frontend dev)
+- Python 3.10+ (for local backend dev)
 
-### 1. Backend Setup
+### Environment Setup
+
+1. Copy environment file:
 ```bash
-# Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # Windows
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Start API server
-python api_server.py
+cp .env.example .env
 ```
 
-### 2. Frontend Setup
+2. Edit `.env` with your SQL Server credentials and API keys.
+
+### Run with Docker
+
 ```bash
-cd frontend_prototype
+docker-compose up --build
+```
+
+- Backend: http://localhost:8000
+- Frontend: http://localhost:80
+- API Docs: http://localhost:8000/docs
+
+### Local Development
+
+**Backend:**
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate  # Windows
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+**Frontend:**
+```bash
+cd frontend
 npm install
 npm run dev
 ```
 
-### 3. Access
-- **Dashboard**: http://localhost:3000
-- **API Docs**: http://localhost:8000/docs
+## API Endpoints
 
-## 🚀 Server Deployment
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /health | Health check |
+| POST | /auth/login | Login and get JWT |
+| GET | /config/* | Configuration endpoints |
+| GET | /recommendations | Get pricing recommendations |
+| POST | /recommendations/{id}/approve | Approve recommendation |
+| POST | /recommendations/{id}/skip | Skip recommendation |
 
-### Prerequisites
-- Linux server (Ubuntu 22.04+ recommended)
-- Python 3.11+
-- Node.js 18+
-- Nginx (for reverse proxy)
-- SSL certificate (`.pfx` file)
+## Deployment (Windows Server)
 
-### Step 1: Transfer Files
-```bash
-# Copy project to server
-scp -r . user@server:/opt/renty-pricing/
-```
+1. Install Docker Desktop on Windows Server
+2. Clone repository
+3. Configure `.env` file
+4. Run `docker-compose up -d`
 
-### Step 2: Setup Backend
-```bash
-cd /opt/renty-pricing
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+## Multi-Tenancy
 
-# Create systemd service (see deploy/renty-api.service)
-sudo systemctl enable renty-api
-sudo systemctl start renty-api
-```
+- All tables include `tenant_id` column
+- JWT tokens contain `tenant_id` claim
+- API automatically filters by tenant context
 
-### Step 3: Setup Frontend
-```bash
-cd frontend_prototype
-npm install
-npm run build
+## MVP Scope
 
-# Serve with Nginx (see deploy/nginx.conf)
-```
-
-### Step 4: Configure SSL
-```bash
-# Extract certificate from PFX
-openssl pkcs12 -in certificate.pfx -clcerts -nokeys -out cert.pem
-openssl pkcs12 -in certificate.pfx -nocerts -nodes -out key.pem
-
-# Configure Nginx with SSL
-sudo cp deploy/nginx.conf /etc/nginx/sites-available/renty
-sudo ln -s /etc/nginx/sites-available/renty /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
-```
-
-## 📁 Project Structure
-
-```
-├── api_server.py           # FastAPI backend server
-├── pricing_engine.py       # Core pricing logic with XGBoost
-├── pricing_rules.py        # Business rules for pricing
-├── config.py               # Configuration settings
-├── db.py                   # Database connection
-├── competitor_pricing.py   # Competitor analysis
-├── utilization_query.py    # Fleet utilization queries
-├── frontend_prototype/     # React TypeScript frontend
-│   ├── pages/
-│   │   ├── Dashboard.tsx   # Main pricing dashboard
-│   │   └── Analytics.tsx   # EDA & insights
-│   └── services/
-│       └── api.ts          # API client
-├── models/                 # Trained ML models
-├── data/                   # Data files
-└── deploy/                 # Deployment configs
-```
-
-## 🔧 Configuration
-
-### Environment Variables
-Create a `.env` file:
-```env
-# Database
-DB_SERVER=your-server
-DB_NAME=your-database
-
-# API
-API_HOST=0.0.0.0
-API_PORT=8000
-
-# Frontend
-VITE_API_BASE_URL=https://your-domain.com
-VITE_GEMINI_API_KEY=your-gemini-key
-```
-
-### Database Connection
-The system uses Windows Authentication by default. For server deployment, update `db.py` with appropriate credentials.
-
-## 📊 Features
-
-- **Real-time Pricing**: Dynamic price adjustments based on demand
-- **Branch-specific Data**: Per-branch utilization and metrics
-- **Competitor Analysis**: Integration with Booking.com and Kayak
-- **Event Detection**: Automatic detection of holidays, Ramadan, Hajj
-- **AI Insights**: Gemini-powered pricing recommendations
-- **Adjustable Multipliers**: Customizable pricing rules
-
-## 🔒 Security
-
-- CORS configured for production domains
-- SSL/TLS encryption support
-- Database credentials via environment variables
-- Certificate-based HTTPS
-
-## 📈 Model Performance
-
-- **Algorithm**: XGBoost Regressor
-- **R² Score**: 95.35%
-- **Features**: 52 engineered features
-- **Training Data**: 2+ years of historical bookings
-
-## 👥 Team Access
-
-After deployment, share the URL with team members:
-- `https://your-domain.com` - Main dashboard
-- `https://your-domain.com/analytics` - EDA Analysis
-- `https://your-domain.com/docs` - Documentation
-
-## 📝 License
-
-Internal use only - Al-Manzumah Al-Muttahidah For IT Systems
+- Tenant: YELO
+- Branches: Top 6 (3 airport + 3 non-airport)
+- Categories: Top 6 by rental volume

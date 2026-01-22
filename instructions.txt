@@ -1,0 +1,932 @@
+You are a Senior Full-Stack Engineer + Data Scientist + Software Architect.
+You will build a production-grade Dynamic Pricing Tool for Car Rental as a multi-tenant SaaS.
+
+This is NOT a demo.
+This is a real product running on real SQL Server data (2020 → 18 Nov 2025).
+No simulated data, no placeholders, no fake results.
+No assumptions — if something is ambiguous you MUST stop and ask me.
+
+We will build in strict chunks. Each chunk must be validated 100% using real data (multiple validation methods) before continuing.
+
+✅ Repo & Starting Point
+
+Use this repo: https://github.com/Samer-Is/rpiv4
+
+Repo is currently empty → you must scaffold the full solution.
+
+Target deployment: Windows Server
+
+Must be production-level and Docker-ready.
+
+0) NON-NEGOTIABLE REQUIREMENTS (STRICT)
+Data & Accuracy
+
+No assumptions. Ever.
+
+No demo data. Ever.
+
+Data exists from 2020 until 18-Nov-2025.
+If you don’t find it, you are doing something wrong.
+
+Historical training data rule:
+
+Demand models must use data from 2023+ only (not older).
+
+Pricing Scope
+
+Dynamic pricing depends on 5 elements, all configurable in UI:
+
+Current utilization from future bookings
+
+Actual utilization from active contracts (executed utilization)
+
+Demand forecast model
+
+Events + weather + seasonality (from web APIs)
+
+Competitor pricing (Booking.com API)
+
+Granularity
+
+All metrics & pricing computed at Branch × Category level.
+
+“Not all categories should move same direction” (economy may go premium, luxury may discount).
+
+UI Rules
+
+Must show 6 categories in ONE PAGE at the same time
+
+No toggles / no selecting categories via dropdown
+
+Only dropdown allowed = Branch selection
+
+Must display:
+
+Base Prices: Daily / Weekly / Monthly
+
+Recommended Prices: Daily / Weekly / Monthly
+
+Premium/Discount % highlighted
+
+Must include Approve and Skip button per category
+
+Guardrails (Configurable in UI)
+
+Min price
+
+Min discount %
+
+Max discount %
+
+System must prevent approving prices outside guardrails
+
+Multi-tenancy
+
+Source data has tenant identifier somewhere → must be discovered from DB dictionary + exploration
+
+MVP tenant: YELO only
+
+Architecture must remain multi-tenant for SaaS production
+
+Time Definition (IMPORTANT)
+
+We must support “future bookings” logic even though dataset ends 18-Nov-2025.
+You must follow these rules exactly (but also flag inconsistencies if found):
+
+Assume “Today” = 31 May 2026
+
+Bookings later than that date are considered future bookings
+
+Contracts running after 31 May 2025 are counted as realized/executed bookings
+
+⚠️ There is a possible date inconsistency (2026 vs 2025).
+You MUST detect it and ask me before coding the final logic.
+
+Demand Forecasting Models
+
+You (Cursor) must build demand forecasting per Branch×Category.
+
+I think we need 36 models (demand differs per branch per category).
+
+Forecast horizon: 30 days
+
+Must be “simple time-series but high accuracy”
+
+Must be validated with backtesting (MAPE / MAE, etc.)
+
+⚠️ There is also a possible mismatch between:
+
+Top 5 branches + top 5 categories = 25 models
+
+UI requires 6 categories
+
+I stated 36 models
+You MUST detect this and ask me to confirm the final number BEFORE training.
+
+1) DATA SOURCES (SQL SERVER + APIs)
+SQL Server Databases
+
+SQL Server has BOTH DBs on same instance: ✅ YES
+
+Databases:
+
+eJarDbReports
+
+eJarDbSTGLite
+
+Required Tables
+
+You will use ONLY real data from these:
+
+Rental
+
+Rental.contracts (all contracts history)
+
+Rental.bookings (future bookings not converted yet)
+
+Rental.vhechleates ✅ MOST IMPORTANT for BASE PRICES
+Must extract:
+
+daily price
+
+weekly price
+
+monthly price
+
+effective period logic
+
+Fleet
+
+Fleet.vhichles
+
+Fleet.carmodels
+
+Fleet.carcategories
+
+Fleet.lookups (lookup mapping)
+
+Other
+
+dbo.vhichleultization (utilization history snapshots)
+
+VehicleHistory (must be used for status)
+
+Filtering Rules
+
+Use Individual rentals only
+
+Exclude:
+
+corporate
+
+lease
+
+anything else non-individual
+You must discover how to filter from data exploration.
+
+Competitor API
+
+Competitor prices come from Booking.com API
+
+You MUST refer to file: booking_com_api in main directory for:
+
+base URL
+
+endpoints
+
+auth
+
+sample response
+
+mapping logic
+
+Pricing comparison:
+
+match competitor products to our categories
+
+use average of top 3 competitors
+
+NOT lowest competitor price
+
+Weather API
+
+You MUST refer to file: WEATHERAPI_COM_API in main directory for API usage + key.
+
+Holidays + Events APIs
+
+Holidays API Key:
+3eb49e68-9b03-43a8-941d-2b361643730f
+
+Events API Key:
+ee3f6846a929d9015141ea3d5957c108c635e2190a926a91ec996b1f69b3f869
+
+Branch-to-city mapping:
+
+No lat/lon in DB
+
+But names are clear (e.g., Riyadh branches)
+You must implement a manual mapping table (configurable by admin).
+
+2) UTILIZATION LOGIC (CONFIGURABLE)
+
+Utilization must be configurable in UI because tenants define “available” differently.
+
+Required Default Utilization Formula
+
+For any target date:
+
+Numerator
+
+Active Contracts overlapping target date
+
+Future Bookings overlapping target date
+
+Denominator
+
+Total fleet available for rent
+
+EXCLUDING sold/out of service
+
+Configurable in UI
+
+Admin must select which statuses count as:
+
+Available (denominator inclusion)
+
+Occupied (numerator inclusion)
+
+Excluded (sold / out of service / etc.)
+
+Statuses come from:
+
+VehicleHistory + Fleet.lookups
+
+3) DYNAMIC PRICING BEHAVIOR (5-DAY ROLLING WINDOW)
+
+Dynamic prices must apply on bookings starting from the same day up to next 5 days.
+
+After the 5 days:
+
+revert to base rate only
+
+but system runs in a rolling window continuously
+
+The UI must support selecting a start date and showing the 5-day window impact.
+
+4) OUTPUT EXPECTATIONS (UI OUTPUT)
+
+For each Branch selection:
+
+Show all 6 categories together
+
+Each category shows:
+
+LEFT SIDE (Base)
+
+Base Daily
+
+Base Weekly
+
+Base Monthly
+
+RIGHT SIDE (Recommended)
+
+New Daily
+
+New Weekly
+
+New Monthly
+
+Premium/Discount % shown clearly
+
+Actions:
+
+Approve (write approval record)
+
+Skip (ignore suggestion)
+Guardrails enforced at approval time.
+
+5) SYSTEM ARCHITECTURE (PRODUCTION)
+
+We need a clean, simple architecture:
+
+No over complexity
+
+Human-readable code
+
+Easy to debug
+
+Proper logging
+
+Docker-ready (Windows Server deployment)
+
+Proposed Stack (Do it unless I reject)
+
+Backend:
+
+Python FastAPI
+
+SQLAlchemy + pyodbc (SQL Server)
+
+Pydantic
+
+Alembic migrations (for app config DB tables)
+
+Background jobs (optional) ONLY if needed
+
+Frontend:
+
+React + TypeScript
+
+Modern UI (simple, clean)
+
+Component library: MUI or ShadCN + Tailwind (choose one and stay consistent)
+
+Authentication:
+
+Minimal production-ready auth (JWT)
+
+Multi-tenant awareness via tenant_id in token or header
+
+MVP uses YELO tenant only but keep architecture multi-tenant
+
+6) DATABASE DESIGN (APP CONFIG DB TABLES)
+
+We must NOT pollute source DB with new tables.
+Create a small “app metadata schema” in SQL Server (same instance) to store:
+
+Tenants
+
+Tenant settings
+
+Branch mapping config
+
+Category selection config (top categories)
+
+Utilization status config
+
+Signal weights config (5 elements weights)
+
+Guardrails config
+
+Approval/Skip audit log
+
+Price recommendations history
+
+Every table must include:
+
+tenant_id
+
+created_at, updated_at
+
+created_by (optional)
+
+7) BUILD PLAN — MUST BE DONE IN CHUNKS WITH VALIDATION
+
+You must implement the following phases strictly.
+DO NOT proceed to next phase until validations are passed and written.
+
+✅ CHUNK 0 — Project Bootstrap (Repo Scaffold)
+Deliverables
+
+Create monorepo structure:
+
+rpiv3/
+  backend/
+    app/
+      main.py
+      core/
+      db/
+      models/
+      schemas/
+      services/
+      routers/
+      utils/
+    tests/
+    alembic/
+    requirements.txt
+    Dockerfile
+  frontend/
+    src/
+      pages/
+      components/
+      api/
+      styles/
+    package.json
+    Dockerfile
+  docker-compose.yml
+  README.md
+  docs/
+    requirements.md
+    architecture.md
+    validation_checklist.md
+    decisions_log.md
+
+Rules
+
+No placeholder code
+
+Real endpoints exist but can return “not implemented yet” only where appropriate
+
+Validation
+
+Backend runs GET /health
+
+Frontend runs and shows login page + skeleton dashboard
+
+STOP and ask me to provide SQL server connection details format:
+
+server/host
+
+instance name
+
+Windows auth vs SQL auth
+
+port
+
+database names confirmation
+
+✅ CHUNK 1 — SQL Server Connection + Schema Exploration (REAL DATA)
+Goals
+
+Connect to SQL Server
+
+Read tables listed
+
+Discover:
+
+tenant_id column / tenant dimension
+
+branch dimension mapping
+
+category mapping
+
+individual/corporate/lease filtering method
+
+base rates effective dates logic
+
+vehicle status extraction from VehicleHistory
+
+Deliverables
+
+docs/data_discovery_report.md
+
+row counts per table (YELO tenant)
+
+min/max dates per table
+
+key join paths (contracts→vehicles→category, etc.)
+
+branch list and how identified
+
+category list and how identified
+
+rental type flags/filters
+
+backend/app/services/data_exploration.py with reusable queries
+
+Validation (must pass)
+
+Show:
+
+Total contracts count for YELO
+
+Total bookings count for YELO
+
+Date ranges include 2020–2025
+
+Confirm individual rentals filter returns non-zero results
+
+Confirm base price extraction works for at least 1 branch+category
+
+STOP and ask me if:
+
+tenant_id discovery is ambiguous
+
+branch mapping ambiguous
+
+category mapping ambiguous
+
+date inconsistencies detected (31 May 2026 vs 31 May 2025 issue)
+
+✅ CHUNK 2 — Base Price Engine (Rental.vhechleates)
+Goals
+
+Build a clean base pricing service:
+
+Input: tenant_id, branch_id, category_id, target_date
+
+Output: base daily/weekly/monthly prices
+
+Deliverables
+
+BaseRateService
+
+Unit tests against real DB (safe read-only)
+
+Validation
+
+Pick 5 random categories and verify base prices exist and match expected effective period rules
+
+STOP if base rates are missing or inconsistent.
+
+✅ CHUNK 3 — Utilization Engine (Configurable)
+Goals
+
+Compute utilization per Branch×Category×Date:
+
+Numerator:
+
+active contracts overlapping date
+
+future bookings overlapping date
+
+Denominator:
+
+fleet available for rent excluding sold/out-of-service
+
+status definitions controlled by UI config
+
+Deliverables
+
+DB-backed config tables: utilization settings per tenant
+
+UtilizationService
+
+GET /utilization?branch=...&date=... endpoint (internal)
+
+UI Deliverables
+
+Admin config screen:
+
+checkboxes for vehicle statuses included in denominator
+
+included in numerator
+
+excluded statuses
+
+Validation (must pass)
+
+Compare utilization with at least 2 validation methods:
+
+direct SQL validation query
+
+python computed aggregation
+
+Ensure utilization ∈ [0,1]
+
+Ensure utilization differs by category (not identical everywhere)
+
+✅ CHUNK 4 — Branch & Category Selection (Top Renting)
+Goals
+
+Compute:
+
+Top 5 branches by individual rentals volume
+
+Top 5 categories by individual rentals volume
+But UI must show 6 categories together.
+
+Deliverables
+
+A config mechanism:
+
+default picks top branches/categories
+
+admin can override
+
+SelectionService
+
+Required STOP Check (Ambiguity)
+
+You MUST ask me to confirm:
+
+Should it be top 5 categories or 6 categories?
+
+Should it be top 5 branches or 6 branches?
+
+Should the number of demand models be 25 or 36?
+
+You cannot proceed until I confirm.
+
+✅ CHUNK 5 — Demand Forecast Models (30-Day Horizon)
+Goals
+
+Train time-series forecasting models per Branch×Category:
+
+training data: 2023+
+
+horizon: 30 days
+
+must be “simple but accurate”
+
+produce daily demand forecast
+
+Model Requirements
+
+Evaluate at least these baseline models:
+
+Seasonal Naive
+
+Exponential Smoothing (ETS)
+
+SARIMAX (only if needed, keep simple)
+Pick best per series using backtesting.
+
+Deliverables
+
+DemandForecastService
+
+models/ folder storing trained artifacts per branch-category
+
+docs/forecast_validation.md:
+
+MAPE/MAE per series
+
+chart samples
+
+final selected model types
+
+Validation
+
+Must demonstrate forecasting is not flatline
+
+Must show accuracy metrics better than naive baseline at least for key series
+
+✅ CHUNK 6 — Competitor Pricing Integration (Booking.com API)
+Goals
+
+Integrate Booking.com competitor prices
+
+Mapping competitor products to internal categories
+
+Compute competitor index:
+
+average of top 3 competitors
+
+Deliverables
+
+CompetitorPricingService
+
+mapping table config in app DB
+
+caching layer (to avoid rate issues)
+
+UI admin page for mapping if needed
+
+Validation
+
+Confirm API works with real responses
+
+Confirm price extraction logic is correct
+
+✅ CHUNK 7 — Events + Weather Integration
+Goals
+
+Per branch (city-name based mapping):
+
+Pull weather data for date window
+
+Pull holiday/events signals
+
+Convert them into numeric features per day
+
+Deliverables
+
+WeatherService
+
+HolidayService
+
+EventsService
+
+Branch→City mapping table in app DB (admin editable)
+
+Validation
+
+Confirm each branch resolves to a city
+
+Confirm API returns non-empty results
+
+✅ CHUNK 8 — Dynamic Pricing Engine (Final Recommendation)
+Goals
+
+Compute final recommended price per Branch×Category:
+Inputs:
+
+Base rates
+
+utilization (contracts + bookings)
+
+demand forecast
+
+competitor index
+
+events/weather signals
+
+All 5 elements must be weighted:
+
+weights configurable via UI
+
+store per tenant
+
+Guardrails must apply:
+
+min price
+
+min discount %
+
+max discount %
+
+Output:
+
+single final recommended price set
+
+show premium/discount % vs base
+
+daily/weekly/monthly
+
+Deliverables
+
+PricingEngineService
+
+GET /recommendations?branch=...&start_date=... returns 6 categories
+
+Recommendations stored in DB for audit
+
+Explainability
+
+Add a lightweight “why” explanation generator:
+
+NO LLM required
+
+Use deterministic reasoning summary:
+“High utilization + high forecast demand increased price; competitor lower prices reduced it; final adjusted within guardrails.”
+
+✅ CHUNK 9 — Frontend Dashboard (Modern, Simple)
+Main Page (DEFAULT VIEW)
+
+Branch dropdown only
+
+Start date selector
+
+Shows 6 categories at once
+
+Each category card/table shows:
+
+Base daily/weekly/monthly
+
+Recommended daily/weekly/monthly
+
+premium/discount %
+
+Approve / Skip buttons
+
+Config Pages
+
+Weights config page (5 elements sliders)
+
+Utilization config page (status checkboxes)
+
+Guardrails config page
+
+Competitor mapping page
+
+Branch-city mapping page
+
+Validation
+
+Works fully end-to-end with real data
+
+No broken UI states
+
+Buttons update approval log correctly
+
+✅ CHUNK 10 — Production Deployment (Windows Server)
+Deliverables
+
+Docker compose:
+
+backend
+
+frontend
+
+optional reverse proxy
+
+Environment variables (.env.example)
+
+README steps to deploy on Windows Server
+
+Reverse proxy:
+
+If I don’t know Nginx/IIS/Caddy, propose default and explain clearly.
+
+Validation:
+
+Full system runs on server and loads real data
+
+8) API CONTRACT (BACKEND ENDPOINTS)
+
+Must implement:
+
+Health
+
+GET /health
+
+Auth
+
+POST /auth/login
+
+Config
+
+GET /config/weights
+
+POST /config/weights
+
+GET /config/utilization
+
+POST /config/utilization
+
+GET /config/guardrails
+
+POST /config/guardrails
+
+GET /config/branch-city
+
+POST /config/branch-city
+
+GET /config/competitor-mapping
+
+POST /config/competitor-mapping
+
+Recommendations
+
+GET /recommendations?branch_id=...&start_date=...
+
+Approvals
+
+POST /recommendations/{id}/approve
+
+POST /recommendations/{id}/skip
+
+9) CODING RULES
+
+Code must be clean, simple, readable
+
+No over engineering
+
+Strong logging for debugging
+
+Strict typing where possible
+
+Use consistent formatting
+
+All SQL queries must be deterministic and testable
+
+Always show validation output in docs before moving on
+
+10) REQUIRED QUESTIONS (ASK ME NOW BEFORE STARTING)
+
+Before coding CHUNK 1, ask me:
+
+SQL Server host details:
+
+server/host name or IP
+
+instance name
+
+Windows auth vs SQL auth credentials
+
+port
+
+Confirm the date logic inconsistency:
+
+Is “today” 31-May-2026 correct?
+
+Or should it be 31-May-2025?
+
+Confirm the correct counts:
+
+branches = 5 or 6?
+
+categories = 5 or 6?
+
+demand models = 25 or 36?
+
+DO NOT PROCEED until I answer.
+
+OUTPUT FORMAT REQUIREMENT (MANDATORY)
+
+You must build in chunks and after each chunk output:
+
+What files were created/changed
+
+What validations were run
+
+What results were observed (numbers, counts, min/max dates)
+
+Whether chunk is “DONE ✅” or “BLOCKED ❌”
+
+Next chunk plan
+
+✅ Start now with CHUNK 0 scaffold.
+Then stop and ask me SQL server connection details before CHUNK 1.

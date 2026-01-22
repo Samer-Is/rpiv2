@@ -1,51 +1,39 @@
 version: '3.8'
 
 services:
-  # API Backend
-  api:
+  backend:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
-    container_name: renty-pricing-api
-    restart: unless-stopped
+    container_name: dynamic-pricing-backend
     ports:
       - "8000:8000"
-    volumes:
-      - ./data:/app/data:ro
-      - ./models:/app/models:ro
     environment:
-      - PYTHONUNBUFFERED=1
-      - PORT=8000
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    networks:
-      - renty-network
-
-  # Nginx Reverse Proxy with SSL
-  nginx:
-    image: nginx:alpine
-    container_name: renty-nginx
+      - SQL_SERVER=${SQL_SERVER}
+      - SQL_DATABASE=${SQL_DATABASE}
+      - SQL_USERNAME=${SQL_USERNAME}
+      - SQL_PASSWORD=${SQL_PASSWORD}
+      - APP_SQL_DATABASE=${APP_SQL_DATABASE}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - CALENDARIFIC_API_KEY=${CALENDARIFIC_API_KEY}
+      - BOOKING_COM_API_KEY=${BOOKING_COM_API_KEY}
     restart: unless-stopped
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: dynamic-pricing-frontend
     ports:
       - "80:80"
-      - "443:443"
-    volumes:
-      - ./deploy/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./certs:/etc/nginx/certs:ro
-      - ./static:/usr/share/nginx/html:ro
     depends_on:
-      - api
+      - backend
+    restart: unless-stopped
     networks:
-      - renty-network
+      - app-network
 
 networks:
-  renty-network:
+  app-network:
     driver: bridge
-
-volumes:
-  data:
-  models:
-
