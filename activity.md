@@ -6,6 +6,69 @@ This file logs all successful commits to the repository.
 
 ## 2026-01-22
 
+### Commit: CHUNK 5 - External Signals
+- **Hash:** 0ae9052
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**Weather Service (Open-Meteo):**
+- `WeatherService` class with fetch_historical_weather() and fetch_forecast_weather()
+- Automatic bad_weather_score calculation (0-1 scale based on rain/wind/conditions)
+- extreme_heat_flag (1 if t_max > 43°C, common in KSA summers)
+- Data stored in `dynamicpricing.weather_data` table
+
+**Weather Features:**
+- t_mean, t_max, t_min (temperature in Celsius)
+- wind_max (km/h), precipitation_sum (mm)
+- weather_code (WMO standard), bad_weather_score, extreme_heat_flag
+
+**KSA Calendar Pipeline:**
+Complete Python package `ksa_calendar_pipeline/`:
+- `holidays_calendarific.py` - Fetches KSA holidays from Calendarific API
+- `events_gdelt.py` - Fetches event intensity from GDELT 2.1 DOC API
+- `feature_builder.py` - Builds ML-ready features from raw data
+- `backfill.py` - Historical data population
+- `run_daily.py` - Daily update runner
+- `db.py` - Database operations
+
+**Calendar Features:**
+- is_holiday, holiday_name, holiday_type
+- is_weekend (Friday-Saturday in KSA)
+- event_score_today, event_score_3d_avg, event_score_7d_avg (GDELT)
+
+**Database Tables Created:**
+- `dynamicpricing.weather_data` - Weather data by branch/date
+- `dynamicpricing.ksa_holidays` - Saudi Arabia holidays
+- `dynamicpricing.ksa_daily_event_signal` - GDELT event intensity by city/date
+
+**API Endpoints:**
+- `GET /signals/weather/summary` - Weather data statistics
+- `GET /signals/weather/locations` - Branch coordinates
+- `GET /signals/weather/branch/{id}` - Weather by branch
+- `POST /signals/weather/fetch-forecast` - Trigger forecast fetch
+- `GET /signals/calendar/features` - Calendar/event features
+- `GET /signals/holidays/summary` - Holiday statistics
+- `GET /signals/events/summary` - Event statistics
+- `GET /signals/external-signals/combined` - All signals for branch/date
+
+**Validation Results:**
+- Weather table: 96 rows, 6 branches, 16 days forecast ✅
+- Holiday table: 10 holidays, 2023-2027 ✅
+- Event table: 35 records, 5 cities ✅
+- Feature builder outputs: All required fields ✅
+- Weather service methods: Working correctly ✅
+- API endpoints: Accessible ✅
+
+**Files Created:**
+- `backend/app/services/weather_service.py` - Weather service
+- `backend/app/routers/signals.py` - API endpoints
+- `backend/app/schemas/weather.py` - Pydantic schemas
+- `ksa_calendar_pipeline/` - Complete pipeline package
+- `scripts/test_chunk5_validation.py` - Validation tests
+
+---
+
 ### Commit: CHUNK 4 - Utilization Engine
 - **Hash:** 525e1e4
 - **Branch:** main
