@@ -5,7 +5,7 @@ Production-grade Dynamic Pricing Tool for Car Rental (Renty SaaS)
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routers import health, auth, config, prices, utilization, signals, feature_store, forecast
+from app.routers import health, auth, config, prices, utilization, signals, feature_store, forecast, competitors
 
 app = FastAPI(
     title="Renty Dynamic Pricing API",
@@ -31,6 +31,7 @@ app.include_router(utilization.router)
 app.include_router(signals.router)
 app.include_router(feature_store.router)
 app.include_router(forecast.router)
+app.include_router(competitors.router)
 
 
 @app.get("/")

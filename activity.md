@@ -6,6 +6,72 @@ This file logs all successful commits to the repository.
 
 ## 2026-01-25
 
+### Commit: CHUNK 8 - Competitor Pricing Integration
+- **Hash:** (pending)
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**Database Tables Created:**
+- `appconfig.competitor_mapping` - Category to competitor vehicle type mapping
+- `dynamicpricing.competitor_prices` - Cached competitor price data
+- `dynamicpricing.competitor_index` - Aggregated competitor index
+
+**Competitor Mapping:**
+- Category 27 (Economy) → economy
+- Category 2 (Compact) → compact
+- Category 3 (Standard) → standard
+- Category 29 (Full-size) → fullsize
+- Category 13 (SUV) → suv
+- Category 1 (Luxury) → luxury
+
+**Mock Competitor Data:**
+- 5 competitors: Budget, Hertz, Avis, Europcar, Sixt
+- 3 cities: Riyadh, Jeddah, Dammam
+- 6 vehicle types: economy, compact, standard, fullsize, suv, luxury
+- Prices include daily, weekly, and monthly rates
+
+**Seasonal Price Adjustments:**
+- Summer (Jun-Aug): +15%
+- Winter holidays (Dec-Jan): +10%
+- Spring/Ramadan (Mar-Apr): +20%
+- Normal periods: Base price
+
+**CompetitorPricingService Methods:**
+- `fetch_competitor_prices()` - Fetch prices with caching
+- `calculate_competitor_index()` - Average of top 3 competitors
+- `save_competitor_prices()` - Cache to database
+- `save_competitor_index()` - Store aggregated index
+- `build_competitor_index_for_date_range()` - Batch processing
+- `get_competitor_index()` - Retrieve from database
+
+**API Endpoints:**
+- `GET /competitors/mapping` - Get category mappings
+- `POST /competitors/mapping` - Update category mapping
+- `GET /competitors/prices` - Get competitor prices
+- `GET /competitors/index` - Get competitor index
+- `POST /competitors/index/build` - Build index for date range
+- `GET /competitors/summary` - Competitor data summary
+
+**Validation Results:**
+- ✅ Competitor Tables: 6 active mappings
+- ✅ Competitor Service: 5 prices fetched for Riyadh/economy
+- ✅ All Categories: Index calculated for all 6 categories
+- ✅ Seasonal Adjustment: Price factors working correctly
+- ✅ Build Index Batch: 252 index records created (6 branches × 6 categories × 7 days)
+
+**Sample Competitor Prices (Riyadh, Winter):**
+- Economy: Budget 165 SAR/day, Hertz 181.5 SAR/day
+- Luxury: Budget 605 SAR/day, Hertz 660 SAR/day
+
+**Files Created:**
+- `scripts/create_competitor_tables.sql` - DDL for competitor tables
+- `backend/app/services/competitor_service.py` - Competitor pricing service
+- `backend/app/routers/competitors.py` - API endpoints
+- `scripts/test_competitor_pricing.py` - Validation script
+
+---
+
 ### Commit: CHUNK 7 - Multi-Model Forecasting Trainer
 - **Hash:** f2b3977
 - **Branch:** main
