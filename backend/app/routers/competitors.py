@@ -319,3 +319,38 @@ def get_competitor_summary(
             row[0]: float(row[1]) for row in avg_by_category
         } if avg_by_category else {}
     }
+
+
+@router.get("/live")
+def get_live_competitor_prices(
+    branch_id: int = Query(..., description="Branch ID"),
+    price_date: Optional[date] = Query(default=None, description="Price date (defaults to today)"),
+    db: Session = Depends(get_app_db)
+):
+    """
+    Fetch LIVE competitor prices from Booking.com API.
+    
+    This endpoint calls the real Booking.com API via RapidAPI.
+    Results are organized by Renty category.
+    
+    Note: This may take a few seconds as it makes an external API call.
+    """
+    if price_date is None:
+        price_date = date.today()
+    
+    service = CompetitorPricingService(db)
+    
+    try:
+        prices = service.fetch_live_competitor_prices(branch_id, price_date)
+        
+        return {
+            "branch_id": branch_id,
+            "price_date": price_date,
+            "source": "booking.com",
+            "categories": prices
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Failed to fetch live prices: {str(e)}"
+        )

@@ -1,6 +1,6 @@
 """
 Competitor Pricing Service - CHUNK 8
-Integration with competitor pricing sources and competitor index calculation
+Integration with Booking.com API and competitor index calculation
 """
 import logging
 import hashlib
@@ -10,6 +10,8 @@ from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
 from sqlalchemy import text
 from sqlalchemy.orm import Session
+
+from .booking_com_api import get_booking_api, BookingComCarRentalAPI
 
 logger = logging.getLogger(__name__)
 
@@ -203,13 +205,13 @@ class CompetitorPricingService:
         city: str, 
         vehicle_type: str, 
         price_date: date,
-        use_cache: bool = True
+        use_cache: bool = True,
+        use_live_api: bool = True
     ) -> List[CompetitorPrice]:
         """
         Fetch competitor prices for a city and vehicle type.
         
-        In production, this would call Booking.com API.
-        For now, uses mock data with realistic KSA market prices.
+        Tries Booking.com API first, falls back to mock data if API fails.
         """
         cache_key = f"{city}_{vehicle_type}_{price_date}"
         
@@ -217,16 +219,76 @@ class CompetitorPricingService:
         if use_cache and cache_key in self._cache:
             cached = self._cache[cache_key]
             if cached["expires_at"] > datetime.now():
+                logger.info(f"Using cached prices for {cache_key}")
                 return cached["data"]
         
-        # Fetch from mock data (would be API call in production)
-        prices = self._fetch_mock_prices(city, vehicle_type, price_date)
+        prices = []
+        
+        # Try live Booking.com API first
+        if use_live_api:
+            try:
+                prices = self._fetch_from_booking_api(city, vehicle_type, price_date)
+                if prices:
+                    logger.info(f"Fetched {len(prices)} prices from Booking.com API for {city}/{vehicle_type}")
+            except Exception as e:
+                logger.warning(f"Booking.com API failed: {e}, falling back to mock data")
+        
+        # Fall back to mock data if API returned nothing
+        if not prices:
+            prices = self._fetch_mock_prices(city, vehicle_type, price_date)
+            logger.info(f"Using mock prices for {city}/{vehicle_type}")
         
         # Cache results
         self._cache[cache_key] = {
             "data": prices,
             "expires_at": datetime.now() + timedelta(hours=self.CACHE_TTL_HOURS)
         }
+        
+        return prices
+    
+    def _fetch_from_booking_api(
+        self,
+        city: str,
+        vehicle_type: str,
+        price_date: date
+    ) -> List[CompetitorPrice]:
+        """Fetch prices from Booking.com API."""
+        api = get_booking_api()
+        
+        # Convert date to datetime
+        price_datetime = datetime.combine(price_date, datetime.min.time())
+        
+        # Get prices for this city
+        category_prices = api.get_competitor_prices_for_date(city, price_datetime)
+        
+        # Map our vehicle_type to Booking.com categories
+        booking_category_map = {
+            "economy": "Economy",
+            "compact": "Compact",
+            "standard": "Standard",
+            "fullsize": "Standard",
+            "suv": "SUV Standard",
+            "luxury": "Luxury Sedan",
+        }
+        
+        booking_category = booking_category_map.get(vehicle_type.lower(), "Economy")
+        
+        if booking_category not in category_prices:
+            return []
+        
+        data = category_prices[booking_category]
+        if not data.get("competitors"):
+            return []
+        
+        prices = []
+        for comp in data["competitors"]:
+            prices.append(CompetitorPrice(
+                competitor_name=comp["supplier"],
+                vehicle_type=vehicle_type,
+                daily_price=Decimal(str(comp["price"])),
+                weekly_price=Decimal(str(comp["price"] * 6)),  # Estimate weekly
+                monthly_price=Decimal(str(comp["price"] * 25)),  # Estimate monthly
+            ))
         
         return prices
     
@@ -529,3 +591,22 @@ class CompetitorPricingService:
             our_base_price=Decimal(str(row[6])) if row[6] else None,
             price_position=Decimal(str(row[7])) if row[7] else None
         )
+    
+    def fetch_live_competitor_prices(
+        self,
+        branch_id: int,
+        price_date: date
+    ) -> Dict[str, Any]:
+        """
+        Fetch live competitor prices from Booking.com API for a branch.
+        
+        Returns prices organized by Renty category.
+        """
+        api = get_booking_api()
+        
+        # Get location for branch
+        location = api.get_location_for_branch_id(branch_id)
+        
+        # Fetch from API
+        price_datetime = datetime.combine(price_date, datetime.min.time())
+        return api.get_competitor_prices_for_date(location, price_datetime)
