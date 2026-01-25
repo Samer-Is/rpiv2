@@ -6,6 +6,77 @@ This file logs all successful commits to the repository.
 
 ## 2026-01-22
 
+### Commit: CHUNK 6 - Feature Store Builder
+- **Hash:** a194f96
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**Feature Store Table Created:**
+- `dynamicpricing.fact_daily_demand` - ML training/inference data
+- Grain: tenant_id × demand_date × branch_id × category_id
+- 29,011 total rows populated
+
+**TRAIN/VALIDATION Split:**
+- TRAIN: 17,964 rows (before Oct 2024)
+- VALIDATION: 11,047 rows (Oct 2024 onwards)
+- Split cutoff: 2024-10-01
+
+**Features Included:**
+- Target: `executed_rentals_count`
+- Pricing: avg/min/max_base_price_paid
+- Utilization: utilization_contracts, utilization_bookings
+- Weather: temperature_max/min/avg, precipitation_mm, wind_speed_kmh
+- Calendar: is_weekend, is_public_holiday, is_religious_holiday
+- Time: day_of_week, day_of_month, week_of_year, month_of_year, quarter
+- Events: event_score, has_major_event
+- Lag features: rentals_lag_1d, rentals_lag_7d, rentals_rolling_7d_avg, rentals_rolling_30d_avg
+
+**FeatureStoreService Methods:**
+- `build_feature_store()` - Full rebuild with all features
+- `validate_feature_store()` - Quality validation checks
+- `get_training_data()` - Get ML-ready data by split
+- `_insert_base_demand()` - Aggregate contract data
+- `_update_weather_features()` - Join weather data
+- `_update_calendar_features()` - Join holiday data
+- `_update_event_features()` - Join GDELT event data
+- `_compute_lag_features()` - Compute time-series lag features
+- `_apply_split()` - Apply TRAIN/VALIDATION split
+
+**API Endpoints:**
+- `POST /feature-store/build` - Build/rebuild feature store
+- `GET /feature-store/validate` - Validate feature store quality
+- `GET /feature-store/training-data` - Get training data for ML
+- `GET /feature-store/stats` - Get feature store statistics
+- `DELETE /feature-store/clear` - Clear feature store data
+
+**Validation Results:**
+- ✅ minimum_rows: 29,011 (threshold: 1,000)
+- ✅ target_variance: 40.88 (threshold: 0.1)
+- ✅ split_exists: TRAIN=17,964, VALIDATION=11,047
+- ✅ missing_rate: price=0.0%, lag=6.4% (threshold: 50%)
+
+**Target Variable Statistics:**
+- Mean: 25.32 rentals/day
+- Min: 1, Max: 345
+- Std: 40.88
+
+**Coverage:**
+- 6 MVP branches
+- 6 MVP categories
+- Date range: 2023-01-01 to 2025-11-17
+
+**Files Created:**
+- `backend/app/services/feature_store_service.py` - Core service
+- `backend/app/routers/feature_store.py` - API endpoints
+- `backend/app/schemas/feature_store.py` - Pydantic schemas
+- `scripts/create_fact_daily_demand.sql` - Table DDL
+- `scripts/populate_feature_store.py` - Data population script
+- `scripts/explore_feature_store.py` - Data exploration
+- `scripts/check_columns.py` - Column discovery utility
+
+---
+
 ### Commit: CHUNK 5 - External Signals
 - **Hash:** 0ae9052
 - **Branch:** main
