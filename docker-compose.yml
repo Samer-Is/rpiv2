@@ -1,4 +1,5 @@
-version: '3.8'
+# Renty Dynamic Pricing - Docker Compose Configuration
+# Run: docker-compose up -d --build
 
 services:
   backend:
@@ -9,27 +10,52 @@ services:
     ports:
       - "8000:8000"
     environment:
+      # SQL Server
       - SQL_SERVER=${SQL_SERVER}
       - SQL_DATABASE=${SQL_DATABASE}
+      - SQL_DATABASE_REPORTS=${SQL_DATABASE_REPORTS:-eJarDbReports}
       - SQL_USERNAME=${SQL_USERNAME}
       - SQL_PASSWORD=${SQL_PASSWORD}
-      - APP_SQL_DATABASE=${APP_SQL_DATABASE}
+      - SQL_DRIVER=${SQL_DRIVER:-ODBC Driver 17 for SQL Server}
+      - SQL_USE_WINDOWS_AUTH=${SQL_USE_WINDOWS_AUTH:-false}
+      # JWT
       - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - JWT_ALGORITHM=${JWT_ALGORITHM:-HS256}
+      - JWT_EXPIRE_MINUTES=${JWT_EXPIRE_MINUTES:-480}
+      # External APIs
       - CALENDARIFIC_API_KEY=${CALENDARIFIC_API_KEY}
       - BOOKING_COM_API_KEY=${BOOKING_COM_API_KEY}
+      - WEATHERAPI_COM_KEY=${WEATHERAPI_COM_KEY}
+      - OPEN_METEO_BASE_URL=${OPEN_METEO_BASE_URL:-https://api.open-meteo.com/v1}
+      # Multi-tenancy
+      - MVP_TENANT_ID=${MVP_TENANT_ID:-1}
+      - MVP_TENANT_NAME=${MVP_TENANT_NAME:-Yelo}
+      # App
+      - APP_NAME=${APP_NAME:-Renty Dynamic Pricing}
+      - DEBUG=${DEBUG:-false}
+      - SIMULATION_TODAY=${SIMULATION_TODAY:-}
     restart: unless-stopped
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=${VITE_API_URL:-}
     container_name: dynamic-pricing-frontend
     ports:
       - "80:80"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     restart: unless-stopped
     networks:
       - app-network
