@@ -4,6 +4,65 @@ This file logs all successful commits to the repository.
 
 ---
 
+## 2026-01-25
+
+### Commit: CHUNK 7 - Multi-Model Forecasting Trainer
+- **Hash:** f2b3977
+- **Branch:** main
+- **Repo:** https://github.com/Samer-Is/rpiv2
+- **Status:** ✅ COMPLETE
+
+**Database Tables Created:**
+- `dynamicpricing.forecast_demand_30d` - 30-day horizon forecasts
+- `dynamicpricing.model_evaluation_metrics` - backtesting results
+- `dynamicpricing.best_model_selection` - model tracking
+
+**Models Implemented:**
+1. **SeasonalNaiveModel** - 7-day seasonal baseline
+2. **SimpleETSModel** - Holt-Winters exponential smoothing
+3. **LightGBMGlobalModel** - Global ML model with entity embeddings (requires lightgbm)
+4. **LSTMGlobalModel** - PyTorch LSTM with CUDA GPU support (requires torch)
+
+**ForecastTrainingService Pipeline:**
+- `load_training_data()` - Load from feature store
+- `train_all_models()` - Train with timing metrics
+- `backtest_models()` - Rolling-origin cross-validation
+- `select_best_model()` - Selection based on MAE
+- `generate_forecasts()` - 30-day horizon generation
+- `save_forecasts()` / `save_metrics()` - Database persistence
+
+**API Endpoints:**
+- `POST /forecast/train` - Trigger full training pipeline
+- `GET /forecast/forecasts` - Get 30-day forecasts by branch/category
+- `GET /forecast/metrics` - Model evaluation metrics
+- `GET /forecast/best-model` - Current best model info
+- `GET /forecast/summary` - Forecast statistics
+
+**Training Results:**
+- Training samples: 17,964
+- Validation samples: 11,047
+- Models trained: seasonal_naive, simple_ets
+- Best model: seasonal_naive
+- MAE: 92.27 | MAPE: 12.37%
+- Forecasts generated: 1,080 records
+
+**Validation Checks (All Passed):**
+- ✅ At least 2 models trained: 2
+- ✅ Best model selected: seasonal_naive
+- ✅ Best MAE reasonable vs baseline
+- ✅ Forecasts not flatline: std=38.22
+- ✅ Correct horizon: 30 days
+
+**Files Created:**
+- `backend/app/ml/__init__.py` - ML module
+- `backend/app/ml/models.py` - Forecasting model classes
+- `backend/app/ml/trainer.py` - Training service
+- `backend/app/routers/forecast.py` - API endpoints
+- `scripts/create_forecast_tables.sql` - DDL
+- `scripts/run_forecast_training.py` - Training script
+
+---
+
 ## 2026-01-22
 
 ### Commit: CHUNK 6 - Feature Store Builder
