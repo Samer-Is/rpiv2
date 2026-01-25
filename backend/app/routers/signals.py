@@ -28,8 +28,8 @@ router = APIRouter(prefix="/signals", tags=["External Signals"])
 # Connection string for services
 CONN_STR = (
     f"Driver={{ODBC Driver 17 for SQL Server}};"
-    f"Server={settings.sql_server};"
-    f"Database={settings.sql_database};"
+    f"Server={settings.SQL_SERVER};"
+    f"Database={settings.SQL_DATABASE};"
     f"Trusted_Connection=yes;"
 )
 

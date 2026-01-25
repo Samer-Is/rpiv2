@@ -7,7 +7,7 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
-from ..database import get_app_db
+from app.db.session import get_app_db
 from ..services.feature_store_service import FeatureStoreService
 from ..schemas.feature_store import (
     FeatureStoreBuildRequest,

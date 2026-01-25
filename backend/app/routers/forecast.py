@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from pydantic import BaseModel
 
-from ..database import get_app_db
+from app.db.session import get_app_db
 
 router = APIRouter(prefix="/forecast", tags=["Forecasting"])
 

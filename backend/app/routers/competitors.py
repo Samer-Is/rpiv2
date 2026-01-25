@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from pydantic import BaseModel
 
-from ..database import get_app_db
+from app.db.session import get_app_db
 from ..services.competitor_service import CompetitorPricingService
 
 router = APIRouter(prefix="/competitors", tags=["Competitor Pricing"])
