@@ -3,11 +3,13 @@ Real-time competitor pricing using Booking.com API via RapidAPI
 API: booking-com.p.rapidapi.com
 
 Integrated into Dynamic Pricing Tool - CHUNK 8
+NO MOCK DATA - All prices come from live Booking.com API
 """
 import requests
 import logging
+import re
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 from decimal import Decimal
 
@@ -112,6 +114,56 @@ CAR_MODEL_MAPPING = {
     "Bentley Bentayga": "Luxury SUV",
 }
 
+# Known car brands for extraction
+KNOWN_BRANDS = [
+    "Toyota", "Nissan", "Honda", "Hyundai", "Kia", "Chevrolet", "Ford",
+    "Mazda", "Mitsubishi", "Suzuki", "Volkswagen", "Renault", "Peugeot",
+    "BMW", "Mercedes-Benz", "Mercedes", "Audi", "Lexus", "Infiniti",
+    "Cadillac", "Lincoln", "GMC", "Jeep", "Land Rover", "Range Rover",
+    "Porsche", "Bentley", "Genesis", "Volvo", "Subaru", "Fiat", "Dodge",
+    "Chrysler", "Ram", "Buick", "Acura", "Mini", "Alfa Romeo", "Jaguar",
+    "Maserati", "Ferrari", "Lamborghini", "Rolls-Royce", "Aston Martin",
+    "McLaren", "Bugatti", "Tesla", "Rivian", "Lucid", "Geely", "BYD",
+    "Chery", "Great Wall", "Haval", "MG", "Skoda", "Seat", "Cupra",
+    "Opel", "Citroën", "DS", "Lancia", "Smart", "Dacia"
+]
+
+
+def extract_brand_and_model(vehicle_name: str) -> Tuple[str, str]:
+    """
+    Extract car brand and model from vehicle name string.
+    
+    Returns:
+        Tuple of (brand, model). If not found, returns ("Unknown", vehicle_name)
+    """
+    if not vehicle_name:
+        return ("Unknown", "Unknown")
+    
+    vehicle_name = vehicle_name.strip()
+    
+    # Try to match known brands (case-insensitive)
+    for brand in KNOWN_BRANDS:
+        if vehicle_name.lower().startswith(brand.lower()):
+            model = vehicle_name[len(brand):].strip()
+            model = re.sub(r'^[-\s]+', '', model)
+            return (brand, model if model else vehicle_name)
+        
+        # Handle brand appearing anywhere in the name
+        brand_lower = brand.lower()
+        vehicle_lower = vehicle_name.lower()
+        if brand_lower in vehicle_lower:
+            idx = vehicle_lower.find(brand_lower)
+            model = vehicle_name[idx + len(brand):].strip()
+            model = re.sub(r'^[-\s]+', '', model)
+            return (brand, model if model else vehicle_name)
+    
+    # Try to split on first space (brand model pattern)
+    parts = vehicle_name.split(' ', 1)
+    if len(parts) == 2:
+        return (parts[0], parts[1])
+    
+    return ("Unknown", vehicle_name)
+
 
 def get_correct_category(vehicle_name: str, booking_category: str) -> str:
     """
@@ -149,14 +201,41 @@ def get_correct_category(vehicle_name: str, booking_category: str) -> str:
 
 @dataclass
 class BookingComPrice:
-    """Price data from Booking.com API"""
+    """Price data from Booking.com API with vehicle details"""
     supplier: str
-    vehicle: str
+    vehicle_name: str
+    vehicle_brand: str
+    vehicle_model: str
     total_price: Decimal
     per_day_price: Decimal
     category_original: str
     category_corrected: str
     currency: str = "SAR"
+    seats: Optional[int] = None
+    doors: Optional[int] = None
+    transmission: Optional[str] = None
+    fuel_type: Optional[str] = None
+    air_conditioning: bool = True
+
+
+@dataclass
+class CompetitorVehicle:
+    """Detailed vehicle information from competitor"""
+    supplier: str
+    brand: str
+    model: str
+    full_name: str
+    category: str
+    daily_price: Decimal
+    weekly_price: Optional[Decimal] = None
+    monthly_price: Optional[Decimal] = None
+    seats: Optional[int] = None
+    doors: Optional[int] = None
+    transmission: Optional[str] = None
+    fuel_type: Optional[str] = None
+    bags_large: Optional[int] = None
+    bags_small: Optional[int] = None
+    image_url: Optional[str] = None
 
 
 class BookingComCarRentalAPI:
@@ -221,16 +300,13 @@ class BookingComCarRentalAPI:
     
     def _get_coordinates(self, branch_name: str) -> Optional[Dict[str, float]]:
         """Get coordinates for a branch, with fuzzy matching"""
-        # Exact match
         if branch_name in self.branch_coordinates:
             return self.branch_coordinates[branch_name]
         
-        # Fuzzy match - check if branch name contains key
         for key, coords in self.branch_coordinates.items():
             if key.lower() in branch_name.lower() or branch_name.lower() in key.lower():
                 return coords
         
-        # Default to Riyadh
         logger.warning(f"Branch '{branch_name}' not found, using Riyadh as default")
         return {"lat": 24.9576, "lon": 46.6987}
     
@@ -241,9 +317,8 @@ class BookingComCarRentalAPI:
     def search_car_rentals(self, branch_name: str, pick_up_date: datetime, 
                           drop_off_date: datetime) -> List[Dict]:
         """
-        Search for car rentals at a specific location and date range
-        
-        Returns list of car rental options with pricing
+        Search for car rentals at a specific location and date range.
+        Returns list of car rental options with pricing from Booking.com API.
         """
         coords = self._get_coordinates(branch_name)
         if not coords:
@@ -257,7 +332,6 @@ class BookingComCarRentalAPI:
             "x-rapidapi-key": self.api_key
         }
         
-        # Format datetime as "YYYY-MM-DD HH:MM:SS"
         pick_up_str = pick_up_date.strftime("%Y-%m-%d 10:00:00")
         drop_off_str = drop_off_date.strftime("%Y-%m-%d 10:00:00")
         
@@ -270,12 +344,12 @@ class BookingComCarRentalAPI:
             "drop_off_datetime": drop_off_str,
             "currency": "SAR",
             "locale": "en-gb",
-            "from_country": "it",  # Use 'it' as Booking.com doesn't support 'sa'
+            "from_country": "it",
             "sort_by": "recommended"
         }
         
         try:
-            logger.info(f"Searching car rentals for {branch_name} ({coords['lat']}, {coords['lon']})")
+            logger.info(f"Calling Booking.com API for {branch_name} ({coords['lat']}, {coords['lon']})")
             response = requests.get(url, headers=headers, params=params, timeout=30)
             
             if response.status_code == 200:
@@ -283,45 +357,39 @@ class BookingComCarRentalAPI:
                 
                 if 'search_results' in data:
                     results = data['search_results']
-                    logger.info(f"Found {len(results)} car rental options for {branch_name}")
+                    logger.info(f"Found {len(results)} car rental options from Booking.com for {branch_name}")
                     return results
                 else:
                     logger.warning(f"No search_results in API response for {branch_name}")
                     return []
             else:
-                logger.error(f"API returned status {response.status_code}: {response.text[:200]}")
+                logger.error(f"Booking.com API returned status {response.status_code}: {response.text[:200]}")
                 return []
                 
         except Exception as e:
-            logger.error(f"Error searching car rentals: {str(e)}")
+            logger.error(f"Error calling Booking.com API: {str(e)}")
             return []
     
-    def get_competitor_prices_by_category(self, branch_name: str, 
-                                          pick_up_date: datetime,
-                                          drop_off_date: datetime) -> Dict[str, List[BookingComPrice]]:
+    def get_competitor_vehicles(self, branch_name: str, 
+                                pick_up_date: datetime,
+                                drop_off_date: datetime) -> List[CompetitorVehicle]:
         """
-        Get competitor prices organized by Renty categories
-        
-        Returns dict of category -> list of BookingComPrice
+        Get detailed competitor vehicle information including brand and model.
+        Returns list of CompetitorVehicle with full details.
         """
         results = self.search_car_rentals(branch_name, pick_up_date, drop_off_date)
         
         if not results:
-            return {}
+            return []
         
-        # Calculate rental duration in days
         duration_days = (drop_off_date - pick_up_date).days
         if duration_days < 1:
             duration_days = 1
         
-        # Organize by category
-        category_prices: Dict[str, List[BookingComPrice]] = {
-            cat: [] for cat in self.category_mapping.keys()
-        }
+        vehicles = []
         
         for car in results:
             try:
-                # Extract data
                 vehicle_info = car.get('vehicle_info', {})
                 pricing_info = car.get('pricing_info', {})
                 supplier_info = car.get('supplier_info', {})
@@ -331,24 +399,89 @@ class BookingComCarRentalAPI:
                 total_price = pricing_info.get('price', 0)
                 supplier_name = supplier_info.get('name', 'Unknown')
                 
-                # Calculate per-day price
+                brand, model = extract_brand_and_model(vehicle_name)
                 per_day_price = total_price / duration_days if total_price > 0 else 0
-                
-                # Map to Renty category using accurate car-by-car mapping
                 correct_category = get_correct_category(vehicle_name, booking_category)
                 
-                # Add to the correct category
+                # Extract bags info if available
+                bags_large = vehicle_info.get('baggage_large') or vehicle_info.get('bags_large')
+                bags_small = vehicle_info.get('baggage_small') or vehicle_info.get('bags_small')
+                
+                vehicles.append(CompetitorVehicle(
+                    supplier=supplier_name,
+                    brand=brand,
+                    model=model,
+                    full_name=vehicle_name,
+                    category=correct_category,
+                    daily_price=Decimal(str(round(per_day_price, 2))),
+                    weekly_price=Decimal(str(round(per_day_price * 6, 2))),
+                    monthly_price=Decimal(str(round(per_day_price * 25, 2))),
+                    seats=vehicle_info.get('seats'),
+                    doors=vehicle_info.get('doors'),
+                    transmission=vehicle_info.get('transmission'),
+                    fuel_type=vehicle_info.get('fuel_type'),
+                    bags_large=bags_large,
+                    bags_small=bags_small,
+                    image_url=vehicle_info.get('image_url')
+                ))
+                
+            except Exception as e:
+                logger.warning(f"Error processing car result: {str(e)}")
+                continue
+        
+        return vehicles
+    
+    def get_competitor_prices_by_category(self, branch_name: str, 
+                                          pick_up_date: datetime,
+                                          drop_off_date: datetime) -> Dict[str, List[BookingComPrice]]:
+        """
+        Get competitor prices organized by Renty categories.
+        Returns dict of category -> list of BookingComPrice.
+        """
+        results = self.search_car_rentals(branch_name, pick_up_date, drop_off_date)
+        
+        if not results:
+            return {}
+        
+        duration_days = (drop_off_date - pick_up_date).days
+        if duration_days < 1:
+            duration_days = 1
+        
+        category_prices: Dict[str, List[BookingComPrice]] = {
+            cat: [] for cat in self.category_mapping.keys()
+        }
+        
+        for car in results:
+            try:
+                vehicle_info = car.get('vehicle_info', {})
+                pricing_info = car.get('pricing_info', {})
+                supplier_info = car.get('supplier_info', {})
+                
+                booking_category = vehicle_info.get('group', '')
+                vehicle_name = vehicle_info.get('v_name', 'Unknown')
+                total_price = pricing_info.get('price', 0)
+                supplier_name = supplier_info.get('name', 'Unknown')
+                
+                brand, model = extract_brand_and_model(vehicle_name)
+                per_day_price = total_price / duration_days if total_price > 0 else 0
+                correct_category = get_correct_category(vehicle_name, booking_category)
+                
                 if correct_category in category_prices:
                     category_prices[correct_category].append(BookingComPrice(
                         supplier=supplier_name,
-                        vehicle=vehicle_name,
+                        vehicle_name=vehicle_name,
+                        vehicle_brand=brand,
+                        vehicle_model=model,
                         total_price=Decimal(str(round(total_price, 2))),
                         per_day_price=Decimal(str(round(per_day_price, 2))),
                         category_original=booking_category,
-                        category_corrected=correct_category
+                        category_corrected=correct_category,
+                        seats=vehicle_info.get('seats'),
+                        doors=vehicle_info.get('doors'),
+                        transmission=vehicle_info.get('transmission'),
+                        fuel_type=vehicle_info.get('fuel_type'),
+                        air_conditioning=vehicle_info.get('aircon', True)
                     ))
-                else:
-                    logger.warning(f"Unknown category '{correct_category}' for {vehicle_name}")
             except Exception as e:
                 logger.warning(f"Error processing car result: {str(e)}")
                 continue
@@ -358,23 +491,30 @@ class BookingComCarRentalAPI:
     def get_competitor_prices_for_date(self, branch_name: str, 
                                        price_date: datetime) -> Dict[str, Dict]:
         """
-        Get competitor prices for a specific date (2-day rental comparison)
+        Get competitor prices for a specific date (2-day rental comparison).
         
-        Returns format:
+        Returns format with brand and model information:
         {
             "Economy": {
                 "avg_price": 150.0,
                 "min_price": 125.0,
                 "max_price": 175.0,
                 "competitors": [
-                    {"supplier": "Alamo", "vehicle": "Nissan Sunny", "price": 125.81},
-                    ...
-                ]
-            },
-            ...
+                    {
+                        "supplier": "Alamo",
+                        "vehicle": "Nissan Sunny",
+                        "brand": "Nissan",
+                        "model": "Sunny",
+                        "price": 125.81,
+                        "seats": 5,
+                        "transmission": "Automatic"
+                    }
+                ],
+                "brands_available": ["Nissan", "Toyota", "Hyundai"],
+                "models_available": ["Sunny", "Yaris", "Accent"]
+            }
         }
         """
-        # Search for 2-day rental (standard comparison)
         pick_up = price_date
         drop_off = price_date + timedelta(days=2)
         
@@ -389,7 +529,9 @@ class BookingComCarRentalAPI:
                     "min_price": None,
                     "max_price": None,
                     "competitors": [],
-                    "competitor_count": 0
+                    "competitor_count": 0,
+                    "brands_available": [],
+                    "models_available": []
                 }
                 continue
             
@@ -404,6 +546,10 @@ class BookingComCarRentalAPI:
             
             per_day_prices = [float(p.per_day_price) for p in sorted_prices]
             
+            # Collect unique brands and models
+            brands = list(set(p.vehicle_brand for p in prices if p.vehicle_brand != "Unknown"))
+            models = list(set(p.vehicle_model for p in prices if p.vehicle_model and p.vehicle_model != "Unknown"))
+            
             result[category] = {
                 "avg_price": round(sum(per_day_prices) / len(per_day_prices), 2),
                 "min_price": round(min(per_day_prices), 2),
@@ -411,15 +557,59 @@ class BookingComCarRentalAPI:
                 "competitors": [
                     {
                         "supplier": p.supplier,
-                        "vehicle": p.vehicle,
-                        "price": float(p.per_day_price)
+                        "vehicle": p.vehicle_name,
+                        "brand": p.vehicle_brand,
+                        "model": p.vehicle_model,
+                        "price": float(p.per_day_price),
+                        "seats": p.seats,
+                        "doors": p.doors,
+                        "transmission": p.transmission,
+                        "fuel_type": p.fuel_type
                     }
                     for p in sorted_prices
                 ],
-                "competitor_count": len(sorted_prices)
+                "competitor_count": len(sorted_prices),
+                "brands_available": sorted(brands),
+                "models_available": sorted(models)
             }
         
         return result
+    
+    def get_all_vehicles_raw(self, branch_name: str, 
+                             pickup_date: datetime,
+                             dropoff_date: datetime = None) -> List[Dict]:
+        """
+        Get all raw vehicle data from API for analysis.
+        Returns list of all vehicles with full details.
+        
+        Args:
+            branch_name: City or location name
+            pickup_date: Rental start date
+            dropoff_date: Rental end date (defaults to pickup_date + 3 days)
+        """
+        pick_up = pickup_date
+        drop_off = dropoff_date if dropoff_date else pickup_date + timedelta(days=3)
+        
+        vehicles = self.get_competitor_vehicles(branch_name, pick_up, drop_off)
+        
+        return [
+            {
+                "vehicle_name": v.full_name,
+                "supplier": v.supplier,
+                "brand": v.brand,
+                "model": v.model,
+                "full_name": v.full_name,
+                "category": v.category,
+                "daily_price": float(v.daily_price),
+                "seats": v.seats,
+                "doors": v.doors,
+                "transmission": v.transmission,
+                "fuel_type": v.fuel_type,
+                "bags_large": v.bags_large if hasattr(v, 'bags_large') else None,
+                "bags_small": v.bags_small if hasattr(v, 'bags_small') else None
+            }
+            for v in vehicles
+        ]
 
 
 # Singleton instance

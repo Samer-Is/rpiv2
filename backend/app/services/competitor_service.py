@@ -1,9 +1,9 @@
 """
 Competitor Pricing Service - CHUNK 8
 Integration with Booking.com API and competitor index calculation
+NO MOCK DATA - All prices come from live Booking.com API
 """
 import logging
-import hashlib
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 from typing import List, Dict, Any, Optional
@@ -11,7 +11,12 @@ from dataclasses import dataclass
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-from .booking_com_api import get_booking_api, BookingComCarRentalAPI
+from .booking_com_api import (
+    get_booking_api, 
+    BookingComCarRentalAPI,
+    BookingComPrice,
+    CompetitorVehicle
+)
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +30,9 @@ class CompetitorPrice:
     weekly_price: Optional[Decimal] = None
     monthly_price: Optional[Decimal] = None
     currency: str = "SAR"
+    vehicle_brand: Optional[str] = None
+    vehicle_model: Optional[str] = None
+    vehicle_name: Optional[str] = None
 
 
 @dataclass
@@ -44,151 +52,34 @@ class CompetitorPricingService:
     """
     Service for fetching and managing competitor pricing data.
     
+    ALL PRICES COME FROM LIVE BOOKING.COM API - NO MOCK DATA
+    
     Supports:
-    - Fetching competitor prices (mock/real API)
+    - Fetching competitor prices from Booking.com API
     - Category mapping configuration
     - Competitor index calculation (avg of top 3)
-    - Caching with TTL
+    - Database caching with TTL
     """
     
     # Cache TTL in hours
     CACHE_TTL_HOURS = 24
     
-    # Mock competitor data for Saudi Arabia car rental market
-    MOCK_COMPETITORS = {
-        "Riyadh": {
-            "economy": [
-                {"name": "Budget", "daily": 150, "weekly": 900, "monthly": 3200},
-                {"name": "Hertz", "daily": 165, "weekly": 990, "monthly": 3500},
-                {"name": "Avis", "daily": 175, "weekly": 1050, "monthly": 3700},
-                {"name": "Europcar", "daily": 160, "weekly": 960, "monthly": 3400},
-                {"name": "Sixt", "daily": 155, "weekly": 930, "monthly": 3300},
-            ],
-            "compact": [
-                {"name": "Budget", "daily": 180, "weekly": 1080, "monthly": 3800},
-                {"name": "Hertz", "daily": 195, "weekly": 1170, "monthly": 4100},
-                {"name": "Avis", "daily": 200, "weekly": 1200, "monthly": 4200},
-                {"name": "Europcar", "daily": 185, "weekly": 1110, "monthly": 3900},
-                {"name": "Sixt", "daily": 190, "weekly": 1140, "monthly": 4000},
-            ],
-            "standard": [
-                {"name": "Budget", "daily": 220, "weekly": 1320, "monthly": 4600},
-                {"name": "Hertz", "daily": 240, "weekly": 1440, "monthly": 5000},
-                {"name": "Avis", "daily": 250, "weekly": 1500, "monthly": 5200},
-                {"name": "Europcar", "daily": 230, "weekly": 1380, "monthly": 4800},
-                {"name": "Sixt", "daily": 235, "weekly": 1410, "monthly": 4900},
-            ],
-            "fullsize": [
-                {"name": "Budget", "daily": 280, "weekly": 1680, "monthly": 5800},
-                {"name": "Hertz", "daily": 300, "weekly": 1800, "monthly": 6200},
-                {"name": "Avis", "daily": 320, "weekly": 1920, "monthly": 6600},
-                {"name": "Europcar", "daily": 290, "weekly": 1740, "monthly": 6000},
-                {"name": "Sixt", "daily": 295, "weekly": 1770, "monthly": 6100},
-            ],
-            "suv": [
-                {"name": "Budget", "daily": 350, "weekly": 2100, "monthly": 7200},
-                {"name": "Hertz", "daily": 380, "weekly": 2280, "monthly": 7800},
-                {"name": "Avis", "daily": 400, "weekly": 2400, "monthly": 8200},
-                {"name": "Europcar", "daily": 360, "weekly": 2160, "monthly": 7400},
-                {"name": "Sixt", "daily": 370, "weekly": 2220, "monthly": 7600},
-            ],
-            "luxury": [
-                {"name": "Budget", "daily": 550, "weekly": 3300, "monthly": 11000},
-                {"name": "Hertz", "daily": 600, "weekly": 3600, "monthly": 12000},
-                {"name": "Avis", "daily": 650, "weekly": 3900, "monthly": 13000},
-                {"name": "Europcar", "daily": 580, "weekly": 3480, "monthly": 11600},
-                {"name": "Sixt", "daily": 590, "weekly": 3540, "monthly": 11800},
-            ],
-        },
-        "Jeddah": {
-            # Similar structure with slightly different prices
-            "economy": [
-                {"name": "Budget", "daily": 145, "weekly": 870, "monthly": 3100},
-                {"name": "Hertz", "daily": 160, "weekly": 960, "monthly": 3400},
-                {"name": "Avis", "daily": 170, "weekly": 1020, "monthly": 3600},
-                {"name": "Europcar", "daily": 155, "weekly": 930, "monthly": 3300},
-            ],
-            "compact": [
-                {"name": "Budget", "daily": 175, "weekly": 1050, "monthly": 3700},
-                {"name": "Hertz", "daily": 190, "weekly": 1140, "monthly": 4000},
-                {"name": "Avis", "daily": 195, "weekly": 1170, "monthly": 4100},
-                {"name": "Europcar", "daily": 180, "weekly": 1080, "monthly": 3800},
-            ],
-            "standard": [
-                {"name": "Budget", "daily": 215, "weekly": 1290, "monthly": 4500},
-                {"name": "Hertz", "daily": 235, "weekly": 1410, "monthly": 4900},
-                {"name": "Avis", "daily": 245, "weekly": 1470, "monthly": 5100},
-                {"name": "Europcar", "daily": 225, "weekly": 1350, "monthly": 4700},
-            ],
-            "fullsize": [
-                {"name": "Budget", "daily": 275, "weekly": 1650, "monthly": 5700},
-                {"name": "Hertz", "daily": 295, "weekly": 1770, "monthly": 6100},
-                {"name": "Avis", "daily": 315, "weekly": 1890, "monthly": 6500},
-                {"name": "Europcar", "daily": 285, "weekly": 1710, "monthly": 5900},
-            ],
-            "suv": [
-                {"name": "Budget", "daily": 345, "weekly": 2070, "monthly": 7100},
-                {"name": "Hertz", "daily": 375, "weekly": 2250, "monthly": 7700},
-                {"name": "Avis", "daily": 395, "weekly": 2370, "monthly": 8100},
-                {"name": "Europcar", "daily": 355, "weekly": 2130, "monthly": 7300},
-            ],
-            "luxury": [
-                {"name": "Budget", "daily": 540, "weekly": 3240, "monthly": 10800},
-                {"name": "Hertz", "daily": 590, "weekly": 3540, "monthly": 11800},
-                {"name": "Avis", "daily": 640, "weekly": 3840, "monthly": 12800},
-                {"name": "Europcar", "daily": 570, "weekly": 3420, "monthly": 11400},
-            ],
-        },
-        "Dammam": {
-            # Similar structure
-            "economy": [
-                {"name": "Budget", "daily": 140, "weekly": 840, "monthly": 3000},
-                {"name": "Hertz", "daily": 155, "weekly": 930, "monthly": 3300},
-                {"name": "Avis", "daily": 165, "weekly": 990, "monthly": 3500},
-            ],
-            "compact": [
-                {"name": "Budget", "daily": 170, "weekly": 1020, "monthly": 3600},
-                {"name": "Hertz", "daily": 185, "weekly": 1110, "monthly": 3900},
-                {"name": "Avis", "daily": 190, "weekly": 1140, "monthly": 4000},
-            ],
-            "standard": [
-                {"name": "Budget", "daily": 210, "weekly": 1260, "monthly": 4400},
-                {"name": "Hertz", "daily": 230, "weekly": 1380, "monthly": 4800},
-                {"name": "Avis", "daily": 240, "weekly": 1440, "monthly": 5000},
-            ],
-            "fullsize": [
-                {"name": "Budget", "daily": 270, "weekly": 1620, "monthly": 5600},
-                {"name": "Hertz", "daily": 290, "weekly": 1740, "monthly": 6000},
-                {"name": "Avis", "daily": 310, "weekly": 1860, "monthly": 6400},
-            ],
-            "suv": [
-                {"name": "Budget", "daily": 340, "weekly": 2040, "monthly": 7000},
-                {"name": "Hertz", "daily": 370, "weekly": 2220, "monthly": 7600},
-                {"name": "Avis", "daily": 390, "weekly": 2340, "monthly": 8000},
-            ],
-            "luxury": [
-                {"name": "Budget", "daily": 530, "weekly": 3180, "monthly": 10600},
-                {"name": "Hertz", "daily": 580, "weekly": 3480, "monthly": 11600},
-                {"name": "Avis", "daily": 630, "weekly": 3780, "monthly": 12600},
-            ],
-        },
-    }
-    
     # City mapping for branches
     BRANCH_CITY_MAP = {
         # Airport branches
-        122: "Riyadh",   # Riyadh Airport
-        15: "Jeddah",    # Jeddah Airport
-        26: "Dammam",    # Dammam Airport
+        122: "Riyadh Airport",
+        15: "Jeddah Airport",
+        26: "Dammam Airport",
         # Non-airport branches
-        2: "Riyadh",     # Riyadh City
-        34: "Jeddah",    # Jeddah City
-        211: "Riyadh",   # Riyadh Branch
+        2: "Riyadh City",
+        34: "Jeddah",
+        211: "Riyadh City",
     }
     
     def __init__(self, db: Session):
         self.db = db
         self._cache: Dict[str, Any] = {}
+        self._api = get_booking_api()
     
     def get_category_mapping(self, tenant_id: int) -> Dict[int, str]:
         """Get category to competitor vehicle type mapping."""
@@ -205,44 +96,34 @@ class CompetitorPricingService:
         city: str, 
         vehicle_type: str, 
         price_date: date,
-        use_cache: bool = True,
-        use_live_api: bool = True
+        use_cache: bool = True
     ) -> List[CompetitorPrice]:
         """
-        Fetch competitor prices for a city and vehicle type.
+        Fetch competitor prices from Booking.com API.
         
-        Tries Booking.com API first, falls back to mock data if API fails.
+        NO MOCK DATA - Returns empty list if API fails.
         """
         cache_key = f"{city}_{vehicle_type}_{price_date}"
         
-        # Check cache
+        # Check in-memory cache
         if use_cache and cache_key in self._cache:
             cached = self._cache[cache_key]
             if cached["expires_at"] > datetime.now():
                 logger.info(f"Using cached prices for {cache_key}")
                 return cached["data"]
         
-        prices = []
+        # Fetch from Booking.com API
+        prices = self._fetch_from_booking_api(city, vehicle_type, price_date)
         
-        # Try live Booking.com API first
-        if use_live_api:
-            try:
-                prices = self._fetch_from_booking_api(city, vehicle_type, price_date)
-                if prices:
-                    logger.info(f"Fetched {len(prices)} prices from Booking.com API for {city}/{vehicle_type}")
-            except Exception as e:
-                logger.warning(f"Booking.com API failed: {e}, falling back to mock data")
-        
-        # Fall back to mock data if API returned nothing
-        if not prices:
-            prices = self._fetch_mock_prices(city, vehicle_type, price_date)
-            logger.info(f"Using mock prices for {city}/{vehicle_type}")
-        
-        # Cache results
-        self._cache[cache_key] = {
-            "data": prices,
-            "expires_at": datetime.now() + timedelta(hours=self.CACHE_TTL_HOURS)
-        }
+        if prices:
+            logger.info(f"Fetched {len(prices)} prices from Booking.com API for {city}/{vehicle_type}")
+            # Cache results
+            self._cache[cache_key] = {
+                "data": prices,
+                "expires_at": datetime.now() + timedelta(hours=self.CACHE_TTL_HOURS)
+            }
+        else:
+            logger.warning(f"No prices returned from Booking.com API for {city}/{vehicle_type}")
         
         return prices
     
@@ -253,13 +134,10 @@ class CompetitorPricingService:
         price_date: date
     ) -> List[CompetitorPrice]:
         """Fetch prices from Booking.com API."""
-        api = get_booking_api()
-        
-        # Convert date to datetime
         price_datetime = datetime.combine(price_date, datetime.min.time())
         
         # Get prices for this city
-        category_prices = api.get_competitor_prices_for_date(city, price_datetime)
+        category_prices = self._api.get_competitor_prices_for_date(city, price_datetime)
         
         # Map our vehicle_type to Booking.com categories
         booking_category_map = {
@@ -286,50 +164,37 @@ class CompetitorPricingService:
                 competitor_name=comp["supplier"],
                 vehicle_type=vehicle_type,
                 daily_price=Decimal(str(comp["price"])),
-                weekly_price=Decimal(str(comp["price"] * 6)),  # Estimate weekly
-                monthly_price=Decimal(str(comp["price"] * 25)),  # Estimate monthly
+                weekly_price=Decimal(str(comp["price"] * 6)),
+                monthly_price=Decimal(str(comp["price"] * 25)),
+                vehicle_brand=comp.get("brand"),
+                vehicle_model=comp.get("model"),
+                vehicle_name=comp.get("vehicle")
             ))
         
         return prices
     
-    def _fetch_mock_prices(
-        self, 
-        city: str, 
-        vehicle_type: str,
-        price_date: date
-    ) -> List[CompetitorPrice]:
-        """Fetch mock competitor prices with seasonal adjustments."""
-        city_data = self.MOCK_COMPETITORS.get(city, self.MOCK_COMPETITORS["Riyadh"])
-        vehicle_data = city_data.get(vehicle_type, city_data.get("economy", []))
+    def fetch_all_competitor_vehicles(
+        self,
+        city: str,
+        pickup_date: date,
+        dropoff_date: date
+    ) -> List[Dict[str, Any]]:
+        """
+        Fetch all competitor vehicles with full details (brand, model, etc).
+        Returns raw vehicle data from Booking.com API.
         
-        # Apply seasonal adjustment based on date
-        seasonal_factor = self._get_seasonal_factor(price_date)
+        Args:
+            city: City name (e.g., "Riyadh", "Jeddah")
+            pickup_date: Rental pickup date
+            dropoff_date: Rental dropoff date
+            
+        Returns:
+            List of vehicle dictionaries with brand, model, category, price, etc.
+        """
+        pickup_datetime = datetime.combine(pickup_date, datetime.min.time())
+        dropoff_datetime = datetime.combine(dropoff_date, datetime.min.time())
         
-        prices = []
-        for comp in vehicle_data:
-            prices.append(CompetitorPrice(
-                competitor_name=comp["name"],
-                vehicle_type=vehicle_type,
-                daily_price=Decimal(str(round(comp["daily"] * seasonal_factor, 2))),
-                weekly_price=Decimal(str(round(comp["weekly"] * seasonal_factor, 2))),
-                monthly_price=Decimal(str(round(comp["monthly"] * seasonal_factor, 2))),
-            ))
-        
-        return prices
-    
-    def _get_seasonal_factor(self, price_date: date) -> float:
-        """Get seasonal price adjustment factor."""
-        month = price_date.month
-        
-        # High season: summer (June-Aug), Ramadan/Eid periods, winter holidays
-        if month in (6, 7, 8):  # Summer
-            return 1.15
-        elif month in (12, 1):  # Winter holidays
-            return 1.10
-        elif month in (3, 4):  # Spring (often Ramadan/Eid)
-            return 1.20
-        else:
-            return 1.0
+        return self._api.get_all_vehicles_raw(city, pickup_datetime, dropoff_datetime)
     
     def calculate_competitor_index(
         self,
@@ -341,7 +206,6 @@ class CompetitorPricingService:
     ) -> CompetitorIndex:
         """
         Calculate competitor index for a category.
-        
         Uses average of top 3 competitors (not lowest) as per requirements.
         """
         # Get category mapping
@@ -351,7 +215,7 @@ class CompetitorPricingService:
         # Get city for branch
         city = self.BRANCH_CITY_MAP.get(branch_id, "Riyadh")
         
-        # Fetch competitor prices
+        # Fetch competitor prices from Booking.com API
         prices = self.fetch_competitor_prices(city, vehicle_type, index_date)
         
         if not prices:
@@ -498,8 +362,7 @@ class CompetitorPricingService:
     ) -> Dict[str, Any]:
         """
         Build competitor index for all MVP branches and categories.
-        
-        Returns statistics about the build.
+        Fetches LIVE data from Booking.com API.
         """
         # Get MVP branches and categories
         branches_result = self.db.execute(text(
@@ -517,7 +380,9 @@ class CompetitorPricingService:
             "categories": len(categories),
             "dates_processed": 0,
             "indexes_created": 0,
-            "prices_cached": 0
+            "api_calls": 0,
+            "api_successes": 0,
+            "api_failures": 0
         }
         
         current_date = start_date
@@ -541,10 +406,17 @@ class CompetitorPricingService:
                     our_base_price = Decimal(str(row[0])) if row and row[0] else None
                     
                     # Calculate and save competitor index
+                    stats["api_calls"] += 1
                     index = self.calculate_competitor_index(
                         tenant_id, branch_id, category_id, 
                         current_date, our_base_price
                     )
+                    
+                    if index.competitors_count > 0:
+                        stats["api_successes"] += 1
+                    else:
+                        stats["api_failures"] += 1
+                    
                     self.save_competitor_index(tenant_id, branch_id, index)
                     stats["indexes_created"] += 1
             
@@ -598,15 +470,9 @@ class CompetitorPricingService:
         price_date: date
     ) -> Dict[str, Any]:
         """
-        Fetch live competitor prices from Booking.com API for a branch.
-        
-        Returns prices organized by Renty category.
+        Fetch LIVE competitor prices from Booking.com API for a branch.
+        Returns prices organized by Renty category with brand/model info.
         """
-        api = get_booking_api()
-        
-        # Get location for branch
-        location = api.get_location_for_branch_id(branch_id)
-        
-        # Fetch from API
+        location = self.BRANCH_CITY_MAP.get(branch_id, "Riyadh")
         price_datetime = datetime.combine(price_date, datetime.min.time())
-        return api.get_competitor_prices_for_date(location, price_datetime)
+        return self._api.get_competitor_prices_for_date(location, price_datetime)

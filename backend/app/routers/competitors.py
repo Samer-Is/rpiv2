@@ -38,6 +38,38 @@ class CompetitorPriceItem(BaseModel):
     daily_price: float
     weekly_price: Optional[float] = None
     monthly_price: Optional[float] = None
+    vehicle_brand: Optional[str] = None
+    vehicle_model: Optional[str] = None
+    vehicle_name: Optional[str] = None
+
+
+class CompetitorVehicleItem(BaseModel):
+    """Single competitor vehicle with full details."""
+    vehicle_name: str
+    brand: str
+    model: str
+    category: str
+    daily_price: float
+    seats: Optional[int] = None
+    doors: Optional[int] = None
+    transmission: Optional[str] = None
+    fuel_type: Optional[str] = None
+    bags_large: Optional[int] = None
+    bags_small: Optional[int] = None
+    supplier: Optional[str] = None
+
+
+class CompetitorVehiclesResponse(BaseModel):
+    """Response containing competitor vehicles."""
+    branch_id: int
+    city: str
+    pickup_date: date
+    dropoff_date: date
+    vehicles_count: int
+    brands_available: List[str]
+    models_available: List[str]
+    categories_available: List[str]
+    vehicles: List[CompetitorVehicleItem]
 
 
 class CompetitorPricesResponse(BaseModel):
@@ -354,3 +386,133 @@ def get_live_competitor_prices(
             status_code=500, 
             detail=f"Failed to fetch live prices: {str(e)}"
         )
+
+
+@router.get("/vehicles", response_model=CompetitorVehiclesResponse)
+def get_competitor_vehicles(
+    branch_id: int = Query(..., description="Branch ID"),
+    pickup_date: Optional[date] = Query(default=None, description="Pickup date (defaults to today)"),
+    dropoff_date: Optional[date] = Query(default=None, description="Dropoff date (defaults to pickup + 3 days)"),
+    db: Session = Depends(get_app_db)
+):
+    """
+    Fetch ALL competitor vehicles with brand, model, and category information.
+    
+    This endpoint returns detailed vehicle information from Booking.com API,
+    including extracted brand and model names, not just categories.
+    
+    Returns:
+    - Full vehicle list with brand, model, category
+    - Aggregated lists of available brands, models, and categories
+    - Vehicle specifications (seats, doors, transmission, fuel type)
+    
+    Note: This may take a few seconds as it makes an external API call.
+    """
+    if pickup_date is None:
+        pickup_date = date.today()
+    if dropoff_date is None:
+        dropoff_date = pickup_date + timedelta(days=3)
+    
+    service = CompetitorPricingService(db)
+    city = service.BRANCH_CITY_MAP.get(branch_id, "Riyadh")
+    
+    try:
+        vehicles = service.fetch_all_competitor_vehicles(city, pickup_date, dropoff_date)
+        
+        # Extract unique brands, models, and categories
+        brands = sorted(set(v["brand"] for v in vehicles if v["brand"] != "Unknown"))
+        models = sorted(set(v["model"] for v in vehicles if v["model"] != "Unknown"))
+        categories = sorted(set(v["category"] for v in vehicles))
+        
+        return CompetitorVehiclesResponse(
+            branch_id=branch_id,
+            city=city,
+            pickup_date=pickup_date,
+            dropoff_date=dropoff_date,
+            vehicles_count=len(vehicles),
+            brands_available=brands,
+            models_available=models,
+            categories_available=categories,
+            vehicles=[
+                CompetitorVehicleItem(
+                    vehicle_name=v["vehicle_name"],
+                    brand=v["brand"],
+                    model=v["model"],
+                    category=v["category"],
+                    daily_price=v["daily_price"],
+                    seats=v.get("seats"),
+                    doors=v.get("doors"),
+                    transmission=v.get("transmission"),
+                    fuel_type=v.get("fuel_type"),
+                    bags_large=v.get("bags_large"),
+                    bags_small=v.get("bags_small"),
+                    supplier=v.get("supplier")
+                )
+                for v in vehicles
+            ]
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Failed to fetch vehicles: {str(e)}"
+        )
+
+
+@router.get("/brands")
+def get_available_brands(
+    branch_id: int = Query(..., description="Branch ID"),
+    pickup_date: Optional[date] = Query(default=None, description="Pickup date (defaults to today)"),
+    db: Session = Depends(get_app_db)
+):
+    """
+    Get list of available car brands from competitors.
+    
+    Returns a summary of brands and their vehicle counts.
+    """
+    if pickup_date is None:
+        pickup_date = date.today()
+    dropoff_date = pickup_date + timedelta(days=3)
+    
+    service = CompetitorPricingService(db)
+    city = service.BRANCH_CITY_MAP.get(branch_id, "Riyadh")
+    
+    try:
+        vehicles = service.fetch_all_competitor_vehicles(city, pickup_date, dropoff_date)
+        
+        # Count vehicles by brand
+        brand_counts = {}
+        brand_prices = {}
+        for v in vehicles:
+            brand = v["brand"]
+            if brand not in brand_counts:
+                brand_counts[brand] = 0
+                brand_prices[brand] = []
+            brand_counts[brand] += 1
+            brand_prices[brand].append(v["daily_price"])
+        
+        # Calculate average prices
+        brands_summary = []
+        for brand, count in sorted(brand_counts.items(), key=lambda x: x[1], reverse=True):
+            prices = brand_prices[brand]
+            brands_summary.append({
+                "brand": brand,
+                "vehicle_count": count,
+                "min_price": min(prices),
+                "max_price": max(prices),
+                "avg_price": round(sum(prices) / len(prices), 2)
+            })
+        
+        return {
+            "branch_id": branch_id,
+            "city": city,
+            "pickup_date": pickup_date,
+            "total_brands": len(brand_counts),
+            "total_vehicles": len(vehicles),
+            "brands": brands_summary
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Failed to fetch brands: {str(e)}"
+        )
+
